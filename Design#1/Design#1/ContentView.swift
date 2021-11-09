@@ -10,7 +10,12 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
+            HeaderSection()
+                .offset(y: -30)
             HeaderText()
+            TicketSlider()
+                .padding(.top, 5)
+            Deselect()
         }
     }
 }
@@ -26,7 +31,7 @@ struct HeaderText: View {
     var body: some View {
         HStack {
             Text("Ticket Information")
-                .font(.system(size: 28, weight: .bold, design: .default))
+                .font(.system(size: 19, weight: .bold, design: .default))
             Spacer()
         }.padding(.horizontal, 30)
     }

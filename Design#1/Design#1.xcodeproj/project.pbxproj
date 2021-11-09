@@ -14,6 +14,8 @@
 		564BA54E27327A7600B9BCC8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 564BA54D27327A7600B9BCC8 /* Preview Assets.xcassets */; };
 		564BA55127327A7600B9BCC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 564BA54F27327A7600B9BCC8 /* LaunchScreen.storyboard */; };
 		564BA559273A0F1400B9BCC8 /* TicketSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BA558273A0F1400B9BCC8 /* TicketSlider.swift */; };
+		564BA55B273B077D00B9BCC8 /* Deselect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BA55A273B077D00B9BCC8 /* Deselect.swift */; };
+		564BA55D273B08B900B9BCC8 /* HeaderSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BA55C273B08B900B9BCC8 /* HeaderSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		564BA55027327A7600B9BCC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		564BA55227327A7600B9BCC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		564BA558273A0F1400B9BCC8 /* TicketSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketSlider.swift; sourceTree = "<group>"; };
+		564BA55A273B077D00B9BCC8 /* Deselect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deselect.swift; sourceTree = "<group>"; };
+		564BA55C273B08B900B9BCC8 /* HeaderSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +63,10 @@
 			isa = PBXGroup;
 			children = (
 				564BA54427327A7400B9BCC8 /* AppDelegate.swift */,
-				564BA54627327A7400B9BCC8 /* SceneDelegate.swift */,
+				564BA55A273B077D00B9BCC8 /* Deselect.swift */,
 				564BA54827327A7400B9BCC8 /* ContentView.swift */,
+				564BA55C273B08B900B9BCC8 /* HeaderSection.swift */,
+				564BA54627327A7400B9BCC8 /* SceneDelegate.swift */,
 				564BA558273A0F1400B9BCC8 /* TicketSlider.swift */,
 				564BA54A27327A7600B9BCC8 /* Assets.xcassets */,
 				564BA54F27327A7600B9BCC8 /* LaunchScreen.storyboard */,
@@ -150,7 +156,9 @@
 			files = (
 				564BA54527327A7400B9BCC8 /* AppDelegate.swift in Sources */,
 				564BA559273A0F1400B9BCC8 /* TicketSlider.swift in Sources */,
+				564BA55D273B08B900B9BCC8 /* HeaderSection.swift in Sources */,
 				564BA54727327A7400B9BCC8 /* SceneDelegate.swift in Sources */,
+				564BA55B273B077D00B9BCC8 /* Deselect.swift in Sources */,
 				564BA54927327A7400B9BCC8 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

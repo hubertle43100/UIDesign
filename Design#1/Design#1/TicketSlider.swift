@@ -10,7 +10,8 @@ import SwiftUI
 struct TicketSlider: View {
     let ticketPrices = ["$104", "$128/day", "$110/day", "$90/day", "$76/day"]
     var body: some View {
-        VStack (spacing: 20){
+        VStack (spacing: 30){
+            // ------ 1st Row ------
             HStack {
                 ReturnButton()
                 Spacer()
@@ -20,7 +21,7 @@ struct TicketSlider: View {
                         VStack(alignment: .leading) {
                             Image(systemName: "bag")
                                 .padding(.bottom)
-                            Text("No Ticket Added")
+                            Text("One day Pass")
                             Text("\(ticketPrices[0])")
                                 .font(.system(size: 19, weight: .bold, design: .default))
                                 .padding(.top, 1)
@@ -32,19 +33,19 @@ struct TicketSlider: View {
                     VStack(alignment: .leading) {
                         Image(systemName: "bag")
                             .padding(.bottom)
-                        Text("No Ticket Added")
+                        Text("Two day pass")
                         Text("\(ticketPrices[1])")
                             .font(.system(size: 19, weight: .bold, design: .default))
                             .padding(.top, 1)
                     }
                     .frame(width: 150, height: 150)
-                    .background(Color(#colorLiteral(red: 0.9322997928, green: 0.790276587, blue: 0.8465473652, alpha: 1)))
+                    .background(Color(#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)))
                     .foregroundColor(.white)
                     .cornerRadius(20)
                     VStack(alignment: .leading) {
                         Image(systemName: "bag")
                             .padding(.bottom)
-                        Text("No Ticket Added")
+                        Text("Three day pass")
                         Text("\(ticketPrices[2])")
                             .font(.system(size: 19, weight: .bold, design: .default))
                             .padding(.top, 1)
@@ -56,7 +57,7 @@ struct TicketSlider: View {
                     VStack(alignment: .leading) {
                         Image(systemName: "bag")
                             .padding(.bottom)
-                        Text("No Ticket Added")
+                        Text("Four day pass")
                         Text("\(ticketPrices[3])")
                             .font(.system(size: 19, weight: .bold, design: .default))
                             .padding(.top, 1)
@@ -68,7 +69,7 @@ struct TicketSlider: View {
                     VStack(alignment: .leading) {
                         Image(systemName: "bag")
                             .padding(.bottom)
-                        Text("No Ticket Added")
+                        Text("Five day pass")
                         Text("\(ticketPrices[4])")
                             .font(.system(size: 19, weight: .bold, design: .default))
                             .padding(.top, 1)
@@ -79,6 +80,7 @@ struct TicketSlider: View {
                     .cornerRadius(20)
                         }
                     }
+            // ------ 2nd Row ------
             HStack {
                 OutboundBtn()
                     .padding(.leading, 0)
@@ -86,66 +88,38 @@ struct TicketSlider: View {
             }
             ScrollView (.horizontal, showsIndicators: false) {
                 HStack {
-                        VStack(alignment: .leading) {
-                            Image(systemName: "bag")
+                    VStack(alignment: .leading) {
+                        Text("_")
+                            .font(.system(size: 20, weight: .bold, design: .default))
+                        Text("0")
+                            .font(.system(size: 30, weight: .bold, design: .default))
+                            .padding(.leading,100)
+                            Image(systemName: "ticket")
+                                .font(.system(size: 30))
                                 .padding(.bottom)
-                            Text("No Ticket Added")
-                            Text("\(ticketPrices[0])")
-                                .font(.system(size: 19, weight: .bold, design: .default))
-                                .padding(.top, 1)
+                        Text("Ages 3-9")
+                            .padding(.bottom)
+                    }
+                    .frame(width: 150, height: 150)
+                    .background(Color(#colorLiteral(red: 0.9322997928, green: 0.790276587, blue: 0.8465473652, alpha: 1)))
+                    .foregroundColor(.white)
+                    .cornerRadius(20)
+                        VStack(alignment: .leading) {
+                            Text("_")
+                                .font(.system(size: 20, weight: .bold, design: .default))
+                            Text("4")
+                                .font(.system(size: 30, weight: .bold, design: .default))
+                                .padding(.leading,100)
+                                Image(systemName: "ticket")
+                                    .font(.system(size: 30))
+                                    .padding(.bottom)
+                            Text("Ages +10")
+                                .padding(.bottom)
                         }
                         .frame(width: 150, height: 150)
-                        .background(Color(#colorLiteral(red: 0.9322997928, green: 0.790276587, blue: 0.8465473652, alpha: 1)))
+                        .background(Color(#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)))
                         .foregroundColor(.white)
                         .cornerRadius(20)
-                    VStack(alignment: .leading) {
-                        Image(systemName: "bag")
-                            .padding(.bottom)
-                        Text("No Ticket Added")
-                        Text("\(ticketPrices[1])")
-                            .font(.system(size: 19, weight: .bold, design: .default))
-                            .padding(.top, 1)
-                    }
-                    .frame(width: 150, height: 150)
-                    .background(Color(#colorLiteral(red: 0.9322997928, green: 0.790276587, blue: 0.8465473652, alpha: 1)))
-                    .foregroundColor(.white)
-                    .cornerRadius(20)
-                    VStack(alignment: .leading) {
-                        Image(systemName: "bag")
-                            .padding(.bottom)
-                        Text("No Ticket Added")
-                        Text("\(ticketPrices[2])")
-                            .font(.system(size: 19, weight: .bold, design: .default))
-                            .padding(.top, 1)
-                    }
-                    .frame(width: 150, height: 150)
-                    .background(Color(#colorLiteral(red: 0.9322997928, green: 0.790276587, blue: 0.8465473652, alpha: 1)))
-                    .foregroundColor(.white)
-                    .cornerRadius(20)
-                    VStack(alignment: .leading) {
-                        Image(systemName: "bag")
-                            .padding(.bottom)
-                        Text("No Ticket Added")
-                        Text("\(ticketPrices[3])")
-                            .font(.system(size: 19, weight: .bold, design: .default))
-                            .padding(.top, 1)
-                    }
-                    .frame(width: 150, height: 150)
-                    .background(Color(#colorLiteral(red: 0.9322997928, green: 0.790276587, blue: 0.8465473652, alpha: 1)))
-                    .foregroundColor(.white)
-                    .cornerRadius(20)
-                    VStack(alignment: .leading) {
-                        Image(systemName: "bag")
-                            .padding(.bottom)
-                        Text("No Ticket Added")
-                        Text("\(ticketPrices[4])")
-                            .font(.system(size: 19, weight: .bold, design: .default))
-                            .padding(.top, 1)
-                    }
-                    .frame(width: 150, height: 150)
-                    .background(Color(#colorLiteral(red: 0.9322997928, green: 0.790276587, blue: 0.8465473652, alpha: 1)))
-                    .foregroundColor(.white)
-                    .cornerRadius(20)
                         }
                     }
                 }
@@ -169,12 +143,12 @@ struct OutboundBtn: View {
                 .background(Color(#colorLiteral(red: 0.2272113562, green: 0.4730796814, blue: 0.7378985286, alpha: 1)))
                 .foregroundColor(.white)
                 .cornerRadius(15)
-            Text("Return")
+            Text("Select the Number of Tickets")
                 .bold()
                 .foregroundColor(Color(#colorLiteral(red: 0.2272113562, green: 0.4730796814, blue: 0.7378985286, alpha: 1)))
                 .padding(.trailing, 30)
         }
-        .frame(width: 180, height: 44)
+        .frame(width: 350, height: 44)
         .background(Color(#colorLiteral(red: 0.7166799903, green: 0.894115746, blue: 0.9685603976, alpha: 1)))
         .cornerRadius(20)
     }
@@ -191,12 +165,12 @@ struct ReturnButton: View {
                 .background(Color(#colorLiteral(red: 0.2272113562, green: 0.4730796814, blue: 0.7378985286, alpha: 1)))
                 .foregroundColor(.white)
                 .cornerRadius(15)
-            Text("Outbound")
+            Text("Select the Number of Days")
                 .bold()
                 .foregroundColor(Color(#colorLiteral(red: 0.2272113562, green: 0.4730796814, blue: 0.7378985286, alpha: 1)))
                 .padding(.trailing, 30)
         }
-        .frame(width: 180, height: 44)
+        .frame(width: 350, height: 44)
         .background(Color(#colorLiteral(red: 0.7166799903, green: 0.894115746, blue: 0.9685603976, alpha: 1)))
         .cornerRadius(20)
         .padding(.leading, 0)
