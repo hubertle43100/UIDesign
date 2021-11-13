@@ -13,9 +13,10 @@ struct ContentView: View {
             HeaderSection()
                 .offset(y: -30)
             HeaderText()
+                .padding(.top, 50)
             TicketSlider()
                 .padding(.top, 5)
-            Deselect()
+            //Deselect()
         }
     }
 }
@@ -31,7 +32,7 @@ struct HeaderText: View {
     var body: some View {
         HStack {
             Text("Ticket Information")
-                .font(.system(size: 19, weight: .bold, design: .default))
+                .font(.system(size: 25, weight: .bold, design: .default))
             Spacer()
         }.padding(.horizontal, 30)
     }

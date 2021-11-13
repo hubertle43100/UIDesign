@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56A05CD6273F656600D7978E /* CoffeeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A05CD5273F656600D7978E /* CoffeeHeader.swift */; };
+		56A05CDA273F9DE500D7978E /* TopHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A05CD9273F9DE500D7978E /* TopHeader.swift */; };
 		56F15714273D00C5000FD8B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F15713273D00C5000FD8B7 /* AppDelegate.swift */; };
 		56F15716273D00C5000FD8B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F15715273D00C5000FD8B7 /* SceneDelegate.swift */; };
 		56F15718273D00C5000FD8B7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F15717273D00C5000FD8B7 /* ContentView.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		56A05CD5273F656600D7978E /* CoffeeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeHeader.swift; sourceTree = "<group>"; };
+		56A05CD9273F9DE500D7978E /* TopHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHeader.swift; sourceTree = "<group>"; };
 		56F15710273D00C5000FD8B7 /* Design#2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Design#2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F15713273D00C5000FD8B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56F15715273D00C5000FD8B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 				56F15713273D00C5000FD8B7 /* AppDelegate.swift */,
 				56F15715273D00C5000FD8B7 /* SceneDelegate.swift */,
 				56F15717273D00C5000FD8B7 /* ContentView.swift */,
+				56A05CD9273F9DE500D7978E /* TopHeader.swift */,
+				56A05CD5273F656600D7978E /* CoffeeHeader.swift */,
 				56F15719273D00C7000FD8B7 /* Assets.xcassets */,
 				56F1571E273D00C7000FD8B7 /* LaunchScreen.storyboard */,
 				56F15721273D00C7000FD8B7 /* Info.plist */,
@@ -146,7 +152,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				56F15714273D00C5000FD8B7 /* AppDelegate.swift in Sources */,
+				56A05CDA273F9DE500D7978E /* TopHeader.swift in Sources */,
 				56F15716273D00C5000FD8B7 /* SceneDelegate.swift in Sources */,
+				56A05CD6273F656600D7978E /* CoffeeHeader.swift in Sources */,
 				56F15718273D00C5000FD8B7 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
