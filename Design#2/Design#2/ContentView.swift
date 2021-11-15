@@ -13,6 +13,10 @@ struct ContentView: View {
             TopHeader()
                 .padding(.bottom, 30)
             CoffeeHeader()
+            HStack {
+                Text("Choose Your Drink")
+                padding()
+            }
         }
     }
 }

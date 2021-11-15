@@ -21,9 +21,9 @@ struct CoffeeHeader: View {
                     Image("coffee-cup")
                         .resizable()
                         .frame(width: 100, height: 100)
-                        .position(x: 70, y: 70)
+                        .position(x: 90, y: 70)
                 }
-            }.frame(width: 340, height: 140, alignment: .center)
+            }.frame(width: 380, height: 140, alignment: .center)
                 .background(Color(#colorLiteral(red: 0.9753630757, green: 0.9468169808, blue: 0.8225042224, alpha: 1)))
                 .cornerRadius(25)
         }
