@@ -11,12 +11,12 @@ struct ContentView: View {
     var body: some View {
         VStack {
             TopHeader()
-                .padding(.bottom, 30)
+                .padding(.bottom, 20)
             CoffeeHeader()
-            HStack {
-                Text("Choose Your Drink")
-                padding()
-            }
+                .padding(.bottom, 50)
+            CoffeeOptions()
+                .padding(.bottom, 30)
+            AddBasket()
         }
     }
 }
