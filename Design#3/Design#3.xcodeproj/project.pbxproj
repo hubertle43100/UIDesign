@@ -14,6 +14,10 @@
 		5621D7112743A47100037013 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621D7102743A47100037013 /* MainMenu.swift */; };
 		5621D7152743AD2400037013 /* MMHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621D7142743AD2400037013 /* MMHeader.swift */; };
 		5621D7172743B3D700037013 /* MMTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621D7162743B3D700037013 /* MMTab.swift */; };
+		5621D7192744585700037013 /* MMTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621D7182744585700037013 /* MMTime.swift */; };
+		5621D71D27445CF700037013 /* MMPriceArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621D71C27445CF700037013 /* MMPriceArtist.swift */; };
+		5621D71F2744AB4F00037013 /* MMNFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621D71E2744AB4F00037013 /* MMNFT.swift */; };
+		5621D7232744B27000037013 /* MMLower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621D7222744B27000037013 /* MMLower.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,10 @@
 		5621D7102743A47100037013 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		5621D7142743AD2400037013 /* MMHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMHeader.swift; sourceTree = "<group>"; };
 		5621D7162743B3D700037013 /* MMTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTab.swift; sourceTree = "<group>"; };
+		5621D7182744585700037013 /* MMTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTime.swift; sourceTree = "<group>"; };
+		5621D71C27445CF700037013 /* MMPriceArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMPriceArtist.swift; sourceTree = "<group>"; };
+		5621D71E2744AB4F00037013 /* MMNFT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMNFT.swift; sourceTree = "<group>"; };
+		5621D7222744B27000037013 /* MMLower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLower.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +68,9 @@
 				5621D7022743A36F00037013 /* Design_3App.swift */,
 				5621D7042743A36F00037013 /* ContentView.swift */,
 				5621D7102743A47100037013 /* MainMenu.swift */,
+				5621D7252744B29200037013 /* MainMenuContent */,
 				5621D7062743A37200037013 /* Assets.xcassets */,
 				5621D7082743A37200037013 /* Preview Content */,
-				5621D7142743AD2400037013 /* MMHeader.swift */,
-				5621D7162743B3D700037013 /* MMTab.swift */,
 			);
 			path = "Design#3";
 			sourceTree = "<group>";
@@ -74,6 +81,19 @@
 				5621D7092743A37200037013 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5621D7252744B29200037013 /* MainMenuContent */ = {
+			isa = PBXGroup;
+			children = (
+				5621D7142743AD2400037013 /* MMHeader.swift */,
+				5621D7162743B3D700037013 /* MMTab.swift */,
+				5621D7182744585700037013 /* MMTime.swift */,
+				5621D71C27445CF700037013 /* MMPriceArtist.swift */,
+				5621D71E2744AB4F00037013 /* MMNFT.swift */,
+				5621D7222744B27000037013 /* MMLower.swift */,
+			);
+			path = MainMenuContent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,11 +166,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5621D71F2744AB4F00037013 /* MMNFT.swift in Sources */,
+				5621D71D27445CF700037013 /* MMPriceArtist.swift in Sources */,
+				5621D7192744585700037013 /* MMTime.swift in Sources */,
 				5621D7152743AD2400037013 /* MMHeader.swift in Sources */,
 				5621D7052743A36F00037013 /* ContentView.swift in Sources */,
 				5621D7112743A47100037013 /* MainMenu.swift in Sources */,
 				5621D7172743B3D700037013 /* MMTab.swift in Sources */,
 				5621D7032743A36F00037013 /* Design_3App.swift in Sources */,
+				5621D7232744B27000037013 /* MMLower.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
