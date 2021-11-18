@@ -12,7 +12,7 @@ struct MMPriceArtist: View {
         HStack {
             Info(title: "Author", name: "Le Hubert", pic: "person")
             Spacer()
-            Info(title: "Bid", name: "5.4 ETH", pic: "person")
+            Info(title: "Bid", name: "5.4 ETH", pic: "suit.diamond")
         }.frame(width: 350, height: 50)
     }
 }

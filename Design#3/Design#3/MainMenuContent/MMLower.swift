@@ -10,13 +10,13 @@ import SwiftUI
 struct MMLower: View {
     var body: some View {
         HStack {
-            Image(systemName: "person")
+            Image(systemName: "suit.diamond")
                 .font(.system(size: 25))
             Spacer()
-            Image(systemName: "person")
+            Image(systemName: "heart")
                 .font(.system(size: 25))
             Spacer()
-            Image(systemName: "person")
+            Image(systemName: "cart")
                 .font(.system(size: 25))
             Spacer()
             Image(systemName: "person")
