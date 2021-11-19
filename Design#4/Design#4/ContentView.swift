@@ -9,14 +9,28 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Header()
-                .padding(.bottom)
-            BubbleItem()
-                .padding(.bottom,30)
-            CompanyBrand()
-            GiftHeader()
-        }
+        TabView {
+                MainMenu()
+                    .tabItem {
+                        Image(systemName: "house")
+                        Text("Home")
+                }
+                Text("Scan/Pay")
+                    .tabItem {
+                        Image(systemName: "camera.viewfinder")
+                        Text("Scan/Pay")
+                }
+                Text("Cart")
+                    .tabItem {
+                        Image(systemName: "cart")
+                        Text("Cart")
+                }
+                Text("Account")
+                    .tabItem {
+                        Image(systemName: "person")
+                        Text("Account")
+                }
+            }
     }
 }
 
@@ -35,5 +49,25 @@ struct GiftHeader: View {
             Text("See All")
                 .foregroundColor(Color.red)
         }.frame(width: 390, height: 20)
+    }
+}
+
+struct MainMenu: View {
+    var body: some View {
+        ScrollView {
+            VStack {
+                Header()
+                    .padding(.bottom)
+                    .padding(.top)
+                BubbleItem()
+                    .padding(.bottom,30)
+                CompanyBrand()
+                    .padding(.bottom,40)
+                GiftHeader()
+                    .padding(.bottom)
+                ImageFood()
+                
+            }
+        }
     }
 }
