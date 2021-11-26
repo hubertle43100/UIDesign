@@ -9,8 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ZStack {
+            NavigationView {
+                VStack {
+                    ZStack {
+                        IntroPage()
+                    }
+                    NavigationLink(destination: Test()) {
+                        Text("Get Started")
+                            .foregroundColor(.white)
+                            .frame(width: 200, height:65)
+                    }.frame(width: 200, height:65)
+                        .background(Color(#colorLiteral(red: 0.8674479127, green: 0.6583648324, blue: 0.6540154219, alpha: 1)))
+                        .cornerRadius(10)
+                        .offset(x: 0, y: 40)
+                }.offset(x: 0, y: -70)
+            }
+        }
     }
 }
 
