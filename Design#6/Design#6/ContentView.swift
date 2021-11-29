@@ -15,7 +15,7 @@ struct ContentView: View {
                     ZStack {
                         IntroPage()
                     }
-                    NavigationLink(destination: Test()) {
+                    NavigationLink(destination: JobTypePage()) {
                         Text("Get Started")
                             .foregroundColor(.white)
                             .frame(width: 200, height:65)
