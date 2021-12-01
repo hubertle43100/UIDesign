@@ -29,7 +29,7 @@ struct HeaderJob: View {
             HStack {
                 VStack {
                     Button(action: {
-                        self.presentationMode.wrappedValue.dismiss()
+//                        self.presentationMode.wrappedValue.dismiss()
                     }) {
                         Image(systemName: "arrow.backward")
                             .font(.system(size: 25))
