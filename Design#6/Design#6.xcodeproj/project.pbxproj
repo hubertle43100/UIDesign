@@ -15,6 +15,7 @@
 		567B36CA2751B29400D52E0B /* JobTypePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567B36C92751B29400D52E0B /* JobTypePage.swift */; };
 		567B36CE2751B75B00D52E0B /* ChooseOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567B36CD2751B75B00D52E0B /* ChooseOptions.swift */; };
 		56F569E1275846EB0053646A /* CategoryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F569E0275846EB0053646A /* CategoryPage.swift */; };
+		56F569E327595CB50053646A /* CategoryBoxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F569E227595CB50053646A /* CategoryBoxes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		567B36C92751B29400D52E0B /* JobTypePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTypePage.swift; sourceTree = "<group>"; };
 		567B36CD2751B75B00D52E0B /* ChooseOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseOptions.swift; sourceTree = "<group>"; };
 		56F569E0275846EB0053646A /* CategoryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPage.swift; sourceTree = "<group>"; };
+		56F569E227595CB50053646A /* CategoryBoxes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBoxes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				567B36C92751B29400D52E0B /* JobTypePage.swift */,
 				567B36CD2751B75B00D52E0B /* ChooseOptions.swift */,
 				56F569E0275846EB0053646A /* CategoryPage.swift */,
+				56F569E227595CB50053646A /* CategoryBoxes.swift */,
 				567B36B7274F540C00D52E0B /* Assets.xcassets */,
 				567B36B9274F540C00D52E0B /* Preview Content */,
 			);
@@ -154,6 +157,7 @@
 				567B36B6274F540A00D52E0B /* ContentView.swift in Sources */,
 				567B36CA2751B29400D52E0B /* JobTypePage.swift in Sources */,
 				567B36B4274F540A00D52E0B /* Design_6App.swift in Sources */,
+				56F569E327595CB50053646A /* CategoryBoxes.swift in Sources */,
 				567B36CE2751B75B00D52E0B /* ChooseOptions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

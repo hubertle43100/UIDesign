@@ -24,7 +24,7 @@ struct JobTypePage: View {
                     .background(Color(#colorLiteral(red: 0.8674479127, green: 0.6583648324, blue: 0.6540154219, alpha: 1)))
                     .cornerRadius(15)
                     .padding(.bottom)
-            }
+            }.padding(.top)
         }
 }
 

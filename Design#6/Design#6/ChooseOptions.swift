@@ -8,36 +8,26 @@
 import SwiftUI
 
 struct ChooseOptions: View {
-    @State private var didTap: Bool = false
-    @State private var didnTap: Bool = false
+    @State private var job: Bool = false
+    @State private var employee: Bool = false
     var body: some View {
         
         VStack {
             HStack {
                 Button(action: {
-                    self.didTap = false
-                    self.didnTap = true
+                    self.job = true
+                    self.employee = false
                 }) {
-                    Option(image: "briefcase.fill", optionTitle: "Find a job", description: "It's easy to find your dream jobs here with us.", colorHighlight: Color(#colorLiteral(red: 0.8674479127, green: 0.6583648324, blue: 0.6540154219, alpha: 1)), optionClicked: didnTap ? Color.green : Color.white)
+                    Option(image: "briefcase.fill", optionTitle: "Find a job", description: "It's easy to find your dream jobs here with us.", colorHighlight: job ? Color("pinkBrown") : Color("lightGray"), optionClicked: job ? Color.white : Color.black)
                         .padding(.trailing)
                 }
                 Button(action: {
-                    self.didTap = true
-                    self.didnTap = false
+                    self.job = false
+                    self.employee = true
                 }) {
-                    Option(image: "person.fill", optionTitle: "Find Employee", description: "It's easy to find your employees here with us.", colorHighlight: Color(#colorLiteral(red: 0.9318377376, green: 0.9446975589, blue: 0.9674580693, alpha: 1)), optionClicked: didTap ? Color.red : Color.white)
+                    Option(image: "person.fill", optionTitle: "Find Employee", description: "It's easy to find your employees here with us.", colorHighlight: employee ? Color("pinkBrown") : Color("lightGray"), optionClicked: employee ? Color.white : Color.black)
                 }
             }
-            Button(action: {
-                    self.didTap = true
-                }) {
-
-                Text("My custom button")
-                    .font(.system(size: 24))
-                }
-                .frame(width: 300, height: 75, alignment: .center)
-                .padding(.all, 20)
-                .background(didTap ? Color.blue : Color.yellow)
         }
     }
 }
