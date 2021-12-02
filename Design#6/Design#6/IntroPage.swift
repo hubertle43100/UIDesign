@@ -42,7 +42,7 @@ struct PhillipPic: View {
             }
             Image("pink_blob")
                 .resizable()
-                .offset(x: 10, y: 60)
+                .offset(x: 10, y: 80)
                 .frame(width: 350, height: 350)
                 .foregroundColor(Color(#colorLiteral(red: 0.9698035121, green: 0.9402344823, blue: 0.9103677869, alpha: 1)))
             HStack {

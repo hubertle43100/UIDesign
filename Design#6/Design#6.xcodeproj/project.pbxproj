@@ -14,6 +14,7 @@
 		567B36C4275014CF00D52E0B /* IntroPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567B36C3275014CF00D52E0B /* IntroPage.swift */; };
 		567B36CA2751B29400D52E0B /* JobTypePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567B36C92751B29400D52E0B /* JobTypePage.swift */; };
 		567B36CE2751B75B00D52E0B /* ChooseOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567B36CD2751B75B00D52E0B /* ChooseOptions.swift */; };
+		56F569E1275846EB0053646A /* CategoryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F569E0275846EB0053646A /* CategoryPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		567B36C3275014CF00D52E0B /* IntroPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroPage.swift; sourceTree = "<group>"; };
 		567B36C92751B29400D52E0B /* JobTypePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTypePage.swift; sourceTree = "<group>"; };
 		567B36CD2751B75B00D52E0B /* ChooseOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseOptions.swift; sourceTree = "<group>"; };
+		56F569E0275846EB0053646A /* CategoryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				567B36C3275014CF00D52E0B /* IntroPage.swift */,
 				567B36C92751B29400D52E0B /* JobTypePage.swift */,
 				567B36CD2751B75B00D52E0B /* ChooseOptions.swift */,
+				56F569E0275846EB0053646A /* CategoryPage.swift */,
 				567B36B7274F540C00D52E0B /* Assets.xcassets */,
 				567B36B9274F540C00D52E0B /* Preview Content */,
 			);
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56F569E1275846EB0053646A /* CategoryPage.swift in Sources */,
 				567B36C4275014CF00D52E0B /* IntroPage.swift in Sources */,
 				567B36B6274F540A00D52E0B /* ContentView.swift in Sources */,
 				567B36CA2751B29400D52E0B /* JobTypePage.swift in Sources */,
