@@ -48,20 +48,21 @@ struct Box: View {
     var description: String
     
     var body: some View {
-        VStack {
+        ScrollView {
             VStack {
-                Image(image)
-                    .resizable()
-                    .frame(width: 80, height: 80)
-                    .padding(.bottom,10)
-                Text(title)
-                    .font(.system(size: 19).bold())
-                    .padding(.bottom,1)
-                Text(description)
-                    .opacity(0.6)
-            }.frame(width: 150, height: 180)
-                .background(Color.white)
-        }.cornerRadius(20)
-            .shadow(color: .gray, radius:3, x: -1, y: 1)
+                VStack {
+                    Image(image)
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .padding(.bottom,10)
+                    Text(title)
+                        .font(.system(size: 19).bold())
+                        .padding(.bottom,1)
+                    Text(description)
+                        .opacity(0.6)
+                }.frame(width: 150, height: 180)
+                    .background(Color(#colorLiteral(red: 0.9557641149, green: 0.9558978677, blue: 0.955722034, alpha: 1)))
+            }.cornerRadius(20)
+        }
     }
 }
