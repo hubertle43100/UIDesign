@@ -16,14 +16,11 @@ struct MainPage: View {
                 Button(action: {
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
-                    Image(systemName: "arrow.backward")
-                        .font(.system(size: 25))
-                        .foregroundColor(Color.black)
+                    MainHeader()
                 }
             }.navigationBarTitle("")
                 .navigationBarBackButtonHidden(true)
                 .navigationBarHidden(true)
-            .padding(.trailing,115)
             
         }
     }
