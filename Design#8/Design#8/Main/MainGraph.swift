@@ -27,7 +27,7 @@ struct MainGraph: View {
                             self.percent = 0
                         }
                     }.animation(.spring())
-            }.frame(width: 150, height: 200)
+            }.frame(width: 178, height: 200)
                 .background(Color(#colorLiteral(red: 0.9994661212, green: 0.979791224, blue: 0.9194086194, alpha: 1)))
                 .cornerRadius(20)
                 .padding(.trailing)
@@ -45,7 +45,7 @@ struct MainGraph: View {
                             self.percent2 = 0
                         }
                     }.animation(.spring())
-            }.frame(width: 150, height: 200)
+            }.frame(width: 178, height: 200)
                 .background(Color(#colorLiteral(red: 0.9269135594, green: 0.9619827867, blue: 0.9998403192, alpha: 1)))
                 .cornerRadius(20)
         }.padding()

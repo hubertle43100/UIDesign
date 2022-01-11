@@ -22,8 +22,12 @@ struct MainPage: View {
                 }.navigationBarTitle("")
                     .navigationBarBackButtonHidden(true)
                     .navigationBarHidden(true)
+                MainPlot()
+                    .padding(.top, 30)
                 MainGraph()
                 ButtonHeader()
+                    .padding()
+                    .offset(x:-10)
                 MainFinished()
             }
         }.frame(width: 380)
