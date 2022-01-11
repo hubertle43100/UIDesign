@@ -88,26 +88,28 @@ struct Header: View {
 
 struct Computer: View {
     var body: some View {
-        ZStack {
-            HStack {
+        Group {
+            ZStack {
+                HStack {
+                    
+                }.frame(width: 300, height: 450)
+                    .background(.white)
+                    .cornerRadius(500)
+                Image("hexGlitch")
+                    .resizable()
+                    .frame(width: 500, height: 500)
+                    .offset(x:-10, y: -30)
+                Image("hexGlitch")
+                    .resizable()
+                    .frame(width: 500, height: 500)
+                    .offset(x:10, y:10)
                 
-            }.frame(width: 300, height: 450)
-                .background(.white)
-                .cornerRadius(500)
-            Image("hexGlitch")
-                .resizable()
-                .frame(width: 500, height: 500)
-                .offset(x:-10, y: -30)
-            Image("hexGlitch")
-                .resizable()
-                .frame(width: 500, height: 500)
-                .offset(x:10, y:10)
-            
-            Image("oldcomputer")
-                .resizable()
-                .frame(width: 350, height: 350)
-                .offset(x:40)
-            
-        }
+                Image("oldcomputer")
+                    .resizable()
+                    .frame(width: 350, height: 350)
+                    .offset(x:40)
+                
+            }
+        }.frame(width: 380)
     }
 }

@@ -19,6 +19,7 @@ struct MainHeader: View {
                     VStack {
                         Text("Charles")
                             .font(.system(size: 16,weight: .heavy))
+                            .foregroundColor(.black)
                         Text("Lv 5")
                             .font(.system(size: 14))
                             .frame(width: 50, height: 20)
@@ -28,20 +29,22 @@ struct MainHeader: View {
                             .offset(x:-5, y: -10)
                     }
                     Spacer()
-                    HStack {
-                        Spacer()
-                        Image(systemName: "bell")
-                        Spacer()
-                        Text("|")
-                            .opacity(0.5)
-                        Spacer()
-                        Image(systemName: "star")
-                        Spacer()
-                    }
-                    .frame(width: 100, height: 45)
-                    .background(.white)
-                    .cornerRadius(30)
+                    Group {
+                        HStack {
+                            Spacer()
+                            Image(systemName: "bell")
+                            Spacer()
+                            Text("|")
+                                .opacity(0.5)
+                            Spacer()
+                            Image(systemName: "star")
+                            Spacer()
+                        }.foregroundColor(.black)
+                        .frame(width: 100, height: 45)
+                        .background(.white)
+                        .cornerRadius(30)
                     .shadow(radius: 3)
+                    }
                     ZStack {
                     }.frame(width: 5, height: 5)
                         .background(.red)
@@ -50,7 +53,7 @@ struct MainHeader: View {
                     
                     HStack {
                         Image(systemName: "square.grid.2x2")
-                        
+                            .foregroundColor(.black)
                     }.frame(width: 45, height: 45)
                         .background(.white)
                         .cornerRadius(50)
@@ -60,10 +63,12 @@ struct MainHeader: View {
                 HStack {
                     Text("Teamwork Data")
                         .font(.system(size: 30).bold())
+                        .foregroundColor(.black)
                     Spacer()
                 }
                 HStack {
                     Text("Last month's data")
+                        .foregroundColor(.black)
                         .opacity(0.5)
                     Spacer()
                     HStack {
@@ -76,7 +81,7 @@ struct MainHeader: View {
                         .cornerRadius(30)
                 }.offset(x:5,y:-25)
             }
-        }.frame(width: 400)
+        }.frame(width: 380)
     }
 }
 
