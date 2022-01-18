@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		562595FD2793A3BB00BD5E67 /* CoffeeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562595FC2793A3BB00BD5E67 /* CoffeeSelection.swift */; };
+		562596012796335B00BD5E67 /* SpecialCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562596002796335B00BD5E67 /* SpecialCoffee.swift */; };
 		56DD78D7278E15410041884C /* Design_9App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DD78D6278E15410041884C /* Design_9App.swift */; };
 		56DD78D9278E15410041884C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DD78D8278E15410041884C /* ContentView.swift */; };
 		56DD78DB278E15420041884C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56DD78DA278E15420041884C /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		562595FC2793A3BB00BD5E67 /* CoffeeSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeSelection.swift; sourceTree = "<group>"; };
+		562596002796335B00BD5E67 /* SpecialCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialCoffee.swift; sourceTree = "<group>"; };
 		56DD78D3278E15410041884C /* Design#9.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Design#9.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56DD78D6278E15410041884C /* Design_9App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design_9App.swift; sourceTree = "<group>"; };
 		56DD78D8278E15410041884C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 			children = (
 				56DD78D6278E15410041884C /* Design_9App.swift */,
 				56DD78D8278E15410041884C /* ContentView.swift */,
+				562596002796335B00BD5E67 /* SpecialCoffee.swift */,
+				562595FC2793A3BB00BD5E67 /* CoffeeSelection.swift */,
 				56DD78DA278E15420041884C /* Assets.xcassets */,
 				56DD78DC278E15420041884C /* Preview Content */,
 			);
@@ -139,6 +145,8 @@
 			files = (
 				56DD78D9278E15410041884C /* ContentView.swift in Sources */,
 				56DD78D7278E15410041884C /* Design_9App.swift in Sources */,
+				562595FD2793A3BB00BD5E67 /* CoffeeSelection.swift in Sources */,
+				562596012796335B00BD5E67 /* SpecialCoffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
