@@ -13,16 +13,18 @@ struct Friend: Identifiable {
     var mutualFriends: Int
     var avatar: String
     var banner: String
+    var drinks: String
+    var drinkName: String
 }
 
 struct FriendPage: View {
     
     var friends:[Friend] = [
-        Friend(name: "Ashley Bose", mutualFriends: 2, avatar: "fortnite1", banner: "fortniteBack1"),
-    Friend(name: "Kaitlin Sanders", mutualFriends: 0, avatar: "fortnite2", banner: "fortniteBack2"),
-    Friend(name: "Chantelle Nguyen", mutualFriends: 1, avatar: "fortnite3", banner: "fortniteBack3"),
-    Friend(name: "Joel Robinson", mutualFriends: 5, avatar: "fortnite4", banner: "fortniteBack4"),
-    Friend(name: "Katy Li", mutualFriends: 6, avatar: "fortnite5", banner: "fortniteBack5")
+        Friend(name: "Ashley Bose", mutualFriends: 2, avatar: "fortnite1", banner: "coffeeshop1", drinks: "coffeecup1", drinkName: "Vietnamese Coffee"),
+    Friend(name: "Kaitlin Sanders", mutualFriends: 0, avatar: "fortnite2", banner: "coffeeshop2", drinks: "matcha", drinkName: "Matcha"),
+    Friend(name: "Chantelle Nguyen", mutualFriends: 1, avatar: "fortnite3", banner: "coffeeshop3", drinks: "coffeecup2", drinkName: "Strawberry Frappicino"),
+    Friend(name: "Joel Robinson", mutualFriends: 5, avatar: "fortnite4", banner: "coffeeshop4", drinks: "latte", drinkName: "Latte"),
+    Friend(name: "Katy Li", mutualFriends: 6, avatar: "fortnite5", banner: "coffeeshop5", drinks: "coffeecup5", drinkName: "Iced Latte")
     ]
     
     var body: some View {

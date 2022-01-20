@@ -10,13 +10,16 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            Group {
-                MainPage()
-            }.frame(width: 400)
-                .tabItem {
-                    Image(systemName: "heart.fill")
-                    Text("Favourites")
+            ScrollView {
+                Group {
+                    MainPage()
+                }.frame(width: 400)
+                    .tabItem {
+                        Image(systemName: "person.fill")
+                        Text("Friends")
+                            .foregroundColor(.blue)
                 }
+            }
             FriendPage()
                 .tabItem {
                     Image(systemName: "person.fill")
@@ -24,8 +27,8 @@ struct ContentView: View {
                 }
             Text("Nearby Screen")
                 .tabItem {
-                    Image(systemName: "mappin.circle.fill")
-                    Text("Nearby")
+                    Image(systemName: "star")
+                    Text("Offers")
                 }
         }
     }
