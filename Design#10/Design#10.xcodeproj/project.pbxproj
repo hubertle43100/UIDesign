@@ -12,6 +12,8 @@
 		564B3D4E2799EB4A00F2513B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 564B3D4D2799EB4A00F2513B /* Assets.xcassets */; };
 		564B3D512799EB4A00F2513B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 564B3D502799EB4A00F2513B /* Preview Assets.xcassets */; };
 		564B3D582799EDA000F2513B /* FrontPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564B3D572799EDA000F2513B /* FrontPage.swift */; };
+		56FF5958279B43BB00BAFCDE /* WaterBottleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FF5957279B43BB00BAFCDE /* WaterBottleView.swift */; };
+		56FF595A279B450000BAFCDE /* ShoppingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FF5959279B450000BAFCDE /* ShoppingPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		564B3D4D2799EB4A00F2513B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		564B3D502799EB4A00F2513B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		564B3D572799EDA000F2513B /* FrontPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontPage.swift; sourceTree = "<group>"; };
+		56FF5957279B43BB00BAFCDE /* WaterBottleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterBottleView.swift; sourceTree = "<group>"; };
+		56FF5959279B450000BAFCDE /* ShoppingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +59,8 @@
 			children = (
 				564B3D492799EB4800F2513B /* Design_10App.swift */,
 				564B3D4B2799EB4800F2513B /* ContentView.swift */,
-				564B3D572799EDA000F2513B /* FrontPage.swift */,
+				56FF5956279B433400BAFCDE /* Main */,
+				56FF595B279B451B00BAFCDE /* Shopping */,
 				564B3D4D2799EB4A00F2513B /* Assets.xcassets */,
 				564B3D4F2799EB4A00F2513B /* Preview Content */,
 			);
@@ -68,6 +73,23 @@
 				564B3D502799EB4A00F2513B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		56FF5956279B433400BAFCDE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				564B3D572799EDA000F2513B /* FrontPage.swift */,
+				56FF5957279B43BB00BAFCDE /* WaterBottleView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		56FF595B279B451B00BAFCDE /* Shopping */ = {
+			isa = PBXGroup;
+			children = (
+				56FF5959279B450000BAFCDE /* ShoppingPage.swift */,
+			);
+			path = Shopping;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,9 +162,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56FF5958279B43BB00BAFCDE /* WaterBottleView.swift in Sources */,
 				564B3D582799EDA000F2513B /* FrontPage.swift in Sources */,
 				564B3D4C2799EB4800F2513B /* ContentView.swift in Sources */,
 				564B3D4A2799EB4800F2513B /* Design_10App.swift in Sources */,
+				56FF595A279B450000BAFCDE /* ShoppingPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

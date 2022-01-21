@@ -22,15 +22,28 @@ struct FrontPage: View {
             HStack {
                 Text("CLOSCA WATER BOTTLE")
                     .font(.system(size: 35,weight: .heavy))
+                    .lineLimit(2)
                 Spacer()
             }.padding()
-            HStack {
-                Image("water1")
-                    .resizable()
-                    .shadow(radius: 1, x:-5,y:5)
-                .frame(width: 200, height: 200)
-            }.frame(width: 200, height: 300)
-                .background(Color(#colorLiteral(red: 0.9387472272, green: 0.9387472272, blue: 0.9387472272, alpha: 1)))
+            WaterBottleView()
+                .offset(y:65)
+            Button {
+                print("Button pressed")
+            } label: {
+                HStack {
+                    Text("Press Me")
+                        .foregroundColor(.white)
+                        .frame(width: 325, height: 75)
+                    .background(.black)
+                    Spacer()
+                    VStack {
+                        Image("rightarrow")
+                            .resizable()
+                        .frame(width: 20, height: 30)
+                    }.frame(width: 75, height: 75)
+                        .background(Color(#colorLiteral(red: 0.9387472272, green: 0.9387472272, blue: 0.9387472272, alpha: 1)))
+                }
+            }
         }.frame(width: UIScreen.main.bounds.width - 50, alignment: .center)
     }
 }
@@ -40,3 +53,4 @@ struct FrontPage_Previews: PreviewProvider {
         FrontPage()
     }
 }
+
