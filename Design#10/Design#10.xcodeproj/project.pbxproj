@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5622682927A1C77400147826 /* WhiteContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622682827A1C77400147826 /* WhiteContents.swift */; };
+		5622682B27A1CAC000147826 /* BottleSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622682A27A1CAC000147826 /* BottleSelect.swift */; };
 		564B3D4A2799EB4800F2513B /* Design_10App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564B3D492799EB4800F2513B /* Design_10App.swift */; };
 		564B3D4C2799EB4800F2513B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564B3D4B2799EB4800F2513B /* ContentView.swift */; };
 		564B3D4E2799EB4A00F2513B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 564B3D4D2799EB4A00F2513B /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5622682827A1C77400147826 /* WhiteContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteContents.swift; sourceTree = "<group>"; };
+		5622682A27A1CAC000147826 /* BottleSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleSelect.swift; sourceTree = "<group>"; };
 		564B3D462799EB4800F2513B /* Design#10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Design#10.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		564B3D492799EB4800F2513B /* Design_10App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design_10App.swift; sourceTree = "<group>"; };
 		564B3D4B2799EB4800F2513B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				56FF5959279B450000BAFCDE /* ShoppingPage.swift */,
+				5622682827A1C77400147826 /* WhiteContents.swift */,
+				5622682A27A1CAC000147826 /* BottleSelect.swift */,
 			);
 			path = Shopping;
 			sourceTree = "<group>";
@@ -165,8 +171,10 @@
 				56FF5958279B43BB00BAFCDE /* WaterBottleView.swift in Sources */,
 				564B3D582799EDA000F2513B /* FrontPage.swift in Sources */,
 				564B3D4C2799EB4800F2513B /* ContentView.swift in Sources */,
+				5622682927A1C77400147826 /* WhiteContents.swift in Sources */,
 				564B3D4A2799EB4800F2513B /* Design_10App.swift in Sources */,
 				56FF595A279B450000BAFCDE /* ShoppingPage.swift in Sources */,
+				5622682B27A1CAC000147826 /* BottleSelect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

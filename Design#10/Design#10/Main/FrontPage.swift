@@ -9,42 +9,43 @@ import SwiftUI
 
 struct FrontPage: View {
     var body: some View {
-        VStack {
-            HStack {
-                Text("BOLDT")
-                    .font(.system(size: 25,weight: .heavy))
-                Spacer()
-                Image(systemName: "bag")
-                    .frame(width: 50, height: 50)
-                    .background(.black)
-                    .foregroundColor(.white)
-            }
-            HStack {
-                Text("CLOSCA WATER BOTTLE")
-                    .font(.system(size: 35,weight: .heavy))
-                    .lineLimit(2)
-                Spacer()
-            }.padding()
-            WaterBottleView()
-                .offset(y:65)
-            Button {
-                print("Button pressed")
-            } label: {
+        NavigationView {
+            VStack {
                 HStack {
-                    Text("Press Me")
-                        .foregroundColor(.white)
-                        .frame(width: 325, height: 75)
-                    .background(.black)
+                    Text("BOLDT")
+                        .font(.system(size: 25,weight: .heavy))
                     Spacer()
-                    VStack {
-                        Image("rightarrow")
-                            .resizable()
-                        .frame(width: 20, height: 30)
-                    }.frame(width: 75, height: 75)
-                        .background(Color(#colorLiteral(red: 0.9387472272, green: 0.9387472272, blue: 0.9387472272, alpha: 1)))
+                    Image(systemName: "bag")
+                        .frame(width: 50, height: 50)
+                        .background(.black)
+                        .foregroundColor(.white)
                 }
-            }
-        }.frame(width: UIScreen.main.bounds.width - 50, alignment: .center)
+                HStack {
+                    Text("CLOSCA BOTTLE")
+                        .font(.system(size: 35,weight: .heavy))
+                        .lineLimit(2)
+                    Spacer()
+                }.padding()
+                WaterBottleView()
+                    .offset(y:65)
+                NavigationLink(destination: ShoppingPage()) {
+                    HStack {
+                        Text("Press Me")
+                            .foregroundColor(.white)
+                            .frame(width: 325, height: 75)
+                            .background(.black)
+                        Spacer()
+                        VStack {
+                            Image("rightarrow")
+                                .resizable()
+                                .frame(width: 20, height: 30)
+                        }.frame(width: 75, height: 75)
+                            .background(Color(#colorLiteral(red: 0.9387472272, green: 0.9387472272, blue: 0.9387472272, alpha: 1)))
+                    }
+                }
+                Spacer()
+            }.frame(width: UIScreen.main.bounds.width - 50, alignment: .center)
+        }
     }
 }
 
