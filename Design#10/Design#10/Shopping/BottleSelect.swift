@@ -8,27 +8,31 @@
 import SwiftUI
 
 struct BottleSelect: View {
+    var image: String
+    var colorName: String
+    var price: String
+    
     var body: some View {
         VStack {
-            Image("water1")
-                .resizable()
-                .frame(width: 150, height: 150)
-            Text("Bottle with red")
-                .font(.system(size: 18))
-                .frame(width: 110, height: 50)
-            HStack {
-                Group {
-                    Text("$33")
-                        .font(.system(size: 28))
-                    Text(".99")
-                }.font(.system(size: 28))
-            }
+            VStack {
+                Image(image)
+                    .resizable()
+                    .frame(width: 150, height: 150)
+                Text(colorName)
+                    .font(.system(size: 20))
+                HStack {
+                    Text(price)
+                        .font(.system(size: 28).bold())
+                }
+            }.frame(width: 150, height: 150)
+                .offset(y:-40)
+                .background(Color(#colorLiteral(red: 0.9490196109, green: 0.9490197301, blue: 0.9490196109, alpha: 1)))
         }
     }
 }
 
 struct BottleSelect_Previews: PreviewProvider {
     static var previews: some View {
-        BottleSelect()
+        BottleSelect(image: "water1", colorName: "Red Tomato", price: "$33.99")
     }
 }

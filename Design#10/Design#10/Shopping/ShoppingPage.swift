@@ -9,8 +9,10 @@ import SwiftUI
 
 struct ShoppingPage: View {
     var body: some View {
-        VStack {
+        ZStack {
             BackgroundPage()
+            WhiteContents()
+                .offset(y:120)
         }
     }
 }

@@ -14,6 +14,7 @@
 		564B3D4E2799EB4A00F2513B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 564B3D4D2799EB4A00F2513B /* Assets.xcassets */; };
 		564B3D512799EB4A00F2513B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 564B3D502799EB4A00F2513B /* Preview Assets.xcassets */; };
 		564B3D582799EDA000F2513B /* FrontPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564B3D572799EDA000F2513B /* FrontPage.swift */; };
+		56F09FF327A4B0EF00C08D84 /* BottleOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F09FF227A4B0EF00C08D84 /* BottleOffer.swift */; };
 		56FF5958279B43BB00BAFCDE /* WaterBottleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FF5957279B43BB00BAFCDE /* WaterBottleView.swift */; };
 		56FF595A279B450000BAFCDE /* ShoppingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FF5959279B450000BAFCDE /* ShoppingPage.swift */; };
 /* End PBXBuildFile section */
@@ -27,6 +28,7 @@
 		564B3D4D2799EB4A00F2513B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		564B3D502799EB4A00F2513B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		564B3D572799EDA000F2513B /* FrontPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontPage.swift; sourceTree = "<group>"; };
+		56F09FF227A4B0EF00C08D84 /* BottleOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleOffer.swift; sourceTree = "<group>"; };
 		56FF5957279B43BB00BAFCDE /* WaterBottleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterBottleView.swift; sourceTree = "<group>"; };
 		56FF5959279B450000BAFCDE /* ShoppingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +96,7 @@
 				56FF5959279B450000BAFCDE /* ShoppingPage.swift */,
 				5622682827A1C77400147826 /* WhiteContents.swift */,
 				5622682A27A1CAC000147826 /* BottleSelect.swift */,
+				56F09FF227A4B0EF00C08D84 /* BottleOffer.swift */,
 			);
 			path = Shopping;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56F09FF327A4B0EF00C08D84 /* BottleOffer.swift in Sources */,
 				56FF5958279B43BB00BAFCDE /* WaterBottleView.swift in Sources */,
 				564B3D582799EDA000F2513B /* FrontPage.swift in Sources */,
 				564B3D4C2799EB4800F2513B /* ContentView.swift in Sources */,
