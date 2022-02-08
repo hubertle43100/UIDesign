@@ -11,8 +11,9 @@ struct ShoppingPage: View {
     var body: some View {
         ZStack {
             BackgroundPage()
+            ScrollView {
             WhiteContents()
-                .offset(y:120)
+            }.offset(y:270)
         }
     }
 }
