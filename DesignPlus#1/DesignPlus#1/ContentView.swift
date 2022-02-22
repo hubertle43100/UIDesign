@@ -34,12 +34,12 @@ extension Priority {
 
 
 struct ContentView: View {
-    
     @State private var title: String = ""
     @State private var selectedPriority: Priority = .medium
     @Environment(\.managedObjectContext) private var viewContext
     //8. Get fetch request to retrieve data
-    @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(key: "dateCreated", ascending: false)]) private var allTasks: FetchedResults<Task>
+    @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(key: "isFavorite", ascending: true)]) private var allTasks: FetchedResults<Task>
+    
     //7. provide action for save button
     private func saveTask() {
         
@@ -55,12 +55,67 @@ struct ContentView: View {
         
     }
     
+    //11. adding func for priority
+    private func styleForPriority(_ value: String) -> Color {
+        let priority = Priority(rawValue: value)
+        
+        switch priority {
+        case .low:
+            return Color.green
+        case .medium:
+            return Color.orange
+        case .high:
+            return Color.red
+        default:
+            return Color.gray
+        }
+    }
+    //12. adding updateTask
+    private func updateTask(_ task: Task) {
+        
+        task.isFavorite = !task.isFavorite
+        
+        do {
+            try viewContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    //13. adding deleteTask
+    private func deleteTask(at offsets: IndexSet) {
+        offsets.forEach { index in
+            let task = allTasks[index]
+            viewContext.delete(task)
+            
+            do {
+                try viewContext.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    
+    private func crossTask(_ task: Task) {
+        
+        task.isCrossed = !task.isCrossed
+
+        do {
+            try viewContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
     var body: some View {
+        
         //3. Start decorating view
         NavigationView {
             VStack {
                 
                 TextField("Enter title", text: $title)
+                    .padding(.bottom)
                 //6. create Picker & Button
                 Picker("Priority", selection: $selectedPriority) {
                     ForEach(Priority.allCases) { priority in
@@ -69,6 +124,7 @@ struct ContentView: View {
                 }.pickerStyle(.segmented)
                 Button("Save") {
                     saveTask()
+                    title = ""
                 }.padding(10)
                     .frame(maxWidth: .infinity)
                     .background(Color.blue)
@@ -78,17 +134,42 @@ struct ContentView: View {
                 //9. Use the Fetched data
                 List {
                     ForEach(allTasks) { task in
-                        Text(task.title ?? "")
-                    }
+                        HStack {
+                            Circle()
+                                .fill(task.isCrossed ? styleForPriority("") : styleForPriority(task.priority!))
+                                .frame(width: 15, height: 15)
+                            Spacer().frame(width: 20)
+                            Text(task.title ?? "")
+                                .strikethrough(task.isCrossed)
+                                .foregroundColor(task.isCrossed ? Color.gray : Color.black)
+                            Spacer()
+                            Image(systemName: task.isFavorite ? "heart.fill" : "heart")
+                                .foregroundColor(task.isCrossed ? .gray : .red)
+                                .onTapGesture {
+                                    updateTask(task)
+                                }
+                        }.onTapGesture {
+                            crossTask(task)
+                        }
+                    }.onDelete(perform: deleteTask)
+                        .onMove { (indexSet, index) in
+                            
+                        }
+                }
+                .toolbar {
+                    EditButton()
+                        .foregroundColor(.black)
                 }
                 Spacer()
-            }.navigationTitle("All Tasks")
-        }.padding()
+            }.navigationTitle("My TO-DO list").padding(20)
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        //10. Just inject viewContext in ContentView
+        let persistedContainer = CoreDataManager.shared.persistentContainer
+        ContentView().environment(\.managedObjectContext, persistedContainer.viewContext)
     }
 }
