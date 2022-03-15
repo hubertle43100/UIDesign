@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: 3. Setting up error responses
+
 enum APIError: Error {
     case DecodingError
     case errorCode(Int)

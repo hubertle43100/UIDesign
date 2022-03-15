@@ -7,7 +7,9 @@
 
 import Foundation
 
-protocol APIBuilder {
+// MARK: 2. Piece API string together to create new
+
+protocol APIBuilder { //Note: Used protocol inconsideration of future uses of other APIs(promotes reuseablility
     var urlRequest: URLRequest { get }
     var baseUrl: URL { get }
     var path: String { get }

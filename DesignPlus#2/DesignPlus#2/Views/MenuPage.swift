@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct MenuPage: View {
     @State var selected = 0
@@ -32,7 +33,7 @@ struct MenuPage: View {
                 GeometryReader{_ in
                     SegmentedControl(selected: $selected)
                     if self.selected == 0 {
-                        Feeds()
+                        Feeds(article: Article.dummyData)
                     }
                     else {
                         Popular()
@@ -57,14 +58,14 @@ struct SegmentedControl : View {
             Button(action: {
                 self.selected = 0
             }) {
-                Text("Feeds").frame(width: 190, height: 35)
+                Text("Feeds").frame(width: 190, height: 30)
                     .background(self.selected == 0 ? .white : Color(#colorLiteral(red: 0.9490196109, green: 0.9490197301, blue: 0.9490196109, alpha: 1)))
                     .clipShape(Capsule())
             }.foregroundColor(.black)
             Button(action: {
                 self.selected = 1
             }) {
-                Text("Popular").frame(width: 190, height: 35)
+                Text("Popular").frame(width: 190, height: 30)
                     .background(self.selected == 1 ? .white : Color(#colorLiteral(red: 0.9490196109, green: 0.9490197301, blue: 0.9490196109, alpha: 1)))
                     .clipShape(Capsule())
             }.foregroundColor(.black)
@@ -73,10 +74,27 @@ struct SegmentedControl : View {
     }
 }
 struct Feeds : View {
+    
+    let article: Article
+    
     var body : some View {
         ScrollView(.vertical, showsIndicators: false){
             HStack {
-               
+                Text("working?")
+//                if let imgURL = article.image,
+//                   let url = URL(string: imgURL) {
+//                    URLImage(url, options: URLImageOptions(
+//                                identifier: article.id.uuidString,
+//                                cachePolicy:.returnCacheDataElseLoad(cacheDelay:nil, downloadDelay: 0.25)
+//                             ),
+//                             content: { image in
+//                        image
+//                            .resizable()
+//                            .aspectRatio(contentMode: .fill)
+//                    })
+//                } else {
+//                    
+//                }
             }
         }.offset(y: 70)
     }

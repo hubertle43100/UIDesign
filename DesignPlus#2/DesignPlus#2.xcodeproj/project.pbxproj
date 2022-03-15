@@ -16,6 +16,10 @@
 		5665568D27CDF414000BA62B /* NewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665568C27CDF414000BA62B /* NewsResponse.swift */; };
 		5665569027D049C1000BA62B /* NewEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665568F27D049C1000BA62B /* NewEndpoint.swift */; };
 		5665569327D05991000BA62B /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665569227D05991000BA62B /* APIError.swift */; };
+		5665569627D05EE1000BA62B /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665569527D05EE1000BA62B /* NewsService.swift */; };
+		5665569927DAA669000BA62B /* ResultState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665569827DAA669000BA62B /* ResultState.swift */; };
+		5665569C27DAA6B1000BA62B /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665569B27DAA6B1000BA62B /* NewsViewModel.swift */; };
+		5665569F27E02663000BA62B /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5665569E27E02663000BA62B /* URLImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,9 @@
 		5665568C27CDF414000BA62B /* NewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsResponse.swift; sourceTree = "<group>"; };
 		5665568F27D049C1000BA62B /* NewEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEndpoint.swift; sourceTree = "<group>"; };
 		5665569227D05991000BA62B /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		5665569527D05EE1000BA62B /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
+		5665569827DAA669000BA62B /* ResultState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultState.swift; sourceTree = "<group>"; };
+		5665569B27DAA6B1000BA62B /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5665569F27E02663000BA62B /* URLImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +69,9 @@
 		5665567027CDC094000BA62B /* DesignPlus#2 */ = {
 			isa = PBXGroup;
 			children = (
+				5665569A27DAA6A1000BA62B /* ViewModel */,
+				5665569727DAA659000BA62B /* States */,
+				5665569427D05ECC000BA62B /* Service */,
 				5665569127D05914000BA62B /* Error */,
 				5665568E27D049AC000BA62B /* Endpoint */,
 				5665568B27CDF3F1000BA62B /* Model */,
@@ -114,6 +125,30 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		5665569427D05ECC000BA62B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				5665569527D05EE1000BA62B /* NewsService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		5665569727DAA659000BA62B /* States */ = {
+			isa = PBXGroup;
+			children = (
+				5665569827DAA669000BA62B /* ResultState.swift */,
+			);
+			path = States;
+			sourceTree = "<group>";
+		};
+		5665569A27DAA6A1000BA62B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5665569B27DAA6B1000BA62B /* NewsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -130,6 +165,9 @@
 			dependencies = (
 			);
 			name = "DesignPlus#2";
+			packageProductDependencies = (
+				5665569E27E02663000BA62B /* URLImage */,
+			);
 			productName = "DesignPlus#2";
 			productReference = 5665566E27CDC094000BA62B /* DesignPlus#2.app */;
 			productType = "com.apple.product-type.application";
@@ -158,6 +196,9 @@
 				Base,
 			);
 			mainGroup = 5665566527CDC094000BA62B;
+			packageReferences = (
+				5665569D27E02663000BA62B /* XCRemoteSwiftPackageReference "url-image" */,
+			);
 			productRefGroup = 5665566F27CDC094000BA62B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -186,9 +227,12 @@
 			files = (
 				5665568227CDC188000BA62B /* MainView.swift in Sources */,
 				5665568D27CDF414000BA62B /* NewsResponse.swift in Sources */,
+				5665569927DAA669000BA62B /* ResultState.swift in Sources */,
+				5665569627D05EE1000BA62B /* NewsService.swift in Sources */,
 				5665567227CDC094000BA62B /* DesignPlus_2App.swift in Sources */,
 				5665569027D049C1000BA62B /* NewEndpoint.swift in Sources */,
 				5665568A27CDF154000BA62B /* ProfilePage.swift in Sources */,
+				5665569C27DAA6B1000BA62B /* NewsViewModel.swift in Sources */,
 				5665568827CDF084000BA62B /* MenuPage.swift in Sources */,
 				5665569327D05991000BA62B /* APIError.swift in Sources */,
 			);
@@ -393,6 +437,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5665569D27E02663000BA62B /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5665569E27E02663000BA62B /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5665569D27E02663000BA62B /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5665566627CDC094000BA62B /* Project object */;
 }
