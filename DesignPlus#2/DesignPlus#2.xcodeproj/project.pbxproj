@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		562C7A0A27E94053005C2388 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562C7A0927E94053005C2388 /* ErrorView.swift */; };
+		562C7A0C27F387ED005C2388 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562C7A0B27F387ED005C2388 /* HomeView.swift */; };
 		5665567227CDC094000BA62B /* DesignPlus_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665567127CDC094000BA62B /* DesignPlus_2App.swift */; };
 		5665567627CDC096000BA62B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5665567527CDC096000BA62B /* Assets.xcassets */; };
 		5665567927CDC096000BA62B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5665567827CDC096000BA62B /* Preview Assets.xcassets */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		562C7A0927E94053005C2388 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		562C7A0B27F387ED005C2388 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5665566E27CDC094000BA62B /* DesignPlus#2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DesignPlus#2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5665567127CDC094000BA62B /* DesignPlus_2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignPlus_2App.swift; sourceTree = "<group>"; };
 		5665567527CDC096000BA62B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 				5665568127CDC188000BA62B /* MainView.swift */,
 				5665568727CDF084000BA62B /* MenuPage.swift */,
 				5665568927CDF154000BA62B /* ProfilePage.swift */,
+				562C7A0927E94053005C2388 /* ErrorView.swift */,
+				562C7A0B27F387ED005C2388 /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -234,7 +240,9 @@
 				5665568A27CDF154000BA62B /* ProfilePage.swift in Sources */,
 				5665569C27DAA6B1000BA62B /* NewsViewModel.swift in Sources */,
 				5665568827CDF084000BA62B /* MenuPage.swift in Sources */,
+				562C7A0C27F387ED005C2388 /* HomeView.swift in Sources */,
 				5665569327D05991000BA62B /* APIError.swift in Sources */,
+				562C7A0A27E94053005C2388 /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

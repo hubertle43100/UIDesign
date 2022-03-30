@@ -78,27 +78,51 @@ struct Feeds : View {
     let article: Article
     
     var body : some View {
+        
         ScrollView(.vertical, showsIndicators: false){
             HStack {
-                Text("working?")
-//                if let imgURL = article.image,
-//                   let url = URL(string: imgURL) {
-//                    URLImage(url, options: URLImageOptions(
-//                                identifier: article.id.uuidString,
-//                                cachePolicy:.returnCacheDataElseLoad(cacheDelay:nil, downloadDelay: 0.25)
-//                             ),
-//                             content: { image in
-//                        image
-//                            .resizable()
-//                            .aspectRatio(contentMode: .fill)
-//                    })
-//                } else {
-//                    
-//                }
+                if let imgURL = article.image,
+                   let url = URL(string: imgURL) {
+                    URLImage(url) {
+                        // This view is displayed before download starts
+                        EmptyView()
+                    } inProgress: { progress in
+                        // Display progress
+                        Text("Loading...")
+                    } failure: { error, retry in
+                        // Display error and retry button
+                        PlaceholderImageView()
+                    } content: { image in
+                        // Downloaded image
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                    }.frame(width: 100, height: 100)
+                        .cornerRadius(10)
+                } else {
+                    PlaceholderImageView()
+                }
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(article.title ?? "")
+                        .foregroundColor(.black)
+                        .font(.system(size: 18, weight: .semibold))
+                    Text(article.source ?? "")
+                        .foregroundColor(.gray)
+                        .font(.footnote)
+                }
             }
         }.offset(y: 70)
     }
 }
+struct PlaceholderImageView: View {
+    var body: some View {
+        Image(systemName: "photo.fill")
+            .foregroundColor(.white)
+            .background(Color.gray)
+            .frame(width: 100, height: 100)
+    }
+}
+
 struct Popular : View {
     var body : some View {
         ScrollView(.vertical, showsIndicators: false){
