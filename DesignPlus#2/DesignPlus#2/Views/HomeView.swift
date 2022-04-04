@@ -21,9 +21,9 @@ struct HomeView: View {
                 ProgressView()
             case .failed(let error):
                 ErrorView(error: error, handler: viewModel.getArticles)
-            case .success(let articles):
+            case .success(let article):
                 NavigationView {
-                    List(articles) { item in
+                    List(article) { item in
                         Feeds(article: item)
                     }.navigationTitle(Text("News"))
                 }
