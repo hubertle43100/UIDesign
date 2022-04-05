@@ -30,30 +30,28 @@ struct ContentView: View {
             case .success(let content):
                 GeometryReader { g in
                     TabView {
-                        ScrollView {
                             VStack {
                                 MenuPage()
                                 GeometryReader{_ in
                                     SegmentedControl(selected: $selected)
                                     if self.selected == 0 {
-                                        VStack {
-                                            List(content) { article in
-                                                ArticleView(article: article)
-                                                    .onTapGesture {
-                                                        load(url: article.url)
-                                                    }
-                                            }.frame(width: 400, height: 300)
-                                        }.offset(y:150)
+                                          Popular()
                                     }
                                     else {
-                                        Popular()
+                                        List(content) { article in
+                                            ArticleView(article: article)
+                                                .onTapGesture {
+                                                    load(url: article.url)
+                                                }
+                                        }.offset(x:-10.5,y:60)
+                                        .frame(width: g.size.width - 10, height: g.size.height - 50, alignment: .center)
                                     }
                                 }
+                                .padding()
                             }
                                 .tabItem {
                                     Label("Menu", systemImage: "list.dash")
                                 }
-                        }
                         VStack {
                             
                         }.tabItem {
@@ -146,7 +144,7 @@ struct MenuPage : View {
                         Spacer()
                     }
                     HStack {
-                        Text("Welcome back,\n\nH")
+                        Text("Welcome back,\nViewer")
                             .lineLimit(2)
                             .font(.system(size: 40).bold())
                         Spacer()
