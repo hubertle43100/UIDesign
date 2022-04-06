@@ -12,9 +12,12 @@ struct ContentView: View {
     
     @Environment(\.openURL) var openURL
     @StateObject var viewModel: ArticleViewModelImpl = ArticleViewModelImpl(service: ArticleServiceImpl())
+    @StateObject var locationManager = LocationManager()
     
     @State var selected = 0
     let date = Date()
+    
+    
     
     var body: some View {
         
@@ -50,12 +53,20 @@ struct ContentView: View {
                                 .padding()
                             }
                                 .tabItem {
-                                    Label("Menu", systemImage: "list.dash")
+                                    Label("Home", systemImage: "house")
                                 }
                         VStack {
-                            
+                            if let location = locationManager.location {
+                                Text("Your coordinates are: \(location.longitude),\(location.latitude)")
+                            } else {
+                                if locationManager.isLoading {
+                                    ProgressView()
+                                } else {
+                                    LocationView().environmentObject(locationManager)
+                                }
+                            }
                         }.tabItem {
-                            Label("Menu", systemImage: "list.dash")
+                            Label("Weather", systemImage: "cloud.sun")
                         }
                     }
                 }
@@ -68,9 +79,9 @@ struct ContentView: View {
     
     func load(url: String?) {
         guard let url = url,
-            let linkUrl = URL(string: url) else {
-            return
-        }
+              let linkUrl = URL(string: url) else {
+                  return
+              }
         openURL(linkUrl)
     }
 }
@@ -120,7 +131,7 @@ struct Popular : View {
     var body : some View {
         ScrollView(.vertical, showsIndicators: false){
             HStack {
-               Text("Just received our 2 new matching sofas. They were delivered on time by a very courteous and professional team. They are extremely nice…even nicer than we hoped! A sight unseen internet purchase was quite an anxious event as you can imagine and we could not be happier!! Highly recommend Article to anyone who might be considering purchasing from them. ")
+                Text("Just received our 2 new matching sofas. They were delivered on time by a very courteous and professional team. They are extremely nice…even nicer than we hoped! A sight unseen internet purchase was quite an anxious event as you can imagine and we could not be happier!! Highly recommend Article to anyone who might be considering purchasing from them. ")
             }
         }.offset(y: 70)
     }
@@ -131,24 +142,24 @@ struct MenuPage : View {
     @State var selected = 0
     let date = Date()
     var body : some View {
-                VStack {
-                    HStack {
-                        Circle()
-                            .frame(width: 20, height: 20)
-                        Text("Bulletin News")
-                        Spacer()
-                        
-                    }.padding(.bottom, 20)
-                    HStack {
-                        Text(date, style: .date)
-                        Spacer()
-                    }
-                    HStack {
-                        Text("Welcome back,\nViewer")
-                            .lineLimit(2)
-                            .font(.system(size: 40).bold())
-                        Spacer()
-                    }
-                }.padding()
+        VStack {
+            HStack {
+                Circle()
+                    .frame(width: 20, height: 20)
+                Text("Bulletin News")
+                Spacer()
+                
+            }.padding(.bottom, 20)
+            HStack {
+                Text(date, style: .date)
+                Spacer()
+            }
+            HStack {
+                Text("Welcome back,\nViewer")
+                    .lineLimit(2)
+                    .font(.system(size: 40).bold())
+                Spacer()
+            }
+        }.padding()
     }
 }
