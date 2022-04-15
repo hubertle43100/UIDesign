@@ -20,9 +20,7 @@ struct ContentView: View {
     
     
     var body: some View {
-        
         Group {
-            
             switch viewModel.state {
             case .loading:
                 ProgressView()
@@ -33,28 +31,42 @@ struct ContentView: View {
             case .success(let content):
                 GeometryReader { g in
                     TabView {
+                        ZStack {
+                            Color("BabyBlue").ignoresSafeArea()
                             VStack {
                                 MenuPage()
                                 GeometryReader{_ in
                                     SegmentedControl(selected: $selected)
                                     if self.selected == 0 {
-                                          Popular()
-                                    }
-                                    else {
                                         List(content) { article in
                                             ArticleView(article: article)
                                                 .onTapGesture {
                                                     load(url: article.url)
                                                 }
-                                        }.offset(x:-10.5,y:60)
-                                        .frame(width: g.size.width - 10, height: g.size.height - 50, alignment: .center)
+                                        }
+                                        .offset(x:-16,y:70)
+                                        .frame(width: g.size.width, height: g.size.height - 50, alignment: .center)
+                                    }
+                                    else {
+                                        ScrollView (.horizontal, showsIndicators: false) {
+                                            HStack {
+                                            ForEach(content) { article in
+                                                    MainAriticleView(article: article)
+                                                        .onTapGesture {
+                                                            load(url: article.url)
+                                                    }
+                                            }.offset(x: 0, y: -85)
+                                            .frame(width: g.size.width, height: g.size.height - 50, alignment: .center)
+                                            }
+                                        }
                                     }
                                 }
                                 .padding()
                             }
-                                .tabItem {
-                                    Label("Home", systemImage: "house")
-                                }
+                            .tabItem {
+                                Label("Weather", systemImage: "cloud.sun")
+                            }
+                        }
                         VStack {
                             if let location = locationManager.location {
                                 Text("Your coordinates are: \(location.longitude),\(location.latitude)")
@@ -80,8 +92,8 @@ struct ContentView: View {
     func load(url: String?) {
         guard let url = url,
               let linkUrl = URL(string: url) else {
-                  return
-              }
+            return
+        }
         openURL(linkUrl)
     }
 }
@@ -117,7 +129,6 @@ struct SegmentedControl : View {
     }
 }
 
-
 struct PlaceholderImageView: View {
     var body: some View {
         Image(systemName: "photo.fill")
@@ -136,7 +147,6 @@ struct Popular : View {
         }.offset(y: 70)
     }
 }
-
 
 struct MenuPage : View {
     @State var selected = 0
@@ -160,6 +170,8 @@ struct MenuPage : View {
                     .font(.system(size: 40).bold())
                 Spacer()
             }
-        }.padding()
+        }
+        .padding()
+        .foregroundColor(.white)
     }
 }
