@@ -32,12 +32,29 @@ struct ContentView: View {
                 GeometryReader { g in
                     TabView {
                         ZStack {
-                            Color("BabyBlue").ignoresSafeArea()
+                            VStack {
+                                Color("BabyBlue").ignoresSafeArea()
+                                Color("Matgray")
+                            }
                             VStack {
                                 MenuPage()
                                 GeometryReader{_ in
                                     SegmentedControl(selected: $selected)
                                     if self.selected == 0 {
+                                        ScrollView (.horizontal, showsIndicators: false) {
+                                                HStack {
+                                                    ForEach(content) { article in
+                                                        MainAriticleView(article: article)
+                                                            .onTapGesture {
+                                                                load(url: article.url)
+                                                            }
+                                                    }
+                                                        .frame(width: g.size.width, height: g.size.height-300, alignment: .center)
+                                                }
+                                        }.offset(y:40)
+                                        
+                                    }
+                                    else {
                                         List(content) { article in
                                             ArticleView(article: article)
                                                 .onTapGesture {
@@ -46,19 +63,6 @@ struct ContentView: View {
                                         }
                                         .offset(x:-16,y:70)
                                         .frame(width: g.size.width, height: g.size.height - 50, alignment: .center)
-                                    }
-                                    else {
-                                        ScrollView (.horizontal, showsIndicators: false) {
-                                            HStack {
-                                            ForEach(content) { article in
-                                                    MainAriticleView(article: article)
-                                                        .onTapGesture {
-                                                            load(url: article.url)
-                                                    }
-                                            }.offset(x: 0, y: -85)
-                                            .frame(width: g.size.width, height: g.size.height - 50, alignment: .center)
-                                            }
-                                        }
                                     }
                                 }
                                 .padding()
@@ -135,16 +139,6 @@ struct PlaceholderImageView: View {
             .foregroundColor(.white)
             .background(Color.gray)
             .frame(width: 100, height: 100)
-    }
-}
-
-struct Popular : View {
-    var body : some View {
-        ScrollView(.vertical, showsIndicators: false){
-            HStack {
-                Text("Just received our 2 new matching sofas. They were delivered on time by a very courteous and professional team. They are extremely nice…even nicer than we hoped! A sight unseen internet purchase was quite an anxious event as you can imagine and we could not be happier!! Highly recommend Article to anyone who might be considering purchasing from them. ")
-            }
-        }.offset(y: 70)
     }
 }
 

@@ -47,14 +47,18 @@ struct MainAriticleView: View {
             }
             VStack(alignment: .leading, spacing: 4) {
                 Text(article.source ?? "")
+                    .background(Rectangle().fill(Color.gray).opacity(0.6).shadow(radius: 3).cornerRadius(10))
                     .foregroundColor(.white)
                     .font(.system(size: 30, weight: .semibold))
                 Spacer()
                 Text(article.title ?? "")
+                    .background(Rectangle().fill(Color.gray).opacity(0.6).shadow(radius: 3).cornerRadius(10))
+                    .frame(width: 400)
                     .foregroundColor(.white)
                     .font(.system(size: 28, weight: .semibold))
-                    .frame(width: 400)
-            }.frame(width: 350, height: 450)
+                    
+                    
+            }.frame(width: 350, height: 460)
         }
     }
 }
