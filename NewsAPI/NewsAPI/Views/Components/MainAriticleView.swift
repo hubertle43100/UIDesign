@@ -25,10 +25,9 @@ struct MainAriticleView: View {
                             cachePolicy: .returnCacheElseLoad(cacheDelay: nil, downloadDelay: 0.25) // Return cached image or download after delay
                                           ),
                          failure: { error, retry in         // Display error and retry button
-                            Image(systemName: "photo.fill")
-                                .foregroundColor(.white)
-                                .background(Color.gray)
-                                .frame(width: 100, height: 100)
+                            Image("CautionGray")
+                                .resizable()
+                                .frame(width: 420, height: 500)
                                 .cornerRadius(10)
                          },
                          content: { image in
@@ -39,10 +38,9 @@ struct MainAriticleView: View {
                     .frame(width: 420, height: 500)
                     .cornerRadius(10)
             } else {
-                Image(systemName: "photo.fill")
-                    .foregroundColor(.white)
-                    .background(Color.gray)
-                    .frame(width: 100, height: 100)
+                Image("CautionGray")
+                    .resizable()
+                    .frame(width: 420, height: 500)
                     .cornerRadius(10)
             }
             VStack(alignment: .leading, spacing: 4) {

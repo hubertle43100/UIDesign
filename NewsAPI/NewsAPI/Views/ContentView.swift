@@ -43,19 +43,19 @@ struct ContentView: View {
                                     if self.selected == 0 {
                                         ScrollView (.horizontal, showsIndicators: false) {
                                                 HStack {
-                                                    ForEach(content) { article in
+                                                    ForEach(content[1...3]) { article in
                                                         MainAriticleView(article: article)
                                                             .onTapGesture {
                                                                 load(url: article.url)
                                                             }
                                                     }
-                                                        .frame(width: g.size.width, height: g.size.height-300, alignment: .center)
+                                                        .frame(width: g.size.width, height: g.size.height - 300, alignment: .center)
                                                 }
                                         }.offset(y:40)
                                         
                                     }
                                     else {
-                                        List(content) { article in
+                                        List(content[4...]) { article in
                                             ArticleView(article: article)
                                                 .onTapGesture {
                                                     load(url: article.url)
@@ -68,7 +68,7 @@ struct ContentView: View {
                                 .padding()
                             }
                             .tabItem {
-                                Label("Weather", systemImage: "cloud.sun")
+                                Label("Weather", systemImage: "cloud")
                             }
                         }
                         VStack {

@@ -25,9 +25,8 @@ struct ArticleView: View {
                             cachePolicy: .returnCacheElseLoad(cacheDelay: nil, downloadDelay: 0.25) // Return cached image or download after delay
                                           ),
                          failure: { error, retry in         // Display error and retry button
-                            Image(systemName: "photo.fill")
-                                .foregroundColor(.white)
-                                .background(Color.gray)
+                            Image("Caution")
+                                .resizable()
                                 .frame(width: 100, height: 100)
                                 .cornerRadius(10)
                          },
@@ -39,9 +38,8 @@ struct ArticleView: View {
                     .frame(width: 100, height: 100)
                     .cornerRadius(10)
             } else {
-                Image(systemName: "photo.fill")
-                    .foregroundColor(.white)
-                    .background(Color.gray)
+                Image("Caution")
+                    .resizable()
                     .frame(width: 100, height: 100)
                     .cornerRadius(10)
             }
