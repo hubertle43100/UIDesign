@@ -12,6 +12,9 @@
 		5624E378280407BC004177CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5624E377280407BC004177CD /* Assets.xcassets */; };
 		5624E37B280407BC004177CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5624E37A280407BC004177CD /* Preview Assets.xcassets */; };
 		5624E3842804106E004177CD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624E3832804106E004177CD /* Utils.swift */; };
+		563966BB2820A550007E3719 /* SwiftSpeech in Frameworks */ = {isa = PBXBuildFile; productRef = 563966BA2820A550007E3719 /* SwiftSpeech */; };
+		563966BD2820A686007E3719 /* VoiceSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563966BC2820A686007E3719 /* VoiceSelect.swift */; };
+		56A909BB2810E3DC001866C4 /* MoneySelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A909BA2810E3DC001866C4 /* MoneySelect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +24,8 @@
 		5624E377280407BC004177CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5624E37A280407BC004177CD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5624E3832804106E004177CD /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		563966BC2820A686007E3719 /* VoiceSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceSelect.swift; sourceTree = "<group>"; };
+		56A909BA2810E3DC001866C4 /* MoneySelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySelect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				563966BB2820A550007E3719 /* SwiftSpeech in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +62,8 @@
 				5624E373280407B9004177CD /* DisCurrencyApp.swift */,
 				5624E375280407B9004177CD /* ContentView.swift */,
 				5624E3832804106E004177CD /* Utils.swift */,
+				56A909BA2810E3DC001866C4 /* MoneySelect.swift */,
+				563966BC2820A686007E3719 /* VoiceSelect.swift */,
 				5624E377280407BC004177CD /* Assets.xcassets */,
 				5624E379280407BC004177CD /* Preview Content */,
 			);
@@ -86,6 +94,9 @@
 			dependencies = (
 			);
 			name = DisCurrency;
+			packageProductDependencies = (
+				563966BA2820A550007E3719 /* SwiftSpeech */,
+			);
 			productName = DisCurrency;
 			productReference = 5624E370280407B9004177CD /* DisCurrency.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +125,9 @@
 				Base,
 			);
 			mainGroup = 5624E367280407B9004177CD;
+			packageReferences = (
+				563966B92820A550007E3719 /* XCRemoteSwiftPackageReference "SwiftSpeech" */,
+			);
 			productRefGroup = 5624E371280407B9004177CD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,7 +154,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56A909BB2810E3DC001866C4 /* MoneySelect.swift in Sources */,
 				5624E376280407B9004177CD /* ContentView.swift in Sources */,
+				563966BD2820A686007E3719 /* VoiceSelect.swift in Sources */,
 				5624E374280407B9004177CD /* DisCurrencyApp.swift in Sources */,
 				5624E3842804106E004177CD /* Utils.swift in Sources */,
 			);
@@ -274,6 +290,8 @@
 				DEVELOPMENT_TEAM = 42VXZMD96K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app uses the mircrophone to record audio for speech recognition.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "This app uses speech recognition to convert your speech into text.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -303,6 +321,8 @@
 				DEVELOPMENT_TEAM = 42VXZMD96K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app uses the mircrophone to record audio for speech recognition.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "This app uses speech recognition to convert your speech into text.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -343,6 +363,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		563966B92820A550007E3719 /* XCRemoteSwiftPackageReference "SwiftSpeech" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Cay-Zhang/SwiftSpeech";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		563966BA2820A550007E3719 /* SwiftSpeech */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 563966B92820A550007E3719 /* XCRemoteSwiftPackageReference "SwiftSpeech" */;
+			productName = SwiftSpeech;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5624E368280407B9004177CD /* Project object */;
 }

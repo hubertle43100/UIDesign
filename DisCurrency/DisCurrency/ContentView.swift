@@ -61,6 +61,20 @@ struct ContentView: View {
                     }
                     
                 }
+                Section(header: Text("Gesture Input")) {
+                    NavigationLink(destination: MoneySelect()) {
+                        Text("Gesture Convert")
+                            .foregroundColor(Color.green)
+                        
+                    }
+                }
+                Section(header: Text("Voice Input")) {
+                    NavigationLink(destination: VoiceSelect()) {
+                        Text("Speech Convert")
+                            .foregroundColor(Color.green)
+                        
+                    }
+                }
             }.navigationBarTitle(Text("Currency Exchange"))
         }
     }

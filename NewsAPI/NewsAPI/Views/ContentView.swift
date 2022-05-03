@@ -17,6 +17,21 @@ struct ContentView: View {
     @State var selected = 0
     let date = Date()
     
+    var width: CGFloat {
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                return UIScreen.main.bounds.width * 1
+            } else {
+                return UIScreen.main.bounds.width * 0.4
+            }
+        }
+    var height: CGFloat {
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                return UIScreen.main.bounds.height * 0.6
+            } else {
+                return UIScreen.main.bounds.height * 0.4
+            }
+        }
+    
     
     
     var body: some View {
@@ -41,6 +56,17 @@ struct ContentView: View {
                                 GeometryReader{_ in
                                     SegmentedControl(selected: $selected)
                                     if self.selected == 0 {
+                                        List(content[4...]) { article in
+                                            ArticleView(article: article)
+                                                .onTapGesture {
+                                                    load(url: article.url)
+                                                }
+                                        }.padding(.top, 80)
+                                        .offset(x:-16)
+                                        .frame(width: g.size.width, height: g.size.height - 50, alignment: .center)
+                                        
+                                    }
+                                    else {
                                         ScrollView (.horizontal, showsIndicators: false) {
                                                 HStack {
                                                     ForEach(content[1...3]) { article in
@@ -48,21 +74,9 @@ struct ContentView: View {
                                                             .onTapGesture {
                                                                 load(url: article.url)
                                                             }
-                                                    }
-                                                        .frame(width: g.size.width, height: g.size.height - 300, alignment: .center)
+                                                    }.frame(width: width, height:height, alignment: .center)
                                                 }
                                         }.offset(y:40)
-                                        
-                                    }
-                                    else {
-                                        List(content[4...]) { article in
-                                            ArticleView(article: article)
-                                                .onTapGesture {
-                                                    load(url: article.url)
-                                                }
-                                        }
-                                        .offset(x:-16,y:70)
-                                        .frame(width: g.size.width, height: g.size.height - 50, alignment: .center)
                                     }
                                 }
                                 .padding()
