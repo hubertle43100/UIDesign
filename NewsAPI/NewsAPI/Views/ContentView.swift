@@ -13,26 +13,9 @@ struct ContentView: View {
     @Environment(\.openURL) var openURL
     @StateObject var viewModel: ArticleViewModelImpl = ArticleViewModelImpl(service: ArticleServiceImpl())
     @StateObject var locationManager = LocationManager()
-    
     @State var selected = 0
     let date = Date()
-    
-    var width: CGFloat {
-            if UIDevice.current.userInterfaceIdiom == .phone {
-                return UIScreen.main.bounds.width * 1
-            } else {
-                return UIScreen.main.bounds.width * 0.4
-            }
-        }
-    var height: CGFloat {
-            if UIDevice.current.userInterfaceIdiom == .phone {
-                return UIScreen.main.bounds.height * 0.6
-            } else {
-                return UIScreen.main.bounds.height * 0.4
-            }
-        }
-    
-    
+    let screenSize: CGRect = UIScreen.main.bounds
     
     var body: some View {
         Group {
@@ -48,41 +31,42 @@ struct ContentView: View {
                     TabView {
                         ZStack {
                             VStack {
-                                Color("BabyBlue").ignoresSafeArea()
-                                Color("Matgray")
+                                Color("BabyBlue").ignoresSafeArea().frame(height: screenSize.height*0.33)
+                                Color.white.ignoresSafeArea()
                             }
                             VStack {
                                 MenuPage()
                                 GeometryReader{_ in
                                     SegmentedControl(selected: $selected)
                                     if self.selected == 0 {
-                                        List(content[4...]) { article in
-                                            ArticleView(article: article)
-                                                .onTapGesture {
-                                                    load(url: article.url)
+                                        ScrollView {
+                                            VStack {
+                                                ScrollView (.horizontal, showsIndicators: false) {
+                                                        HStack {
+                                                            ForEach(content[1...3]) { article in
+                                                                MainAriticleView(article: article)
+                                                                    .onTapGesture {
+                                                                        load(url: article.url)
+                                                                    }
+                                                            }
+                                                        }
                                                 }
-                                        }.padding(.top, 80)
-                                        .offset(x:-16)
-                                        .frame(width: g.size.width, height: g.size.height - 50, alignment: .center)
-                                        
+                                                ForEach(content[4...]) { article in
+                                                    ArticleView(article: article)
+                                                        .onTapGesture {
+                                                            load(url: article.url)
+                                                        }
+                                                }.frame(width: screenSize.width).background(Color.white)
+                                            }
+                                        }.offset(y:100)
                                     }
                                     else {
-                                        ScrollView (.horizontal, showsIndicators: false) {
-                                                HStack {
-                                                    ForEach(content[1...3]) { article in
-                                                        MainAriticleView(article: article)
-                                                            .onTapGesture {
-                                                                load(url: article.url)
-                                                            }
-                                                    }.frame(width: width, height:height, alignment: .center)
-                                                }
-                                        }.offset(y:40)
                                     }
                                 }
                                 .padding()
                             }
                             .tabItem {
-                                Label("Weather", systemImage: "cloud")
+                                Label("Home", systemImage: "cloud")
                             }
                         }
                         VStack {
@@ -123,7 +107,6 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct SegmentedControl : View {
-    
     @Binding var selected : Int
     
     var body : some View {
@@ -131,19 +114,27 @@ struct SegmentedControl : View {
             Button(action: {
                 self.selected = 0
             }) {
-                Text("Feeds").frame(width: 190, height: 30)
-                    .background(self.selected == 0 ? .white : Color(#colorLiteral(red: 0.9490196109, green: 0.9490197301, blue: 0.9490196109, alpha: 1)))
+                Text("Feeds")
+                    .frame(width: 65, height: 25)
+                    .padding(.vertical,12)
+                    .padding(.horizontal, 30)
+                    .background(self.selected == 0 ? .white : Color("Matgray"))
                     .clipShape(Capsule())
             }.foregroundColor(.black)
             Button(action: {
                 self.selected = 1
             }) {
-                Text("Popular").frame(width: 190, height: 30)
-                    .background(self.selected == 1 ? .white : Color(#colorLiteral(red: 0.9490196109, green: 0.9490197301, blue: 0.9490196109, alpha: 1)))
+                Text("Popular")
+                    .frame(width: 65, height: 25)
+                    .padding(.vertical,12)
+                    .padding(.horizontal, 30)
+                    .background(self.selected == 1 ? .white : Color("Matgray"))
                     .clipShape(Capsule())
             }.foregroundColor(.black)
-        }.padding(8).background(Color(#colorLiteral(red: 0.9490196109, green: 0.9490197301, blue: 0.9490196109, alpha: 1)))
+        }.padding(5)
+            .background(Color("Matgray"))
             .clipShape(Capsule())
+        
     }
 }
 

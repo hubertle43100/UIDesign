@@ -12,10 +12,10 @@ import URLImage
 struct ArticleView: View {
     
     let article: Article
+    let screenSize: CGRect = UIScreen.main.bounds
     
     var body: some View {
-        HStack {
-            // TODO: Add image view
+        HStack() {
             if let image = article.image,
                let url = URL(string: image){
                
@@ -25,10 +25,7 @@ struct ArticleView: View {
                             cachePolicy: .returnCacheElseLoad(cacheDelay: nil, downloadDelay: 0.25) // Return cached image or download after delay
                                           ),
                          failure: { error, retry in         // Display error and retry button
-                            Image("Caution")
-                                .resizable()
-                                .frame(width: 100, height: 100)
-                                .cornerRadius(10)
+                            Caution()
                          },
                          content: { image in
                             image
@@ -38,10 +35,7 @@ struct ArticleView: View {
                     .frame(width: 100, height: 100)
                     .cornerRadius(10)
             } else {
-                Image("Caution")
-                    .resizable()
-                    .frame(width: 100, height: 100)
-                    .cornerRadius(10)
+                Caution()
             }
 
             
@@ -54,7 +48,8 @@ struct ArticleView: View {
                     .foregroundColor(.gray)
                     .font(.system(size: 12, weight: .regular))
             }
-        }
+            Spacer()
+        }.frame(width: screenSize.width * 0.9).background(Color.white)
     }
 }
 
@@ -62,5 +57,14 @@ struct ArticleView_Previews: PreviewProvider {
     static var previews: some View {
         ArticleView(article: Article.dummyData)
             .previewLayout(.sizeThatFits)
+    }
+}
+
+struct Caution: View {
+    var body: some View {
+        Image("Caution")
+            .resizable()
+            .frame(width: 100, height: 100)
+            .cornerRadius(10)
     }
 }

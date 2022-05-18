@@ -27,7 +27,6 @@ struct MainAriticleView: View {
                          failure: { error, retry in         // Display error and retry button
                             Image("CautionGray")
                                 .resizable()
-                                .frame(width: 420, height: 500)
                                 .cornerRadius(10)
                          },
                          content: { image in
@@ -35,28 +34,28 @@ struct MainAriticleView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                          })
-                    .frame(width: 420, height: 500)
+                .frame(maxWidth: UIScreen.main.bounds.width-40,
+                       maxHeight: UIScreen.main.bounds.height*0.4)
                     .cornerRadius(10)
             } else {
                 Image("CautionGray")
                     .resizable()
-                    .frame(width: 420, height: 500)
                     .cornerRadius(10)
             }
             VStack(alignment: .leading, spacing: 4) {
                 Text(article.source ?? "")
-                    .background(Rectangle().fill(Color.gray).opacity(0.6).shadow(radius: 3).cornerRadius(10))
+                    .background(Rectangle().fill(Color.gray).opacity(0.6).shadow(radius: 3).cornerRadius(5))
                     .foregroundColor(.white)
                     .font(.system(size: 30, weight: .semibold))
                 Spacer()
                 Text(article.title ?? "")
-                    .background(Rectangle().fill(Color.gray).opacity(0.6).shadow(radius: 3).cornerRadius(10))
-                    .frame(width: 400)
+                    .background(Rectangle().fill(Color.gray).opacity(0.6).shadow(radius: 3).cornerRadius(5))
                     .foregroundColor(.white)
                     .font(.system(size: 28, weight: .semibold))
                     
                     
-            }.frame(width: 350, height: 460)
+            }.frame(maxWidth: UIScreen.main.bounds.width-40,
+                    maxHeight: UIScreen.main.bounds.height*0.4)
         }
     }
 }
@@ -64,6 +63,5 @@ struct MainAriticleView: View {
 struct MainAriticleView_Previews: PreviewProvider {
     static var previews: some View {
         MainAriticleView(article: Article.dummyData)
-            .previewLayout(.sizeThatFits)
     }
 }
