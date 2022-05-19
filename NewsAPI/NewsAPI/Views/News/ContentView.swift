@@ -31,7 +31,7 @@ struct ContentView: View {
                     TabView {
                         ZStack {
                             VStack {
-                                Color("BabyBlue").ignoresSafeArea().frame(height: screenSize.height*0.33)
+                                Color("BabyBlue").ignoresSafeArea().frame(height: screenSize.height * 0.33)
                                 Color.white.ignoresSafeArea()
                             }
                             VStack {
@@ -55,7 +55,7 @@ struct ContentView: View {
                                                     ArticleView(article: article)
                                                         .onTapGesture {
                                                             load(url: article.url)
-                                                        }
+                                                        }.padding(.trailing,40)
                                                 }.frame(width: screenSize.width).background(Color.white)
                                             }
                                         }.offset(y:100)
@@ -76,7 +76,11 @@ struct ContentView: View {
                                 if locationManager.isLoading {
                                     ProgressView()
                                 } else {
-                                    LocationView().environmentObject(locationManager)
+                                    if #available(iOS 15.0, *) {
+                                        WeatherView().environmentObject(locationManager)
+                                    } else {
+                                        // Fallback on earlier versions
+                                    }
                                 }
                             }
                         }.tabItem {
