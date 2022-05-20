@@ -2,45 +2,54 @@
 //  LocationView.swift
 //  NewsAPI
 //
-//  Created by Hubert Le on 4/6/22.
+//  Created by Hubert Le on 5/19/22.
 //
 
 import SwiftUI
-import CoreLocationUI
 
+
+@available(iOS 15.0, *)
 struct LocationView: View {
-    @EnvironmentObject var locationManager: LocationManager
+    // Replace YOUR_API_KEY in WeatherManager with your own API key for the app to work
+    @StateObject var locationManager = LocationManager()
+    var weatherManager = WeatherManager()
+    @State var weather: ResponseBody?
+    
+    @available(iOS 15.0, *)
     var body: some View {
         VStack {
-            VStack(spacing: 20) {
-                Text("Welcome to the Weather App")
-                    .bold()
-                    .font(.title)
-                
-                Text("Please share your current location to get the weather in your area")
-                    .padding()
-            }
-            .multilineTextAlignment(.center)
-            .padding()
-            
-            
-            // LocationButton from CoreLocationUI framework imported above, allows us to requestionLocation
-            if #available(iOS 15.0, *) {
-                LocationButton(.shareCurrentLocation) {
-                    locationManager.requestLocation()
+            if let location = locationManager.location {
+                if let location = location {
+                    if let weather = weather {
+                        Text("weather fetched")
+                    } else {
+                        LoadingView()
+                            .task {
+                                do {
+                                    weather = try await weatherManager.getCurrentWeather(latitude: location.latitude, longitude: location.longitude)
+                                } catch {
+                                    print("Error getting weather: \(error)")
+                                }
+                            }
+                    }
                 }
-                .cornerRadius(30)
-                .symbolVariant(.fill)
-                .foregroundColor(.white)
             } else {
-                // Fallback on earlier versions
+                if locationManager.isLoading {
+                    LoadingView()
+                } else {
+                    WelcomeView()
+                        .environmentObject(locationManager)
+                }
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
+        .preferredColorScheme(.dark)
     }
 }
 
+@available(iOS 15.0, *)
 struct LocationView_Previews: PreviewProvider {
+    @available(iOS 15.0, *)
     static var previews: some View {
         LocationView()
     }

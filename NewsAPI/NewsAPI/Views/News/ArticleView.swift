@@ -42,14 +42,14 @@ struct ArticleView: View {
             VStack(alignment: .leading, spacing: 4) {
                 
                 Text(article.title ?? "")
-                    .foregroundColor(.black)
+                    .foregroundColor(Color("DarkLight"))
                     .font(.system(size: 18, weight: .semibold))
                 Text(article.source ?? "")
                     .foregroundColor(.gray)
                     .font(.system(size: 12, weight: .regular))
             }
             Spacer()
-        }.frame(width: screenSize.width * 0.9).background(Color.white)
+        }.frame(width: screenSize.width * 0.9).background(Color("LightDark"))
     }
 }
 

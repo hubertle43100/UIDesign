@@ -29,45 +29,49 @@ struct ContentView: View {
             case .success(let content):
                 GeometryReader { g in
                     TabView {
-                        ZStack {
-                            VStack {
-                                Color("BabyBlue").ignoresSafeArea().frame(height: screenSize.height * 0.33)
-                                Color.white.ignoresSafeArea()
-                            }
-                            VStack {
-                                MenuPage()
-                                GeometryReader{_ in
-                                    SegmentedControl(selected: $selected)
-                                    if self.selected == 0 {
-                                        ScrollView {
-                                            VStack {
-                                                ScrollView (.horizontal, showsIndicators: false) {
-                                                        HStack {
-                                                            ForEach(content[1...3]) { article in
-                                                                MainAriticleView(article: article)
-                                                                    .onTapGesture {
-                                                                        load(url: article.url)
-                                                                    }
-                                                            }
-                                                        }
-                                                }
-                                                ForEach(content[4...]) { article in
-                                                    ArticleView(article: article)
-                                                        .onTapGesture {
-                                                            load(url: article.url)
-                                                        }.padding(.trailing,40)
-                                                }.frame(width: screenSize.width).background(Color.white)
-                                            }
-                                        }.offset(y:100)
-                                    }
-                                    else {
-                                    }
+                        VStack {
+                            ZStack {
+                                VStack {
+                                    Color("BabyBlue").ignoresSafeArea().frame(height: screenSize.height * 0.33)
+                                    Color("LightDark").ignoresSafeArea()
                                 }
-                                .padding()
+                                VStack {
+                                    MenuPage()
+                                    GeometryReader{_ in
+                                        SegmentedControl(selected: $selected)
+                                        if self.selected == 0 {
+                                            ScrollView {
+                                                VStack {
+                                                    ScrollView (.horizontal, showsIndicators: false) {
+                                                            HStack {
+                                                                ForEach(content[1...3]) { article in
+                                                                    MainAriticleView(article: article)
+                                                                        .onTapGesture {
+                                                                            load(url: article.url)
+                                                                        }
+                                                                }
+                                                            }
+                                                    }
+                                                    ForEach(content[4...]) { article in
+                                                        ArticleView(article: article)
+                                                            .onTapGesture {
+                                                                load(url: article.url)
+                                                            }
+                                                            .padding(.bottom, 5)
+                                                            
+                                                    }
+                                                }
+                                            }.offset(y:100)
+                                        }
+                                        else {
+                                        }
+                                    }
+                                    .padding()
+                                }
                             }
-                            .tabItem {
-                                Label("Home", systemImage: "cloud")
-                            }
+                        }
+                        .tabItem {
+                            Label("News", systemImage: "newspaper")
                         }
                         VStack {
                             if let location = locationManager.location {
@@ -77,7 +81,7 @@ struct ContentView: View {
                                     ProgressView()
                                 } else {
                                     if #available(iOS 15.0, *) {
-                                        WeatherView().environmentObject(locationManager)
+                                        LocationView().environmentObject(locationManager)
                                     } else {
                                         // Fallback on earlier versions
                                     }

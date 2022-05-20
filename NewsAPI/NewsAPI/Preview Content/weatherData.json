@@ -1,0 +1,43 @@
+{
+    "coord": {
+        "lon": -74.006,
+        "lat": 40.7143
+    },
+    "weather": [
+        {
+            "id": 701,
+            "main": "Mist",
+            "description": "mist",
+            "icon": "50d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 287.25,
+        "feels_like": 286.94,
+        "temp_min": 285.34,
+        "temp_max": 289.18,
+        "pressure": 1007,
+        "humidity": 85
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 2.57,
+        "deg": 70
+    },
+    "clouds": {
+        "all": 100
+    },
+    "dt": 1652980333,
+    "sys": {
+        "type": 2,
+        "id": 2039034,
+        "country": "US",
+        "sunrise": 1652952931,
+        "sunset": 1653005385
+    },
+    "timezone": -14400,
+    "id": 5128581,
+    "name": "New York",
+    "cod": 200
+}
