@@ -21,7 +21,7 @@ struct LocationView: View {
             if let location = locationManager.location {
                 if let location = location {
                     if let weather = weather {
-                        Text("weather fetched")
+                        WeatherView(weather: weather)
                     } else {
                         LoadingView()
                             .task {
