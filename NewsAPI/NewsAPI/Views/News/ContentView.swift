@@ -9,7 +9,6 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
-    
     @Environment(\.openURL) var openURL
     @StateObject var viewModel: ArticleViewModelImpl = ArticleViewModelImpl(service: ArticleServiceImpl())
     @StateObject var locationManager = LocationManager()
@@ -49,15 +48,23 @@ struct ContentView: View {
                                                                         .onTapGesture {
                                                                             load(url: article.url)
                                                                         }
+                                                                    Divider()
                                                                 }
                                                             }
-                                                    }
+                                                    }.padding(.bottom, 30)
+                                                    HStack {
+                                                        Text("Just for you").font(.system(size: 25.0).bold())
+                                                        
+                                                        Spacer()
+                                                        Text("See more").offset(y: 5).foregroundColor(Color("BabyBlue"))
+                                                    }.padding(.bottom, 20)
                                                     ForEach(content[4...]) { article in
                                                         ArticleView(article: article)
                                                             .onTapGesture {
                                                                 load(url: article.url)
                                                             }
                                                             .padding(.bottom, 5)
+                                                        Divider()
                                                             
                                                     }
                                                 }

@@ -42,7 +42,7 @@ struct LocationView: View {
                 }
             }
         }
-        .background(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
+        .background(Color("BabyBlue"))
         .preferredColorScheme(.dark)
     }
 }
