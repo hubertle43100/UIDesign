@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5635D4B02877548E00B9ACB3 /* TinyHabitsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5635D4AF2877548E00B9ACB3 /* TinyHabitsApp.swift */; };
+		5635D4B22877548E00B9ACB3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5635D4B12877548E00B9ACB3 /* ContentView.swift */; };
+		5635D4B42877548F00B9ACB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4B32877548F00B9ACB3 /* Assets.xcassets */; };
+		5635D4B72877548F00B9ACB3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4B62877548F00B9ACB3 /* Preview Assets.xcassets */; };
+		5635D4BE28775AB900B9ACB3 /* HabitMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5635D4BD28775AB900B9ACB3 /* HabitMain.swift */; };
+		5635D4DA28775EB800B9ACB3 /* SourceCodePro-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4C728775EB800B9ACB3 /* SourceCodePro-LightItalic.ttf */; };
+		5635D4DB28775EB800B9ACB3 /* SourceCodePro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4C828775EB800B9ACB3 /* SourceCodePro-SemiBold.ttf */; };
+		5635D4DC28775EB800B9ACB3 /* SourceCodePro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4C928775EB800B9ACB3 /* SourceCodePro-Medium.ttf */; };
+		5635D4DD28775EB800B9ACB3 /* SourceCodePro-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4CA28775EB800B9ACB3 /* SourceCodePro-SemiBoldItalic.ttf */; };
+		5635D4DE28775EB800B9ACB3 /* SourceCodePro-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4CB28775EB800B9ACB3 /* SourceCodePro-MediumItalic.ttf */; };
+		5635D4DF28775EB800B9ACB3 /* SourceCodePro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4CC28775EB800B9ACB3 /* SourceCodePro-Light.ttf */; };
+		5635D4E028775EB800B9ACB3 /* SourceCodePro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4CD28775EB800B9ACB3 /* SourceCodePro-BlackItalic.ttf */; };
+		5635D4E128775EB800B9ACB3 /* SourceCodePro-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4CE28775EB800B9ACB3 /* SourceCodePro-BoldItalic.ttf */; };
+		5635D4E228775EB800B9ACB3 /* SourceCodePro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4CF28775EB800B9ACB3 /* SourceCodePro-Black.ttf */; };
+		5635D4E328775EB800B9ACB3 /* SourceCodePro-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4D028775EB800B9ACB3 /* SourceCodePro-ExtraLight.ttf */; };
+		5635D4E428775EB800B9ACB3 /* SourceCodePro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4D128775EB800B9ACB3 /* SourceCodePro-Regular.ttf */; };
+		5635D4E528775EB800B9ACB3 /* SourceCodePro-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4D228775EB800B9ACB3 /* SourceCodePro-ExtraLightItalic.ttf */; };
+		5635D4E628775EB800B9ACB3 /* SourceCodePro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4D328775EB800B9ACB3 /* SourceCodePro-Italic.ttf */; };
+		5635D4E728775EB800B9ACB3 /* SourceCodePro-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4D428775EB800B9ACB3 /* SourceCodePro-ExtraBoldItalic.ttf */; };
+		5635D4E828775EB800B9ACB3 /* SourceCodePro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4D528775EB800B9ACB3 /* SourceCodePro-Bold.ttf */; };
+		5635D4E928775EB800B9ACB3 /* SourceCodePro-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4D628775EB800B9ACB3 /* SourceCodePro-ExtraBold.ttf */; };
+		5635D4EA28775EB800B9ACB3 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4D728775EB800B9ACB3 /* OFL.txt */; };
+		5635D4EB28775EB800B9ACB3 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4D828775EB800B9ACB3 /* README.txt */; };
+		5635D4EC28775EB800B9ACB3 /* SourceCodePro-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4D928775EB800B9ACB3 /* SourceCodePro-Italic-VariableFont_wght.ttf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5635D4AC2877548E00B9ACB3 /* TinyHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5635D4AF2877548E00B9ACB3 /* TinyHabitsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinyHabitsApp.swift; sourceTree = "<group>"; };
+		5635D4B12877548E00B9ACB3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5635D4B32877548F00B9ACB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5635D4B62877548F00B9ACB3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5635D4BD28775AB900B9ACB3 /* HabitMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitMain.swift; sourceTree = "<group>"; };
+		5635D4C428775CEA00B9ACB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5635D4C728775EB800B9ACB3 /* SourceCodePro-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-LightItalic.ttf"; sourceTree = "<group>"; };
+		5635D4C828775EB800B9ACB3 /* SourceCodePro-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-SemiBold.ttf"; sourceTree = "<group>"; };
+		5635D4C928775EB800B9ACB3 /* SourceCodePro-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Medium.ttf"; sourceTree = "<group>"; };
+		5635D4CA28775EB800B9ACB3 /* SourceCodePro-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		5635D4CB28775EB800B9ACB3 /* SourceCodePro-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-MediumItalic.ttf"; sourceTree = "<group>"; };
+		5635D4CC28775EB800B9ACB3 /* SourceCodePro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Light.ttf"; sourceTree = "<group>"; };
+		5635D4CD28775EB800B9ACB3 /* SourceCodePro-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-BlackItalic.ttf"; sourceTree = "<group>"; };
+		5635D4CE28775EB800B9ACB3 /* SourceCodePro-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-BoldItalic.ttf"; sourceTree = "<group>"; };
+		5635D4CF28775EB800B9ACB3 /* SourceCodePro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Black.ttf"; sourceTree = "<group>"; };
+		5635D4D028775EB800B9ACB3 /* SourceCodePro-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-ExtraLight.ttf"; sourceTree = "<group>"; };
+		5635D4D128775EB800B9ACB3 /* SourceCodePro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Regular.ttf"; sourceTree = "<group>"; };
+		5635D4D228775EB800B9ACB3 /* SourceCodePro-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		5635D4D328775EB800B9ACB3 /* SourceCodePro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Italic.ttf"; sourceTree = "<group>"; };
+		5635D4D428775EB800B9ACB3 /* SourceCodePro-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		5635D4D528775EB800B9ACB3 /* SourceCodePro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Bold.ttf"; sourceTree = "<group>"; };
+		5635D4D628775EB800B9ACB3 /* SourceCodePro-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-ExtraBold.ttf"; sourceTree = "<group>"; };
+		5635D4D728775EB800B9ACB3 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		5635D4D828775EB800B9ACB3 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		5635D4D928775EB800B9ACB3 /* SourceCodePro-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5635D4A92877548E00B9ACB3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5635D4A32877548E00B9ACB3 = {
+			isa = PBXGroup;
+			children = (
+				5635D4AE2877548E00B9ACB3 /* TinyHabits */,
+				5635D4AD2877548E00B9ACB3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5635D4AD2877548E00B9ACB3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5635D4AC2877548E00B9ACB3 /* TinyHabits.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5635D4AE2877548E00B9ACB3 /* TinyHabits */ = {
+			isa = PBXGroup;
+			children = (
+				5635D4C428775CEA00B9ACB3 /* Info.plist */,
+				5635D4C528775EB800B9ACB3 /* Source_Code_Pro */,
+				5635D4AF2877548E00B9ACB3 /* TinyHabitsApp.swift */,
+				5635D4B12877548E00B9ACB3 /* ContentView.swift */,
+				5635D4BD28775AB900B9ACB3 /* HabitMain.swift */,
+				5635D4B32877548F00B9ACB3 /* Assets.xcassets */,
+				5635D4B52877548F00B9ACB3 /* Preview Content */,
+			);
+			path = TinyHabits;
+			sourceTree = "<group>";
+		};
+		5635D4B52877548F00B9ACB3 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5635D4B62877548F00B9ACB3 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5635D4C528775EB800B9ACB3 /* Source_Code_Pro */ = {
+			isa = PBXGroup;
+			children = (
+				5635D4C628775EB800B9ACB3 /* static */,
+				5635D4D728775EB800B9ACB3 /* OFL.txt */,
+				5635D4D828775EB800B9ACB3 /* README.txt */,
+				5635D4D928775EB800B9ACB3 /* SourceCodePro-Italic-VariableFont_wght.ttf */,
+			);
+			path = Source_Code_Pro;
+			sourceTree = "<group>";
+		};
+		5635D4C628775EB800B9ACB3 /* static */ = {
+			isa = PBXGroup;
+			children = (
+				5635D4C728775EB800B9ACB3 /* SourceCodePro-LightItalic.ttf */,
+				5635D4C828775EB800B9ACB3 /* SourceCodePro-SemiBold.ttf */,
+				5635D4C928775EB800B9ACB3 /* SourceCodePro-Medium.ttf */,
+				5635D4CA28775EB800B9ACB3 /* SourceCodePro-SemiBoldItalic.ttf */,
+				5635D4CB28775EB800B9ACB3 /* SourceCodePro-MediumItalic.ttf */,
+				5635D4CC28775EB800B9ACB3 /* SourceCodePro-Light.ttf */,
+				5635D4CD28775EB800B9ACB3 /* SourceCodePro-BlackItalic.ttf */,
+				5635D4CE28775EB800B9ACB3 /* SourceCodePro-BoldItalic.ttf */,
+				5635D4CF28775EB800B9ACB3 /* SourceCodePro-Black.ttf */,
+				5635D4D028775EB800B9ACB3 /* SourceCodePro-ExtraLight.ttf */,
+				5635D4D128775EB800B9ACB3 /* SourceCodePro-Regular.ttf */,
+				5635D4D228775EB800B9ACB3 /* SourceCodePro-ExtraLightItalic.ttf */,
+				5635D4D328775EB800B9ACB3 /* SourceCodePro-Italic.ttf */,
+				5635D4D428775EB800B9ACB3 /* SourceCodePro-ExtraBoldItalic.ttf */,
+				5635D4D528775EB800B9ACB3 /* SourceCodePro-Bold.ttf */,
+				5635D4D628775EB800B9ACB3 /* SourceCodePro-ExtraBold.ttf */,
+			);
+			path = static;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5635D4AB2877548E00B9ACB3 /* TinyHabits */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5635D4BA2877548F00B9ACB3 /* Build configuration list for PBXNativeTarget "TinyHabits" */;
+			buildPhases = (
+				5635D4A82877548E00B9ACB3 /* Sources */,
+				5635D4A92877548E00B9ACB3 /* Frameworks */,
+				5635D4AA2877548E00B9ACB3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TinyHabits;
+			productName = TinyHabits;
+			productReference = 5635D4AC2877548E00B9ACB3 /* TinyHabits.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5635D4A42877548E00B9ACB3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					5635D4AB2877548E00B9ACB3 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 5635D4A72877548E00B9ACB3 /* Build configuration list for PBXProject "TinyHabits" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5635D4A32877548E00B9ACB3;
+			productRefGroup = 5635D4AD2877548E00B9ACB3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5635D4AB2877548E00B9ACB3 /* TinyHabits */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5635D4AA2877548E00B9ACB3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5635D4E928775EB800B9ACB3 /* SourceCodePro-ExtraBold.ttf in Resources */,
+				5635D4E628775EB800B9ACB3 /* SourceCodePro-Italic.ttf in Resources */,
+				5635D4DD28775EB800B9ACB3 /* SourceCodePro-SemiBoldItalic.ttf in Resources */,
+				5635D4E428775EB800B9ACB3 /* SourceCodePro-Regular.ttf in Resources */,
+				5635D4E128775EB800B9ACB3 /* SourceCodePro-BoldItalic.ttf in Resources */,
+				5635D4E028775EB800B9ACB3 /* SourceCodePro-BlackItalic.ttf in Resources */,
+				5635D4DA28775EB800B9ACB3 /* SourceCodePro-LightItalic.ttf in Resources */,
+				5635D4E728775EB800B9ACB3 /* SourceCodePro-ExtraBoldItalic.ttf in Resources */,
+				5635D4E828775EB800B9ACB3 /* SourceCodePro-Bold.ttf in Resources */,
+				5635D4EA28775EB800B9ACB3 /* OFL.txt in Resources */,
+				5635D4B72877548F00B9ACB3 /* Preview Assets.xcassets in Resources */,
+				5635D4B42877548F00B9ACB3 /* Assets.xcassets in Resources */,
+				5635D4EC28775EB800B9ACB3 /* SourceCodePro-Italic-VariableFont_wght.ttf in Resources */,
+				5635D4DC28775EB800B9ACB3 /* SourceCodePro-Medium.ttf in Resources */,
+				5635D4DF28775EB800B9ACB3 /* SourceCodePro-Light.ttf in Resources */,
+				5635D4EB28775EB800B9ACB3 /* README.txt in Resources */,
+				5635D4DE28775EB800B9ACB3 /* SourceCodePro-MediumItalic.ttf in Resources */,
+				5635D4E528775EB800B9ACB3 /* SourceCodePro-ExtraLightItalic.ttf in Resources */,
+				5635D4DB28775EB800B9ACB3 /* SourceCodePro-SemiBold.ttf in Resources */,
+				5635D4E328775EB800B9ACB3 /* SourceCodePro-ExtraLight.ttf in Resources */,
+				5635D4E228775EB800B9ACB3 /* SourceCodePro-Black.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5635D4A82877548E00B9ACB3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5635D4BE28775AB900B9ACB3 /* HabitMain.swift in Sources */,
+				5635D4B22877548E00B9ACB3 /* ContentView.swift in Sources */,
+				5635D4B02877548E00B9ACB3 /* TinyHabitsApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5635D4B82877548F00B9ACB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5635D4B92877548F00B9ACB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5635D4BB2877548F00B9ACB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TinyHabits/Preview Content\"";
+				DEVELOPMENT_TEAM = 42VXZMD96K;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TinyHabits/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hubertle.TinyHabits;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5635D4BC2877548F00B9ACB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TinyHabits/Preview Content\"";
+				DEVELOPMENT_TEAM = 42VXZMD96K;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TinyHabits/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hubertle.TinyHabits;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5635D4A72877548E00B9ACB3 /* Build configuration list for PBXProject "TinyHabits" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5635D4B82877548F00B9ACB3 /* Debug */,
+				5635D4B92877548F00B9ACB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5635D4BA2877548F00B9ACB3 /* Build configuration list for PBXNativeTarget "TinyHabits" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5635D4BB2877548F00B9ACB3 /* Debug */,
+				5635D4BC2877548F00B9ACB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5635D4A42877548E00B9ACB3 /* Project object */;
+}
