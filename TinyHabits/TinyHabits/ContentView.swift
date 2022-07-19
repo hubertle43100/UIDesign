@@ -12,16 +12,12 @@ struct ContentView: View {
         TabView {
             HabitMain()
                 .tabItem {
-                    Label("One", systemImage: "star")
+                    Label("Habits", systemImage: "pencil.circle.fill")
                 }
 
             Text("Tab 2")
                 .tabItem {
-                    Label("Two", systemImage: "circle")
-                }
-            Text("Tab 3")
-                .tabItem {
-                    Label("Two", systemImage: "circle")
+                    Label("Settings", systemImage: "line.horizontal.3.decrease.circle.fill")
                 }
         }
     }
