@@ -6,10 +6,15 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct SaveTask: View {
     var task: String
     @State var progressValue: Float
+    @State private var isShowingDetailView = false
+    
+    @StateObject var vm = CoreDataViewModel()
+    
     var body: some View {
         VStack {
             Header()
@@ -23,6 +28,18 @@ struct SaveTask: View {
             VStack {
                 ProgressBar(value: $progressValue).frame(height: 20)
             }.padding()
+            Spacer()
+            NavigationLink(destination: HabitDone(model: vm), isActive: $isShowingDetailView){
+                Button("Finishing up creating task") {
+                    self.isShowingDetailView = true
+                    vm.addHabitTask(text: task)
+                    vm.addHabitProgress(nums: progressValue)
+                }.padding()
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+                    .cornerRadius(8)
+                    .font(Font.custom("SourceCodePro-Bold", size: 15))
+            }
             Spacer()
         }
         

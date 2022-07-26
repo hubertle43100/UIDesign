@@ -14,6 +14,7 @@ struct TaskBubbles: View {
     @State var ratingD: Int = 0
     @State var ratingM: Int = 0
     
+    
     var body: some View {
         
         VStack{

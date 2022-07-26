@@ -29,6 +29,7 @@ struct HabitMain: View {
 
 struct TaskTitle: View {
     @State var TitleTextfield: String = ""
+    @State var isActive : Bool = false
     
     var body: some View {
         VStack {
@@ -45,7 +46,8 @@ struct TaskTitle: View {
                 .padding()
             
             if isValidTask() {
-                NavigationLink(destination: TaskBubbles(task: TitleTextfield), label: {
+                NavigationLink(destination: TaskBubbles(task: TitleTextfield),
+                               label: {
                     Text("Continue to Task Analysis")
                         .padding()
                         .foregroundColor(.white)
