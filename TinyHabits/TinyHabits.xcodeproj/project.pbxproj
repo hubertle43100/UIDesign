@@ -33,9 +33,9 @@
 		5635D4EC28775EB800B9ACB3 /* SourceCodePro-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4D928775EB800B9ACB3 /* SourceCodePro-Italic-VariableFont_wght.ttf */; };
 		56876DB22889F24600E5D84B /* TaskBubbles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56876DB12889F24600E5D84B /* TaskBubbles.swift */; };
 		56876DB4288A012000E5D84B /* SaveTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56876DB3288A012000E5D84B /* SaveTask.swift */; };
-		56876DB6288F3BA500E5D84B /* HabitDone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56876DB5288F3BA400E5D84B /* HabitDone.swift */; };
 		56876DBE288F497300E5D84B /* Habit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56876DBC288F497300E5D84B /* Habit.xcdatamodeld */; };
 		56876DC22890771200E5D84B /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56876DC12890771200E5D84B /* CoreDataViewModel.swift */; };
+		56876DC528921B6A00E5D84B /* TaskTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56876DC428921B6A00E5D84B /* TaskTitle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,9 +67,9 @@
 		5635D4D928775EB800B9ACB3 /* SourceCodePro-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		56876DB12889F24600E5D84B /* TaskBubbles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBubbles.swift; sourceTree = "<group>"; };
 		56876DB3288A012000E5D84B /* SaveTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTask.swift; sourceTree = "<group>"; };
-		56876DB5288F3BA400E5D84B /* HabitDone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDone.swift; sourceTree = "<group>"; };
 		56876DBD288F497300E5D84B /* Habit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Habit.xcdatamodel; sourceTree = "<group>"; };
 		56876DC12890771200E5D84B /* CoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
+		56876DC428921B6A00E5D84B /* TaskTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTitle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,15 +103,11 @@
 			isa = PBXGroup;
 			children = (
 				5635D4C428775CEA00B9ACB3 /* Info.plist */,
+				56876DC32892119E00E5D84B /* HabitPage */,
 				5635D4C528775EB800B9ACB3 /* Source_Code_Pro */,
-				5635D4AF2877548E00B9ACB3 /* TinyHabitsApp.swift */,
-				56876DB12889F24600E5D84B /* TaskBubbles.swift */,
-				56876DBC288F497300E5D84B /* Habit.xcdatamodeld */,
 				5635D4B12877548E00B9ACB3 /* ContentView.swift */,
-				56876DB3288A012000E5D84B /* SaveTask.swift */,
-				5635D4BD28775AB900B9ACB3 /* HabitMain.swift */,
-				56876DB5288F3BA400E5D84B /* HabitDone.swift */,
-				56876DC12890771200E5D84B /* CoreDataViewModel.swift */,
+				5635D4AF2877548E00B9ACB3 /* TinyHabitsApp.swift */,
+				56876DBC288F497300E5D84B /* Habit.xcdatamodeld */,
 				5635D4B32877548F00B9ACB3 /* Assets.xcassets */,
 				5635D4B52877548F00B9ACB3 /* Preview Content */,
 			);
@@ -158,6 +154,18 @@
 				5635D4D628775EB800B9ACB3 /* SourceCodePro-ExtraBold.ttf */,
 			);
 			path = static;
+			sourceTree = "<group>";
+		};
+		56876DC32892119E00E5D84B /* HabitPage */ = {
+			isa = PBXGroup;
+			children = (
+				5635D4BD28775AB900B9ACB3 /* HabitMain.swift */,
+				56876DC428921B6A00E5D84B /* TaskTitle.swift */,
+				56876DB12889F24600E5D84B /* TaskBubbles.swift */,
+				56876DB3288A012000E5D84B /* SaveTask.swift */,
+				56876DC12890771200E5D84B /* CoreDataViewModel.swift */,
+			);
+			path = HabitPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,7 +257,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56876DB6288F3BA500E5D84B /* HabitDone.swift in Sources */,
 				56876DC22890771200E5D84B /* CoreDataViewModel.swift in Sources */,
 				5635D4BE28775AB900B9ACB3 /* HabitMain.swift in Sources */,
 				56876DBE288F497300E5D84B /* Habit.xcdatamodeld in Sources */,
@@ -257,6 +264,7 @@
 				5635D4B22877548E00B9ACB3 /* ContentView.swift in Sources */,
 				56876DB22889F24600E5D84B /* TaskBubbles.swift in Sources */,
 				5635D4B02877548E00B9ACB3 /* TinyHabitsApp.swift in Sources */,
+				56876DC528921B6A00E5D84B /* TaskTitle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

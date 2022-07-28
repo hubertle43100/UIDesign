@@ -1,31 +1,12 @@
 //
-//  HabitMain.swift
+//  TaskTitle.swift
 //  TinyHabits
 //
-//  Created by Hubert Le on 7/7/22.
+//  Created by Hubert Le on 7/27/22.
 //
 
+import Foundation
 import SwiftUI
-
-struct HabitMain: View {
-    var body: some View {
-        NavigationView {
-            VStack {
-                Header()
-                NavigationLink(destination: TaskTitle(), label: {
-                    Text("Start a New Tiny Habit")
-                        .frame(width: 300, height: 100)
-                        .foregroundColor(.white)
-                        .background(Color.gray)
-                        .cornerRadius(8)
-                        .font(Font.custom("SourceCodePro-Bold", size: 15))
-                }).padding()
-                Spacer()
-                
-            }
-        }.accentColor(Color(.label))
-    }
-}
 
 struct TaskTitle: View {
     @State var TitleTextfield: String = ""
@@ -65,25 +46,5 @@ struct TaskTitle: View {
             return true
         }
         return false
-    }
-}
-
-
-struct Header: View {
-    var body: some View {
-        VStack {
-            Text("Tiny Habits").font(Font.custom("SourceCodePro-Bold", size: 30))
-            Text("\(Date().formatted(.dateTime.month().day().hour().minute()))").font(Font.custom("SourceCodePro-Bold", size: 15))
-            
-        }
-    }
-}
-
-struct HabitMain_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            HabitMain()
-                .previewInterfaceOrientation(.portrait)
-        }
     }
 }

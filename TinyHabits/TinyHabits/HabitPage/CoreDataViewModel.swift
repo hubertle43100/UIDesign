@@ -10,8 +10,7 @@ import CoreData
 
 class CoreDataViewModel: ObservableObject {
     let container: NSPersistentContainer
-    @Published var savedEntitiesTask: [HabitEntity] = []
-    @Published var savedEntitiesProg: [HabitEntity] = []
+    @Published var savedEntities: [HabitEntity] = []
     
     init() {
         container = NSPersistentContainer(name: "Habit")
@@ -25,22 +24,16 @@ class CoreDataViewModel: ObservableObject {
     func fetchHabit() {
         let request = NSFetchRequest<HabitEntity>(entityName: "HabitEntity")
         do {
-            savedEntitiesTask = try container.viewContext.fetch(request)
-            savedEntitiesProg = try container.viewContext.fetch(request)
+            savedEntities = try container.viewContext.fetch(request)
         } catch let error {
             print("Error fetching. \(error)")
         }
     }
     
-    func addHabitTask(text: String) {
-        let newHabitTask = HabitEntity(context: container.viewContext)
-        newHabitTask.task = text
-        saveData()
-    }
-    
-    func addHabitProgress(nums: Float) {
-        let newHabitProg = HabitEntity(context: container.viewContext)
-        newHabitProg.progressValue = nums
+    func addHabit(text: String, nums: Float) {
+        let newHabit = HabitEntity(context: container.viewContext)
+        newHabit.task = text
+        newHabit.progressValue = nums
         saveData()
     }
     
@@ -51,9 +44,15 @@ class CoreDataViewModel: ObservableObject {
         saveData()
     }
     
-    func deleteFruit(indexSet: IndexSet) {
+    func deleteHabit(indexSet: IndexSet) {
         guard let index = indexSet.first else {return}
-        let entity = savedEntitiesTask[index]
+        let entity = savedEntities[index]
+        container.viewContext.delete(entity)
+        saveData()
+    }
+    
+    func quickDeleteHabit() {
+        let entity = savedEntities[0]
         container.viewContext.delete(entity)
         saveData()
     }

@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var vm = CoreDataViewModel()
+    
     var body: some View {
         TabView {
-            HabitMain()
+            HabitMain(model: vm)
                 .tabItem {
                     Label("Habits", systemImage: "pencil.circle.fill")
                 }

@@ -29,11 +29,10 @@ struct SaveTask: View {
                 ProgressBar(value: $progressValue).frame(height: 20)
             }.padding()
             Spacer()
-            NavigationLink(destination: HabitDone(model: vm), isActive: $isShowingDetailView){
+            NavigationLink(destination: HabitMain(model: vm), isActive: $isShowingDetailView){
                 Button("Finishing up creating task") {
                     self.isShowingDetailView = true
-                    vm.addHabitTask(text: task)
-                    vm.addHabitProgress(nums: progressValue)
+                    vm.addHabit(text: task, nums: progressValue)
                 }.padding()
                     .foregroundColor(.white)
                     .background(Color.blue)
