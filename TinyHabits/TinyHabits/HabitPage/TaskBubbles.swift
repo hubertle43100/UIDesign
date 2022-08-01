@@ -14,6 +14,7 @@ struct TaskBubbles: View {
     @State var ratingD: Int = 0
     @State var ratingM: Int = 0
     
+    @Binding var rootIsActive : Bool
     
     var body: some View {
         
@@ -38,7 +39,13 @@ struct TaskBubbles: View {
                                 isDiffClicked = true
                             }
                     }
-                }.padding(.bottom)
+                }.padding(.bottom,5)
+                HStack {
+                    Text("Hard")
+                    Spacer()
+                    Text("Easy")
+                }.frame(width: 300)
+                    .padding(.bottom)
                 Text("Motivation for Task").padding()
                 HStack {
                     ForEach(1..<11) { index in
@@ -50,27 +57,28 @@ struct TaskBubbles: View {
                                 isMotiClicked = true
                             }
                     }
-                }
+                }.padding(.bottom,5)
+                HStack {
+                    Text("Low")
+                    Spacer()
+                    Text("High")
+                }.frame(width: 300)
+                    .padding(.bottom)
             }.font(Font.custom("SourceCodePro-Bold", size: 15))
             Spacer()
             if isDiffClicked && isMotiClicked {
-                NavigationLink(destination: SaveTask(task: task, progressValue: Float(ratingD + ratingM)/20), label: {
-                    Text("Continue to Task Analysis")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.blue)
-                        .cornerRadius(8)
-                        .font(Font.custom("SourceCodePro-Bold", size: 15))
-                    
-                })
+//                NavigationLink(destination: SaveTask(task: task, progressValue: Float(ratingD + ratingM)/20, shouldPopToRootView: self.$rootIsActive), label: {
+//                    Text("Continue to Task Analysis")
+//                        .padding()
+//                        .foregroundColor(.white)
+//                        .background(Color.blue)
+//                        .cornerRadius(8)
+//                        .font(Font.custom("SourceCodePro-Bold", size: 15))
+//                    
+//                }).isDetailLink(false)
             }
             Spacer()
         }
     }
 }
 
-struct TaskBubbles_Previews: PreviewProvider {
-    static var previews: some View {
-        TaskBubbles(task: "Getting up mile time up to help my mental and overall fitness to participate in future runs.")
-    }
-}

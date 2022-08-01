@@ -15,14 +15,24 @@ struct ContentView: View {
         TabView {
             HabitMain(model: vm)
                 .tabItem {
-                    Label("Habits", systemImage: "pencil.circle.fill")
+                    
+                    VStack {
+                        Text("Habits")
+                        Image(systemName: "pencil.circle.fill")
+                            .renderingMode(.template)
+                    }
+                    
                 }
-
+            
             Text("Tab 2")
                 .tabItem {
-                    Label("Settings", systemImage: "line.horizontal.3.decrease.circle.fill")
+                    VStack {
+                        Text("Setting")
+                        Image(systemName: "line.horizontal.3.decrease.circle.fill")
+                            .renderingMode(.template)
+                    }
                 }
-        }
+        }.accentColor(Color.green)
     }
 }
 

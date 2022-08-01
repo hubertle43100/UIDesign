@@ -10,12 +10,12 @@ import SwiftUI
 
 struct TaskTitle: View {
     @State var TitleTextfield: String = ""
-    @State var isActive : Bool = false
+    @Binding var rootIsActive : Bool
     
     var body: some View {
         VStack {
             Header()
-            Image("GroupWork")
+            Image("FruitGirl")
                 .resizable()
                 .frame(width: 275, height: 210)
                 .cornerRadius(10)
@@ -27,7 +27,7 @@ struct TaskTitle: View {
                 .padding()
             
             if isValidTask() {
-                NavigationLink(destination: TaskBubbles(task: TitleTextfield),
+                NavigationLink(destination: TaskBubbles(task: TitleTextfield, rootIsActive: self.$rootIsActive),
                                label: {
                     Text("Continue to Task Analysis")
                         .padding()
@@ -36,7 +36,7 @@ struct TaskTitle: View {
                         .cornerRadius(8)
                         .font(Font.custom("SourceCodePro-Bold", size: 15))
                     
-                })
+                }).isDetailLink(false)
             }
             Spacer()
         }
