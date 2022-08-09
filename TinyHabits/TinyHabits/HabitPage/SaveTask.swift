@@ -24,21 +24,21 @@ struct SaveTask: View {
                 HeaderTask(title: task)
                 Spacer()
             }
-            let formattedFloat = String(format: "%.0f", progressValue * 100)
-            Text("Your Percentage: \(formattedFloat)%").font(Font.custom("SourceCodePro-Bold", size: 15))
             if progressValue < 0.6 {
                 Tips(decimal: progressValue)
+            } else {
+                Continue()
+                Button(action: {
+    //                self.shouldPopToRootView = false
+    //                vm.addHabit(text: task, nums: progressValue)
+                }) {
+                    Text("Let's get started").font(Font.custom("SourceCodePro-Bold", size: 15))
+                }.padding()
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+                    .cornerRadius(8)
             }
             Spacer()
-            Button(action: {
-//                self.shouldPopToRootView = false
-//                vm.addHabit(text: task, nums: progressValue)
-            }) {
-                Text("Button")
-            }.padding()
-                .foregroundColor(.white)
-                .background(Color.blue)
-                .cornerRadius(8)
             
         }
         
@@ -81,6 +81,8 @@ struct Tips: View {
     
     var body: some View {
         Group {
+            let formattedFloat = String(format: "%.0f", decimal * 100)
+            Text("Your Percentage: \(formattedFloat)%").font(Font.custom("SourceCodePro-Bold", size: 15))
             VStack {
                 ProgressBar(value: $decimal).frame(height: 20)
             }.padding()
@@ -98,6 +100,21 @@ struct Tips: View {
                 Text("Drink water --> drink 20 oz water before breakfast").opacity(0.5)
             }.frame(width: 300, alignment: .leading)
         }.font(Font.custom("SourceCodePro-Bold", size: 15))
+    }
+}
+
+struct Continue: View {
+    
+    var body: some View {
+        VStack {
+            Image("FruitGirl")
+                .resizable()
+                .frame(width: 275, height: 210)
+                .cornerRadius(10)
+            Text("Nicely done!\n\nIMPORANT: Don't forget to click the update for the new task to appear.").padding().font(Font.custom("SourceCodePro-Bold", size: 14))
+                .frame(width: 350)
+                .multilineTextAlignment(.leading)
+        }
     }
 }
 
