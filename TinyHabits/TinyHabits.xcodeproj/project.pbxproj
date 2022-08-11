@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		561A072E28A3118500A0AFBF /* SettingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561A072D28A3118500A0AFBF /* SettingMain.swift */; };
+		561A073028A339D300A0AFBF /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561A072F28A339D300A0AFBF /* PaymentButton.swift */; };
 		5635D4B02877548E00B9ACB3 /* TinyHabitsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5635D4AF2877548E00B9ACB3 /* TinyHabitsApp.swift */; };
 		5635D4B22877548E00B9ACB3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5635D4B12877548E00B9ACB3 /* ContentView.swift */; };
 		5635D4B42877548F00B9ACB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4B32877548F00B9ACB3 /* Assets.xcassets */; };
@@ -36,10 +38,11 @@
 		56876DBE288F497300E5D84B /* Habit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56876DBC288F497300E5D84B /* Habit.xcdatamodeld */; };
 		56876DC22890771200E5D84B /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56876DC12890771200E5D84B /* CoreDataViewModel.swift */; };
 		56876DC528921B6A00E5D84B /* TaskTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56876DC428921B6A00E5D84B /* TaskTitle.swift */; };
-		56876DC7289336F000E5D84B /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56876DC6289336F000E5D84B /* SwiftUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		561A072D28A3118500A0AFBF /* SettingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingMain.swift; sourceTree = "<group>"; };
+		561A072F28A339D300A0AFBF /* PaymentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
 		5635D4AC2877548E00B9ACB3 /* TinyHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5635D4AF2877548E00B9ACB3 /* TinyHabitsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinyHabitsApp.swift; sourceTree = "<group>"; };
 		5635D4B12877548E00B9ACB3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,7 +74,6 @@
 		56876DBD288F497300E5D84B /* Habit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Habit.xcdatamodel; sourceTree = "<group>"; };
 		56876DC12890771200E5D84B /* CoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
 		56876DC428921B6A00E5D84B /* TaskTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTitle.swift; sourceTree = "<group>"; };
-		56876DC6289336F000E5D84B /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		561A072C28A3113E00A0AFBF /* SettingPage */ = {
+			isa = PBXGroup;
+			children = (
+				561A072D28A3118500A0AFBF /* SettingMain.swift */,
+				561A072F28A339D300A0AFBF /* PaymentButton.swift */,
+			);
+			path = SettingPage;
+			sourceTree = "<group>";
+		};
 		5635D4A32877548E00B9ACB3 = {
 			isa = PBXGroup;
 			children = (
@@ -106,13 +117,13 @@
 			children = (
 				5635D4C428775CEA00B9ACB3 /* Info.plist */,
 				56876DC32892119E00E5D84B /* HabitPage */,
-				5635D4C528775EB800B9ACB3 /* Source_Code_Pro */,
+				561A072C28A3113E00A0AFBF /* SettingPage */,
 				5635D4B12877548E00B9ACB3 /* ContentView.swift */,
 				5635D4AF2877548E00B9ACB3 /* TinyHabitsApp.swift */,
 				56876DBC288F497300E5D84B /* Habit.xcdatamodeld */,
 				5635D4B32877548F00B9ACB3 /* Assets.xcassets */,
+				5635D4C528775EB800B9ACB3 /* Source_Code_Pro */,
 				5635D4B52877548F00B9ACB3 /* Preview Content */,
-				56876DC6289336F000E5D84B /* SwiftUIView.swift */,
 			);
 			path = TinyHabits;
 			sourceTree = "<group>";
@@ -262,11 +273,12 @@
 			files = (
 				56876DC22890771200E5D84B /* CoreDataViewModel.swift in Sources */,
 				5635D4BE28775AB900B9ACB3 /* HabitMain.swift in Sources */,
-				56876DC7289336F000E5D84B /* SwiftUIView.swift in Sources */,
 				56876DBE288F497300E5D84B /* Habit.xcdatamodeld in Sources */,
 				56876DB4288A012000E5D84B /* SaveTask.swift in Sources */,
+				561A073028A339D300A0AFBF /* PaymentButton.swift in Sources */,
 				5635D4B22877548E00B9ACB3 /* ContentView.swift in Sources */,
 				56876DB22889F24600E5D84B /* TaskBubbles.swift in Sources */,
+				561A072E28A3118500A0AFBF /* SettingMain.swift in Sources */,
 				5635D4B02877548E00B9ACB3 /* TinyHabitsApp.swift in Sources */,
 				56876DC528921B6A00E5D84B /* TaskTitle.swift in Sources */,
 			);

@@ -15,7 +15,6 @@ struct ContentView: View {
         TabView {
             HabitMain(model: vm)
                 .tabItem {
-                    
                     VStack {
                         Text("Habits")
                         Image(systemName: "pencil.circle.fill")
@@ -24,7 +23,7 @@ struct ContentView: View {
                     
                 }
             
-            Text("Tab 2")
+            SettingMain()
                 .tabItem {
                     VStack {
                         Text("Setting")

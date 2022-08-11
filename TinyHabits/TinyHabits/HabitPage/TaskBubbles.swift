@@ -19,7 +19,7 @@ struct TaskBubbles: View {
     var body: some View {
         
         VStack{
-            Header()
+            Header(Title: "Tiny Habits")
             Spacer()
             Text(task).font(Font.custom("SourceCodePro-Bold", size: 20))
                 .multilineTextAlignment(.center)
@@ -67,15 +67,15 @@ struct TaskBubbles: View {
             }.font(Font.custom("SourceCodePro-Bold", size: 15))
             Spacer()
             if isDiffClicked && isMotiClicked {
-//                NavigationLink(destination: SaveTask(task: task, progressValue: Float(ratingD + ratingM)/20, shouldPopToRootView: self.$rootIsActive), label: {
-//                    Text("Continue to Task Analysis")
-//                        .padding()
-//                        .foregroundColor(.white)
-//                        .background(Color.blue)
-//                        .cornerRadius(8)
-//                        .font(Font.custom("SourceCodePro-Bold", size: 15))
-//                    
-//                }).isDetailLink(false)
+                NavigationLink(destination: SaveTask(task: task, progressValue: Float(ratingD + ratingM)/20, shouldPopToRootView: self.$rootIsActive), label: {
+                    Text("Continue to Task Analysis")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.blue)
+                        .cornerRadius(8)
+                        .font(Font.custom("SourceCodePro-Bold", size: 15))
+                    
+                }).isDetailLink(false)
             }
             Spacer()
         }

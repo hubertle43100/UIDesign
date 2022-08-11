@@ -15,27 +15,31 @@ struct HabitMain: View {
         NavigationView {
             ScrollView {
                 VStack {
-                    Header().padding(.bottom, 50)
+                    Header(Title: "Tiny Habits").padding(.bottom, 50)
                     taskUpdate(model: model)
-                        NavigationLink(destination: TaskTitle(rootIsActive: $isActive),isActive: self.$isActive, label: {
-                            Text("Start a New Tiny Habit")
-                                .frame(width: 300, height: 100)
+                    if model.savedEntities.count < 3 {
+                        Group {
+                            NavigationLink(destination: TaskTitle(rootIsActive: $isActive),isActive: self.$isActive, label: {
+                                Text("Start a New Tiny Habit")
+                                    .frame(width: 300, height: 100)
+                                    .foregroundColor(.white)
+                                    .background(Color.gray)
+                                    .cornerRadius(8)
+                                    .font(Font.custom("SourceCodePro-Bold", size: 15))
+                            }).isDetailLink(false)
+                                .padding()
+                            Button(action: {
+                                model.saveData()
+                            }) {
+                                Text("Update task")
+                            }.padding()
                                 .foregroundColor(.white)
-                                .background(Color.gray)
+                                .background(Color.green)
                                 .cornerRadius(8)
                                 .font(Font.custom("SourceCodePro-Bold", size: 15))
-                        }).isDetailLink(false)
-                            .padding()
-                    Button(action: {
-                        model.saveData()
-                    }) {
-                        Text("Update task")
-                    }.padding()
-                        .foregroundColor(.white)
-                        .background(Color.green)
-                        .cornerRadius(8)
-                        .font(Font.custom("SourceCodePro-Bold", size: 15))
-                    Spacer()
+                            Spacer()
+                        }.offset(y: -15)
+                    }
                     
                 }.navigationBarBackButtonHidden(true)
             }
@@ -48,9 +52,10 @@ struct HabitMain: View {
 
 
 struct Header: View {
+    var Title: String
     var body: some View {
         VStack {
-            Text("Tiny Habits").font(Font.custom("SourceCodePro-Bold", size: 30))
+            Text(Title).font(Font.custom("SourceCodePro-Bold", size: 30))
             Text("\(Date().formatted(.dateTime.month().day().hour().minute()))").font(Font.custom("SourceCodePro-Bold", size: 15))
             
         }
@@ -62,19 +67,18 @@ struct taskUpdate: View {
     
     var body: some View {
         ForEach(model.savedEntities) { entity in
-            //progressValue = entity.progressValue
             Button {
                 model.quickDeleteHabit()
             } label: {
                 VStack {
                     Text(entity.task ?? "Task Not found!")
                     //ProgressBar(value: entity.progressValue).frame(height: 20)
-                        .padding(.leading)
-                        .padding(.trailing)
+//                        .padding(.leading)
+//                        .padding(.trailing)
                 }
             }.frame(width: 300, height: 100)
                 .foregroundColor(.white)
-                .background(Color.red)
+                .background(Color.green)
                 .cornerRadius(8)
                 .font(Font.custom("SourceCodePro-Bold", size: 15))
         }

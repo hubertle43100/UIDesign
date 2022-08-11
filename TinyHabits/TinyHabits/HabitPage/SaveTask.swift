@@ -12,14 +12,14 @@ struct SaveTask: View {
     var task: String
     @State var progressValue: Float
     
-    //@StateObject var vm = CoreDataViewModel()
+    @StateObject var vm = CoreDataViewModel()
     
-    //@Binding var shouldPopToRootView : Bool
+    @Binding var shouldPopToRootView : Bool
     
     var body: some View {
         VStack {
             Group {
-                Header()
+                Header(Title: "Tiny Habits")
                 Spacer()
                 HeaderTask(title: task)
                 Spacer()
@@ -29,8 +29,8 @@ struct SaveTask: View {
             } else {
                 Continue()
                 Button(action: {
-    //                self.shouldPopToRootView = false
-    //                vm.addHabit(text: task, nums: progressValue)
+                    self.shouldPopToRootView = false
+                    vm.addHabit(text: task, nums: progressValue)
                 }) {
                     Text("Let's get started").font(Font.custom("SourceCodePro-Bold", size: 15))
                 }.padding()
@@ -46,7 +46,7 @@ struct SaveTask: View {
 }
 
 struct ProgressBar: View {
-    @Binding var value: Float
+    var value: Float
     
     var body: some View {
         GeometryReader { geometry in
@@ -84,7 +84,7 @@ struct Tips: View {
             let formattedFloat = String(format: "%.0f", decimal * 100)
             Text("Your Percentage: \(formattedFloat)%").font(Font.custom("SourceCodePro-Bold", size: 15))
             VStack {
-                ProgressBar(value: $decimal).frame(height: 20)
+                ProgressBar(value: decimal).frame(height: 20)
             }.padding()
             Text("^").offset(x:35, y:-10)
             Text("60%")
@@ -111,19 +111,13 @@ struct Continue: View {
                 .resizable()
                 .frame(width: 275, height: 210)
                 .cornerRadius(10)
-            Text("Nicely done!\n\nIMPORANT: Don't forget to click the update for the new task to appear.").padding().font(Font.custom("SourceCodePro-Bold", size: 14))
+            Text("Nicely done!\n\nIMPORANT: Don't forget to click the update button for the new task to appear.").padding().font(Font.custom("SourceCodePro-Bold", size: 14))
                 .frame(width: 350)
                 .multilineTextAlignment(.leading)
         }
     }
 }
 
-
-struct SaveTask_Previews: PreviewProvider {
-    static var previews: some View {
-        SaveTask(task: "Help", progressValue: 0.6)
-    }
-}
 
 
 

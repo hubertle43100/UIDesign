@@ -14,7 +14,7 @@ struct TaskTitle: View {
     
     var body: some View {
         VStack {
-            Header()
+            Header(Title: "Tiny Habits")
             Image("FruitGirl")
                 .resizable()
                 .frame(width: 275, height: 210)
