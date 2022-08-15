@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		561A072E28A3118500A0AFBF /* SettingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561A072D28A3118500A0AFBF /* SettingMain.swift */; };
-		561A073028A339D300A0AFBF /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561A072F28A339D300A0AFBF /* PaymentButton.swift */; };
+		5630571D28A5B483001F237A /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630571C28A5B483001F237A /* PaymentButton.swift */; };
+		5630571F28A5B9AB001F237A /* PaymentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630571E28A5B9AB001F237A /* PaymentHandler.swift */; };
 		5635D4B02877548E00B9ACB3 /* TinyHabitsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5635D4AF2877548E00B9ACB3 /* TinyHabitsApp.swift */; };
 		5635D4B22877548E00B9ACB3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5635D4B12877548E00B9ACB3 /* ContentView.swift */; };
 		5635D4B42877548F00B9ACB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4B32877548F00B9ACB3 /* Assets.xcassets */; };
@@ -33,16 +34,20 @@
 		5635D4EA28775EB800B9ACB3 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4D728775EB800B9ACB3 /* OFL.txt */; };
 		5635D4EB28775EB800B9ACB3 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4D828775EB800B9ACB3 /* README.txt */; };
 		5635D4EC28775EB800B9ACB3 /* SourceCodePro-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4D928775EB800B9ACB3 /* SourceCodePro-Italic-VariableFont_wght.ttf */; };
+		5641406C28A5AB2D00F84289 /* StripeApplePay in Frameworks */ = {isa = PBXBuildFile; productRef = 5641406B28A5AB2D00F84289 /* StripeApplePay */; };
 		56876DB22889F24600E5D84B /* TaskBubbles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56876DB12889F24600E5D84B /* TaskBubbles.swift */; };
 		56876DB4288A012000E5D84B /* SaveTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56876DB3288A012000E5D84B /* SaveTask.swift */; };
 		56876DBE288F497300E5D84B /* Habit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56876DBC288F497300E5D84B /* Habit.xcdatamodeld */; };
 		56876DC22890771200E5D84B /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56876DC12890771200E5D84B /* CoreDataViewModel.swift */; };
 		56876DC528921B6A00E5D84B /* TaskTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56876DC428921B6A00E5D84B /* TaskTitle.swift */; };
+		56A3CCF228A5AD7800E7EB2C /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = 56A3CCF128A5AD7800E7EB2C /* Stripe */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		561A072D28A3118500A0AFBF /* SettingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingMain.swift; sourceTree = "<group>"; };
-		561A072F28A339D300A0AFBF /* PaymentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
+		5630571528A5AF59001F237A /* TinyHabits.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TinyHabits.entitlements; sourceTree = "<group>"; };
+		5630571C28A5B483001F237A /* PaymentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
+		5630571E28A5B9AB001F237A /* PaymentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentHandler.swift; sourceTree = "<group>"; };
 		5635D4AC2877548E00B9ACB3 /* TinyHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5635D4AF2877548E00B9ACB3 /* TinyHabitsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinyHabitsApp.swift; sourceTree = "<group>"; };
 		5635D4B12877548E00B9ACB3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +86,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5641406C28A5AB2D00F84289 /* StripeApplePay in Frameworks */,
+				56A3CCF228A5AD7800E7EB2C /* Stripe in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,8 +97,9 @@
 		561A072C28A3113E00A0AFBF /* SettingPage */ = {
 			isa = PBXGroup;
 			children = (
+				5630571E28A5B9AB001F237A /* PaymentHandler.swift */,
 				561A072D28A3118500A0AFBF /* SettingMain.swift */,
-				561A072F28A339D300A0AFBF /* PaymentButton.swift */,
+				5630571C28A5B483001F237A /* PaymentButton.swift */,
 			);
 			path = SettingPage;
 			sourceTree = "<group>";
@@ -115,6 +123,7 @@
 		5635D4AE2877548E00B9ACB3 /* TinyHabits */ = {
 			isa = PBXGroup;
 			children = (
+				5630571528A5AF59001F237A /* TinyHabits.entitlements */,
 				5635D4C428775CEA00B9ACB3 /* Info.plist */,
 				56876DC32892119E00E5D84B /* HabitPage */,
 				561A072C28A3113E00A0AFBF /* SettingPage */,
@@ -198,6 +207,10 @@
 			dependencies = (
 			);
 			name = TinyHabits;
+			packageProductDependencies = (
+				5641406B28A5AB2D00F84289 /* StripeApplePay */,
+				56A3CCF128A5AD7800E7EB2C /* Stripe */,
+			);
 			productName = TinyHabits;
 			productReference = 5635D4AC2877548E00B9ACB3 /* TinyHabits.app */;
 			productType = "com.apple.product-type.application";
@@ -226,6 +239,10 @@
 				Base,
 			);
 			mainGroup = 5635D4A32877548E00B9ACB3;
+			packageReferences = (
+				5641406A28A5AB2C00F84289 /* XCRemoteSwiftPackageReference "stripe-ios" */,
+				56A3CCF028A5AD7800E7EB2C /* XCRemoteSwiftPackageReference "stripe-ios" */,
+			);
 			productRefGroup = 5635D4AD2877548E00B9ACB3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -275,7 +292,8 @@
 				5635D4BE28775AB900B9ACB3 /* HabitMain.swift in Sources */,
 				56876DBE288F497300E5D84B /* Habit.xcdatamodeld in Sources */,
 				56876DB4288A012000E5D84B /* SaveTask.swift in Sources */,
-				561A073028A339D300A0AFBF /* PaymentButton.swift in Sources */,
+				5630571D28A5B483001F237A /* PaymentButton.swift in Sources */,
+				5630571F28A5B9AB001F237A /* PaymentHandler.swift in Sources */,
 				5635D4B22877548E00B9ACB3 /* ContentView.swift in Sources */,
 				56876DB22889F24600E5D84B /* TaskBubbles.swift in Sources */,
 				561A072E28A3118500A0AFBF /* SettingMain.swift in Sources */,
@@ -406,6 +424,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TinyHabits/TinyHabits.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TinyHabits/Preview Content\"";
@@ -436,6 +455,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TinyHabits/TinyHabits.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TinyHabits/Preview Content\"";
@@ -483,6 +503,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5641406A28A5AB2C00F84289 /* XCRemoteSwiftPackageReference "stripe-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stripe/stripe-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 22.0.0;
+			};
+		};
+		56A3CCF028A5AD7800E7EB2C /* XCRemoteSwiftPackageReference "stripe-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stripe/stripe-ios";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5641406B28A5AB2D00F84289 /* StripeApplePay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5641406A28A5AB2C00F84289 /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = StripeApplePay;
+		};
+		56A3CCF128A5AD7800E7EB2C /* Stripe */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56A3CCF028A5AD7800E7EB2C /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = Stripe;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		56876DBC288F497300E5D84B /* Habit.xcdatamodeld */ = {
