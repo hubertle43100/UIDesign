@@ -107,7 +107,7 @@ struct Continue: View {
     
     var body: some View {
         VStack {
-            Image("FruitGirl")
+            Image("fruitColor")
                 .resizable()
                 .frame(width: 275, height: 210)
                 .cornerRadius(10)

@@ -72,6 +72,7 @@ struct taskUpdate: View {
             } label: {
                 VStack {
                     Text(entity.task ?? "Task Not found!")
+                        .padding()
                     //ProgressBar(value: entity.progressValue).frame(height: 20)
 //                        .padding(.leading)
 //                        .padding(.trailing)

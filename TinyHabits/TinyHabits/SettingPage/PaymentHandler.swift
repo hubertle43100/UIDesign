@@ -24,14 +24,13 @@ class PaymentHandler: NSObject {
     var completionHandler: PaymentCompletionHandler?
     
     
-    func startPayment(products: [String], total: Int, completion: @escaping PaymentCompletionHandler) {
-        completionHandler = completion
+    func startPayment(completion: @escaping PaymentCompletionHandler) {
         
         paymentSummaryItems = []
         
-        let amount = PKPaymentSummaryItem(label: "Amount", amount: NSDecimalNumber(string: "8.88"), type: .final)
-        let tax = PKPaymentSummaryItem(label: "Tax", amount: NSDecimalNumber(string: "1.12"), type: .final)
-        let total = PKPaymentSummaryItem(label: "ToTal", amount: NSDecimalNumber(string: "10.00"), type: .pending)
+        let amount = PKPaymentSummaryItem(label: "Amount", amount: NSDecimalNumber(string: "1.95"), type: .final)
+        let tax = PKPaymentSummaryItem(label: "Tax", amount: NSDecimalNumber(string: ".15"), type: .final)
+        let total = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(string: "2.10"), type: .final)
         
         paymentSummaryItems = [amount, tax, total];
         completionHandler = completion

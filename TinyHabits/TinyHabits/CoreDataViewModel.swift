@@ -67,3 +67,5 @@ class CoreDataViewModel: ObservableObject {
     }
 }
 
+extension
+
