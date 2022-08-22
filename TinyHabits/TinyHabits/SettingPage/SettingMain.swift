@@ -16,7 +16,7 @@ struct SettingMain: View {
             ScrollView {
                 VStack {
                     Header(Title: "Setting").padding(.bottom, 50)
-                    NavigationLink(destination: ColorThemes(selectedColor: $color), label: {
+                    NavigationLink(destination: ColorThemes(), label: {
                         ColorChange()
                     })
                     Donation()
