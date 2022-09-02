@@ -34,7 +34,7 @@ struct HabitMain: View {
                                 Text("Update task")
                             }.padding()
                                 .foregroundColor(.white)
-                                .background(Color.green)
+                                .background(Color.black)
                                 .cornerRadius(8)
                                 .font(Font.custom("SourceCodePro-Bold", size: 15))
                             Spacer()
@@ -73,13 +73,10 @@ struct taskUpdate: View {
                 VStack {
                     Text(entity.task ?? "Task Not found!")
                         .padding()
-                    //ProgressBar(value: entity.progressValue).frame(height: 20)
-//                        .padding(.leading)
-//                        .padding(.trailing)
                 }
             }.frame(width: 300, height: 100)
                 .foregroundColor(.white)
-                .background(Color.green)
+                .background(Color.black)
                 .cornerRadius(8)
                 .font(Font.custom("SourceCodePro-Bold", size: 15))
         }

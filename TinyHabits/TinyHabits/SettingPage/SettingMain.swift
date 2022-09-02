@@ -9,18 +9,26 @@ import SwiftUI
 import PassKit
 
 struct SettingMain: View {
-    @State private var color: Color = .clear
+    @State private var color: Color = Color.white
+    private var colorData = ColorData()
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack {
-                    Header(Title: "Setting").padding(.bottom, 50)
-                    NavigationLink(destination: ColorThemes(), label: {
-                        ColorChange()
-                    })
-                    Donation()
+            ZStack {
+                color
+                    .ignoresSafeArea()
+                    .frame(height: .infinity)
+                ScrollView {
+                    VStack {
+                        Header(Title: "Setting").padding(.bottom, 50)
+                        NavigationLink(destination: ColorThemes(), label: {
+                            ColorChange()
+                        })
+                        Donation()
+                    }
                 }
+            }.onAppear {
+                color = colorData.loadColor()
             }
         }
     }
@@ -44,15 +52,16 @@ struct ColorChange: View {
                 .padding(.trailing)
         }
         .frame(width: 335, height: 125)
-            .foregroundColor(.white)
-            .background(Color.gray)
-            .cornerRadius(8)
+        .foregroundColor(.white)
+        .background(Color.gray)
+        .cornerRadius(8)
     }
 }
 
 struct Donation: View {
     //@EnvironmentObject var donationManager: DonationManager
     let paymentHandler = PaymentHandler()
+    
     var body: some View {
         VStack {
             HStack {
@@ -93,21 +102,6 @@ struct Donation: View {
             .cornerRadius(8)
     }
 }
-//class DonationManager: ObservableObject {
-//    @Published private(set) var products: [String] = []
-//    @Published private(set) var total: Int = 0
-//
-//    let paymentHandler = PaymentHandler()
-//    @Published private(set) var paymentSuccess = false
-//
-//    func pay() {
-//        paymentHandler.startPayment(products: ["Donating Cake Pop"], total: 2) { success in
-//            self.paymentSuccess = success
-//            self.products = []
-//            self.total = 0
-//        }
-//    }
-//}
 
 struct SettingMain_Previews: PreviewProvider {
     static var previews: some View {

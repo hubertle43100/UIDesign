@@ -31,7 +31,7 @@ struct ContentView: View {
                             .renderingMode(.template)
                     }
                 }
-        }.accentColor(Color.green)
+        }.accentColor(Color.black)
     }
 }
 
@@ -40,3 +40,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+
