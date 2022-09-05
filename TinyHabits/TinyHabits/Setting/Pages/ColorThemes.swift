@@ -10,38 +10,49 @@ import SwiftUI
 struct ColorThemes: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var color: Color = Color.white
+    @State private var fore: Color = Color.white
     private var colorData = ColorData()
+    @State var isNavigationBarHidden: Bool = true
     
-    var names: [String] = ["Default white","Forest Green", "Pink Blush", "Twitter Blue"]
-    var colors: [Color] = [Color.white, Color(.init(srgbRed: 59/255, green: 174/255, blue: 78/255, alpha: 1.0)), Color(.init(srgbRed: 255/255, green: 148/255, blue: 148/255, alpha: 1.0)), Color(.init(srgbRed: 29/255, green: 161/255, blue: 242/255, alpha: 1.0))]
+    var names: [String] = ["Default white",
+                           "Red",
+                           "Orange",
+                           "Yellow",
+                           "Green",
+                           "Blue",
+                           "Purple"]
+    var colors: [Color] = [Color.white,
+                           Color(.init(srgbRed: 255/255, green: 209/255, blue: 208/255, alpha: 1.0)),
+                           Color(.init(srgbRed: 255/255, green: 230/255, blue: 208/255, alpha: 1.0)),
+                           Color(.init(srgbRed: 255/255, green: 254/255, blue: 208/255, alpha: 1.0)),
+                           Color(.init(srgbRed: 220/255, green: 255/255, blue: 208/255, alpha: 1.0)),
+                           Color(.init(srgbRed: 208/255, green: 242/255, blue: 255/255, alpha: 1.0)),
+                           Color(.init(srgbRed: 255/255, green: 208/255, blue: 248/255, alpha: 1.0))]
     
     var body: some View {
         NavigationView {
-            VStack {
-                Header(Title: "Tiny Habits").padding(.bottom, 50)
                 VStack {
-                    ForEach(Array(names.enumerated()),id: \.offset) { index, element in
-                        Button {
-                            color = colors[index]
-                            colorData.saveColor(color: color)
-                        } label: {
-                            ColorButton(NameColor: names[index], ButtonColor: colors[index])
+                    Header(Title: "Tiny Habits").padding(.bottom, 50)
+                    VStack {
+                        ForEach(Array(names.enumerated()),id: \.offset) { index, element in
+                            Button {
+                                color = colors[index]
+                                colorData.saveColor(color: color)
+                            } label: {
+                                ColorButton(NameColor: names[index], ButtonColor: colors[index])
+                            }
+                            
                         }
-                        
                     }
-                }
-                Button(action : { self.presentationMode.wrappedValue.dismiss()
-                    
-                }){
-                    ColorButton(NameColor: "Save", ButtonColor: Color.gray)
-                }
-                
-                Spacer()
-            }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                    Spacer()
+                }.frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(color)
+                .navigationBarHidden(self.isNavigationBarHidden)
                 .onAppear {
+                    self.isNavigationBarHidden = true
                     color = colorData.loadColor()
-                }
+                    fore = colorData.loadForegroundColor()
+            }
         }
         
     }
@@ -86,6 +97,20 @@ struct ColorData {
                           green: array[1],
                           blue: array[2],
                           opacity: array[3])
+        
+        print(color)
+        print("Color Loaded!!!")
+        return color
+    }
+    
+    func loadForegroundColor() -> Color {
+        guard let array = userDefaults.object(forKey: COLOR_KEY) as? [CGFloat] else { return Color.black }
+        
+        let color = Color(.sRGB,
+                          red: array[0],
+                          green: array[1] * 0.125,
+                          blue: array[2] * 0.25,
+                          opacity: array[3] * 0.375)
         
         print(color)
         print("Color Loaded!!!")

@@ -92,15 +92,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		561A072C28A3113E00A0AFBF /* SettingPage */ = {
+		561A072C28A3113E00A0AFBF /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				5630571E28A5B9AB001F237A /* PaymentHandler.swift */,
 				561A072D28A3118500A0AFBF /* SettingMain.swift */,
-				5630571C28A5B483001F237A /* PaymentButton.swift */,
-				5636797828AEE83400C7B130 /* ColorThemes.swift */,
+				5637F83828C2BA7800147F77 /* Pages */,
 			);
-			path = SettingPage;
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		5635D4A32877548E00B9ACB3 = {
@@ -124,8 +122,8 @@
 			children = (
 				5630571528A5AF59001F237A /* TinyHabits.entitlements */,
 				5635D4C428775CEA00B9ACB3 /* Info.plist */,
-				56876DC32892119E00E5D84B /* HabitPage */,
-				561A072C28A3113E00A0AFBF /* SettingPage */,
+				56876DC32892119E00E5D84B /* Home */,
+				561A072C28A3113E00A0AFBF /* Setting */,
 				5635D4B12877548E00B9ACB3 /* ContentView.swift */,
 				5635D4AF2877548E00B9ACB3 /* TinyHabitsApp.swift */,
 				56876DC12890771200E5D84B /* CoreDataViewModel.swift */,
@@ -179,15 +177,33 @@
 			path = static;
 			sourceTree = "<group>";
 		};
-		56876DC32892119E00E5D84B /* HabitPage */ = {
+		5637F83728C2BA5E00147F77 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				5635D4BD28775AB900B9ACB3 /* HabitMain.swift */,
 				56876DC428921B6A00E5D84B /* TaskTitle.swift */,
 				56876DB12889F24600E5D84B /* TaskBubbles.swift */,
 				56876DB3288A012000E5D84B /* SaveTask.swift */,
 			);
-			path = HabitPage;
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		5637F83828C2BA7800147F77 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				5636797828AEE83400C7B130 /* ColorThemes.swift */,
+				5630571C28A5B483001F237A /* PaymentButton.swift */,
+				5630571E28A5B9AB001F237A /* PaymentHandler.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		56876DC32892119E00E5D84B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5635D4BD28775AB900B9ACB3 /* HabitMain.swift */,
+				5637F83728C2BA5E00147F77 /* Pages */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

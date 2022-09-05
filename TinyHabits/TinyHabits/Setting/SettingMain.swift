@@ -10,6 +10,7 @@ import PassKit
 
 struct SettingMain: View {
     @State private var color: Color = Color.white
+    @State private var fore: Color = Color.blue
     private var colorData = ColorData()
     
     var body: some View {
@@ -26,9 +27,10 @@ struct SettingMain: View {
                         })
                         Donation()
                     }
-                }
+                }.foregroundColor(fore)
             }.onAppear {
                 color = colorData.loadColor()
+                fore = colorData.loadForegroundColor()
             }
         }
     }

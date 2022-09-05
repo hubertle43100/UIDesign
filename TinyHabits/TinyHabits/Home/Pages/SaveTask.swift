@@ -16,32 +16,41 @@ struct SaveTask: View {
     
     @Binding var shouldPopToRootView : Bool
     
+    @State var color: Color = Color.white
+    var colorData = ColorData()
+    
     var body: some View {
-        VStack {
-            Group {
-                Header(Title: "Tiny Habits")
+        ZStack {
+            color
+                .ignoresSafeArea()
+                .frame(height: .infinity)
+            VStack {
+                Group {
+                    Header(Title: "Tiny Habits")
+                    Spacer()
+                    HeaderTask(title: task)
+                    Spacer()
+                }
+                if progressValue < 0.6 {
+                    Tips(decimal: progressValue)
+                } else {
+                    Continue()
+                    Button(action: {
+                        self.shouldPopToRootView = false
+                        vm.addHabit(text: task, nums: progressValue)
+                    }) {
+                        Text("Let's get started").font(Font.custom("SourceCodePro-Bold", size: 15))
+                    }.padding()
+                        .foregroundColor(.white)
+                        .background(Color.blue)
+                        .cornerRadius(8)
+                }
                 Spacer()
-                HeaderTask(title: task)
-                Spacer()
+                
             }
-            if progressValue < 0.6 {
-                Tips(decimal: progressValue)
-            } else {
-                Continue()
-                Button(action: {
-                    self.shouldPopToRootView = false
-                    vm.addHabit(text: task, nums: progressValue)
-                }) {
-                    Text("Let's get started").font(Font.custom("SourceCodePro-Bold", size: 15))
-                }.padding()
-                    .foregroundColor(.white)
-                    .background(Color.blue)
-                    .cornerRadius(8)
-            }
-            Spacer()
-            
+        }.onAppear {
+            color = colorData.loadColor()
         }
-        
     }
 }
 
