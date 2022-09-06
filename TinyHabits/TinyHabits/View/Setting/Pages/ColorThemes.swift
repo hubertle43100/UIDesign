@@ -9,10 +9,12 @@ import SwiftUI
 
 struct ColorThemes: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     @State private var color: Color = Color.white
     @State private var fore: Color = Color.white
-    private var colorData = ColorData()
     @State var isNavigationBarHidden: Bool = true
+    
+    private var colorData = ColorData()
     
     var names: [String] = ["Default white",
                            "Red",
@@ -74,50 +76,6 @@ struct ColorButton: View {
     }
 }
 
-struct ColorData {
-    
-    private var COLOR_KEY = "COLOR_KEY"
-    private var userDefaults = UserDefaults.standard
-    
-    func saveColor(color: Color) {
-        let color = UIColor(color).cgColor
-        
-        if let components = color.components {
-            userDefaults.set(components, forKey: COLOR_KEY)
-            print(components)
-            print("Colour saved!!!")
-        }
-    }
-    
-    func loadColor() -> Color {
-        guard let array = userDefaults.object(forKey: COLOR_KEY) as? [CGFloat] else { return Color.black }
-        
-        let color = Color(.sRGB,
-                          red: array[0],
-                          green: array[1],
-                          blue: array[2],
-                          opacity: array[3])
-        
-        print(color)
-        print("Color Loaded!!!")
-        return color
-    }
-    
-    func loadForegroundColor() -> Color {
-        guard let array = userDefaults.object(forKey: COLOR_KEY) as? [CGFloat] else { return Color.black }
-        
-        let color = Color(.sRGB,
-                          red: array[0],
-                          green: array[1] * 0.125,
-                          blue: array[2] * 0.25,
-                          opacity: array[3] * 0.375)
-        
-        print(color)
-        print("Color Loaded!!!")
-        return color
-    }
-}
-
 struct ColorThemes_Previews: PreviewProvider {
     static var previews: some View {
         ColorThemes()
@@ -125,10 +83,11 @@ struct ColorThemes_Previews: PreviewProvider {
 }
 
 extension View {
-    /// Navigate to a new view.
-    /// - Parameters:
-    ///   - view: View to navigate to.
-    ///   - binding: Only navigates when this condition is `true`.
+    //Navigate to a New View
+    //Parameters:
+    //  -   view: View to navigate to.
+    //  -   binding: Only navigates when this condition is 'true'
+    
     func navigate<NewView: View>(to view: NewView, when binding: Binding<Bool>) -> some View {
         NavigationView {
             ZStack {
