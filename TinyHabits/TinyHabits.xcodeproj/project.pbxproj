@@ -126,10 +126,9 @@
 				5635D4C428775CEA00B9ACB3 /* Info.plist */,
 				5664596B28C7F9D900D87A53 /* ViewModel */,
 				5664596A28C7F9B100D87A53 /* View */,
-				5635D4B32877548F00B9ACB3 /* Assets.xcassets */,
-				5635D4AF2877548E00B9ACB3 /* TinyHabitsApp.swift */,
-				5635D4C528775EB800B9ACB3 /* Source_Code_Pro */,
 				5635D4B52877548F00B9ACB3 /* Preview Content */,
+				5635D4C528775EB800B9ACB3 /* Source_Code_Pro */,
+				5635D4AF2877548E00B9ACB3 /* TinyHabitsApp.swift */,
 			);
 			path = TinyHabits;
 			sourceTree = "<group>";
@@ -137,6 +136,7 @@
 		5635D4B52877548F00B9ACB3 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				5635D4B32877548F00B9ACB3 /* Assets.xcassets */,
 				5635D4B62877548F00B9ACB3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";

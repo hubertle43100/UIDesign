@@ -23,6 +23,8 @@ struct HabitMain: View {
                     VStack {
                         Header(Title: "Tiny Habits").padding(.bottom, 50)
                         taskUpdate(model: model)
+                        
+                        //Create New Task Button
                         if model.savedEntities.count < 3 {
                             Group {
                                 NavigationLink(destination: TaskTitle(rootIsActive: $isActive),isActive: self.$isActive, label: {
@@ -51,9 +53,7 @@ struct HabitMain: View {
     }
 }
 
-
-
-
+//MARK: Display -> Title + Date
 struct Header: View {
     var Title: String
     var body: some View {
@@ -65,23 +65,43 @@ struct Header: View {
     }
 }
 
+//MARK: Task Model Update
 struct taskUpdate: View {
+    
+    //Goes through array in CoreData model and display each one
+    
+    @State var fore: Color = Color.blue
+    var colorData = ColorData()
+    
     @StateObject var model: CoreDataViewModel
+    @State private var stroken = false
     
     var body: some View {
         ForEach(model.savedEntities) { entity in
-            Button {
-                model.quickDeleteHabit()
-            } label: {
+            Button(action: {
+            }) {
                 VStack {
                     Text(entity.task ?? "Task Not found!")
+                        .strikethrough(entity.isComplete)
                         .padding()
-                }
-            }.frame(width: 300, height: 100)
-                .foregroundColor(.white)
-                .background(Color.black)
-                .cornerRadius(8)
-                .font(Font.custom("SourceCodePro-Bold", size: 15))
+                        .foregroundColor(.white)
+                }.frame(width: 300, height: 100)
+                    .foregroundColor(.white)
+                    .background(fore)
+                    .cornerRadius(8)
+                    .font(Font.custom("SourceCodePro-Bold", size: 15))
+                    .onAppear {
+                        fore = colorData.loadForegroundColor()
+                    }
+                    .onTapGesture {
+                        
+                    }
+                    .onLongPressGesture(minimumDuration: 0.1) {
+                        let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                        impactHeavy.impactOccurred()
+                        model.completeTask(entity: entity)
+                    }
+            }
         }
     }
 }

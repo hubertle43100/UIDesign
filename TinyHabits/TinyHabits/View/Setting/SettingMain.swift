@@ -27,16 +27,18 @@ struct SettingMain: View {
                         })
                         Donation()
                     }
-                }.foregroundColor(fore)
+                }
             }.onAppear {
                 color = colorData.loadColor()
-                fore = colorData.loadForegroundColor()
             }
         }
     }
 }
 
 struct ColorChange: View {
+    @State private var fore: Color = Color.blue
+    private var colorData = ColorData()
+    
     var body: some View {
         HStack {
             VStack {
@@ -55,13 +57,17 @@ struct ColorChange: View {
         }
         .frame(width: 335, height: 125)
         .foregroundColor(.white)
-        .background(Color.gray)
+        .background(fore)
         .cornerRadius(8)
+        .onAppear {
+            fore = colorData.loadForegroundColor()
+        }
     }
 }
 
 struct Donation: View {
-    //@EnvironmentObject var donationManager: DonationManager
+    @State private var fore: Color = Color.blue
+    private var colorData = ColorData()
     let paymentHandler = PaymentHandler()
     
     var body: some View {
@@ -100,8 +106,11 @@ struct Donation: View {
             
         }.frame(width: 335, height: 175)
             .foregroundColor(.white)
-            .background(Color.gray)
+            .background(fore)
             .cornerRadius(8)
+            .onAppear {
+                fore = colorData.loadForegroundColor()
+            }
     }
 }
 

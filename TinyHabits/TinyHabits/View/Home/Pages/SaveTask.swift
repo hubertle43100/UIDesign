@@ -17,6 +17,7 @@ struct SaveTask: View {
     @Binding var shouldPopToRootView : Bool
     
     @State var color: Color = Color.white
+    @State var fore: Color = Color.blue
     var colorData = ColorData()
     
     var body: some View {
@@ -42,7 +43,7 @@ struct SaveTask: View {
                         Text("Let's get started").font(Font.custom("SourceCodePro-Bold", size: 15))
                     }.padding()
                         .foregroundColor(.white)
-                        .background(Color.blue)
+                        .background(fore)
                         .cornerRadius(8)
                 }
                 Spacer()
@@ -50,22 +51,27 @@ struct SaveTask: View {
             }
         }.onAppear {
             color = colorData.loadColor()
+            fore = colorData.loadForegroundColor()
         }
     }
 }
 
 struct ProgressBar: View {
     var value: Float
+    @State var fore: Color = Color.blue
+    var colorData = ColorData()
     
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
                 Rectangle().frame(width: geometry.size.width , height: geometry.size.height)
                     .opacity(0.3)
-                    .foregroundColor(Color(UIColor.systemTeal))
+                    .foregroundColor(Color.gray)
                 Rectangle().frame(width: min(CGFloat(self.value)*geometry.size.width, geometry.size.width), height: geometry.size.height)
-                    .foregroundColor(Color(UIColor.systemBlue))
+                    .foregroundColor(fore)
             }.cornerRadius(45.0)
+        }.onAppear {
+            fore = colorData.loadForegroundColor()
         }
     }
 }
@@ -113,16 +119,22 @@ struct Tips: View {
 }
 
 struct Continue: View {
+    @State var fore: Color = Color.blue
+    var colorData = ColorData()
     
     var body: some View {
         VStack {
-            Image("fruitColor")
+            Image("confetti")
                 .resizable()
-                .frame(width: 275, height: 210)
+                .padding()
+                .background(fore)
+                .frame(width: 125, height: 125)
                 .cornerRadius(10)
             Text("Nicely done!\n\nIMPORANT: Don't forget to click the update button for the new task to appear.").padding().font(Font.custom("SourceCodePro-Bold", size: 14))
                 .frame(width: 350)
                 .multilineTextAlignment(.leading)
+        }.onAppear {
+            fore = colorData.loadForegroundColor()
         }
     }
 }

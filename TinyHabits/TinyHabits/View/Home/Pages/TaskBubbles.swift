@@ -17,6 +17,7 @@ struct TaskBubbles: View {
     @Binding var rootIsActive : Bool
     
     @State var color: Color = Color.white
+    @State var fore: Color = Color.blue
     var colorData = ColorData()
     
     var body: some View {
@@ -40,7 +41,7 @@ struct TaskBubbles: View {
                         ForEach(1..<11) { index in
                             Image(systemName: "circle.fill")
                                 .font(.system(size: 15))
-                                .foregroundColor(ratingD >= index ? Color.yellow : Color.gray)
+                                .foregroundColor(ratingD >= index ? fore : Color.gray)
                                 .onTapGesture {
                                     ratingD = index
                                     isDiffClicked = true
@@ -58,7 +59,7 @@ struct TaskBubbles: View {
                         ForEach(1..<11) { index in
                             Image(systemName: "circle.fill")
                                 .font(.system(size: 15))
-                                .foregroundColor(ratingM >= index ? Color.yellow : Color.gray)
+                                .foregroundColor(ratingM >= index ? fore : Color.gray)
                                 .onTapGesture {
                                     ratingM = index
                                     isMotiClicked = true
@@ -78,7 +79,7 @@ struct TaskBubbles: View {
                         Text("Continue to Task Analysis")
                             .padding()
                             .foregroundColor(.white)
-                            .background(Color.blue)
+                            .background(fore)
                             .cornerRadius(8)
                             .font(Font.custom("SourceCodePro-Bold", size: 15))
                         
@@ -88,6 +89,7 @@ struct TaskBubbles: View {
             }
         }.onAppear {
             color = colorData.loadColor()
+            fore = colorData.loadForegroundColor()
         }
     }
 }

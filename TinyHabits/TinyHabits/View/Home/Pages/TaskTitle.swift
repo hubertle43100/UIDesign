@@ -12,6 +12,7 @@ struct TaskTitle: View {
     @State var TitleTextfield: String = ""
     @Binding var rootIsActive : Bool
     @State var color: Color = Color.white
+    @State var fore: Color = Color.blue
     var colorData = ColorData()
     
     var body: some View {
@@ -21,11 +22,13 @@ struct TaskTitle: View {
             .frame(height: .infinity)
             VStack {
                 Header(Title: "Tiny Habits")
-                Image("fruitThree")
+                Image("box")
                     .resizable()
-                    .frame(width: 275, height: 210)
+                    .padding()
+                    .background(fore)
+                    .frame(width: 125, height: 125)
                     .cornerRadius(10)
-                Text("Make your task as specific as possible. Doing this will allow you to visualize yourself in the position of practicing building your new habit. (At least 20 characters)").padding().font(Font.custom("SourceCodePro-Bold", size: 14))
+                Text("Make your task as specific as possible. Doing this will allow you to visualize yourself in the position of practicing building your new habit. (At least 30 characters)").padding().font(Font.custom("SourceCodePro-Bold", size: 14))
                     .frame(width: 350)
                     .multilineTextAlignment(.leading)
                 TextField("10 Push ups after going to the restroom", text: $TitleTextfield)
@@ -40,7 +43,7 @@ struct TaskTitle: View {
                         Text("Continue to Task Analysis")
                             .padding()
                             .foregroundColor(.white)
-                            .background(Color.blue)
+                            .background(fore)
                             .cornerRadius(8)
                             .font(Font.custom("SourceCodePro-Bold", size: 15))
                         
@@ -50,12 +53,16 @@ struct TaskTitle: View {
             }
         }.onAppear {
             color = colorData.loadColor()
+            fore = colorData.loadForegroundColor()
         }
     }
     func isValidTask() -> Bool {
-        if TitleTextfield.count >= 20 {
+        if TitleTextfield.count >= 30 {
             return true
         }
         return false
     }
+    
 }
+
+

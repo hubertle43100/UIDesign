@@ -21,6 +21,7 @@ class CoreDataViewModel: ObservableObject {
         }
         fetchHabit()
     }
+    
     func fetchHabit() {
         let request = NSFetchRequest<HabitEntity>(entityName: "HabitEntity")
         do {
@@ -33,7 +34,13 @@ class CoreDataViewModel: ObservableObject {
     func addHabit(text: String, nums: Float) {
         let newHabit = HabitEntity(context: container.viewContext)
         newHabit.task = text
-        newHabit.progressValue = nums
+        //newHabit.progressValue = nums
+        saveData()
+    }
+    
+    func completeTask(entity: HabitEntity) {
+        entity.isComplete = !entity.isComplete
+        
         saveData()
     }
     
