@@ -18,7 +18,6 @@ struct HabitMain: View {
             ZStack {
                 color
                     .ignoresSafeArea()
-                    .frame(height: .infinity)
                 ScrollView {
                     VStack {
                         Header(Title: "Tiny Habits").padding(.bottom, 50)
@@ -76,9 +75,12 @@ struct taskUpdate: View {
     @StateObject var model: CoreDataViewModel
     @State private var stroken = false
     
+    @State private var willMoveToNextScreen = false
+    
     var body: some View {
         ForEach(model.savedEntities) { entity in
             Button(action: {
+                
             }) {
                 VStack {
                     Text(entity.task ?? "Task Not found!")
@@ -87,14 +89,11 @@ struct taskUpdate: View {
                         .foregroundColor(.white)
                 }.frame(width: 300, height: 100)
                     .foregroundColor(.white)
-                    .background(fore)
+                    .background(entity.isComplete ? Color.green : fore)
                     .cornerRadius(8)
                     .font(Font.custom("SourceCodePro-Bold", size: 15))
                     .onAppear {
                         fore = colorData.loadForegroundColor()
-                    }
-                    .onTapGesture {
-                        
                     }
                     .onLongPressGesture(minimumDuration: 0.1) {
                         let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
@@ -105,3 +104,4 @@ struct taskUpdate: View {
         }
     }
 }
+

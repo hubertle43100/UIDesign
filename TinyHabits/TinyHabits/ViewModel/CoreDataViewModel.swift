@@ -40,7 +40,6 @@ class CoreDataViewModel: ObservableObject {
     
     func completeTask(entity: HabitEntity) {
         entity.isComplete = !entity.isComplete
-        
         saveData()
     }
     

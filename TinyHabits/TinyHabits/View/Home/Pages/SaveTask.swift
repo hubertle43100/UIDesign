@@ -130,7 +130,7 @@ struct Continue: View {
                 .background(fore)
                 .frame(width: 125, height: 125)
                 .cornerRadius(10)
-            Text("Nicely done!\n\nIMPORANT: Don't forget to click the update button for the new task to appear.").padding().font(Font.custom("SourceCodePro-Bold", size: 14))
+            Text("Nicely done!\n\nGo ahead and start building good habits!").padding().font(Font.custom("SourceCodePro-Bold", size: 14))
                 .frame(width: 350)
                 .multilineTextAlignment(.leading)
         }.onAppear {

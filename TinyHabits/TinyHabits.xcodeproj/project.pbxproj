@@ -36,6 +36,7 @@
 		5635D4EC28775EB800B9ACB3 /* SourceCodePro-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5635D4D928775EB800B9ACB3 /* SourceCodePro-Italic-VariableFont_wght.ttf */; };
 		5636797928AEE83400C7B130 /* ColorThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5636797828AEE83400C7B130 /* ColorThemes.swift */; };
 		5664596628C7F6EB00D87A53 /* ColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5664596528C7F6EB00D87A53 /* ColorData.swift */; };
+		5664596D28D39C4400D87A53 /* TaskDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5664596C28D39C4400D87A53 /* TaskDetail.swift */; };
 		56876DB22889F24600E5D84B /* TaskBubbles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56876DB12889F24600E5D84B /* TaskBubbles.swift */; };
 		56876DB4288A012000E5D84B /* SaveTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56876DB3288A012000E5D84B /* SaveTask.swift */; };
 		56876DBE288F497300E5D84B /* Habit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56876DBC288F497300E5D84B /* Habit.xcdatamodeld */; };
@@ -76,6 +77,7 @@
 		5635D4D928775EB800B9ACB3 /* SourceCodePro-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		5636797828AEE83400C7B130 /* ColorThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemes.swift; sourceTree = "<group>"; };
 		5664596528C7F6EB00D87A53 /* ColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorData.swift; sourceTree = "<group>"; };
+		5664596C28D39C4400D87A53 /* TaskDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetail.swift; sourceTree = "<group>"; };
 		56876DB12889F24600E5D84B /* TaskBubbles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBubbles.swift; sourceTree = "<group>"; };
 		56876DB3288A012000E5D84B /* SaveTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTask.swift; sourceTree = "<group>"; };
 		56876DBD288F497300E5D84B /* Habit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Habit.xcdatamodel; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				56876DC428921B6A00E5D84B /* TaskTitle.swift */,
 				56876DB12889F24600E5D84B /* TaskBubbles.swift */,
 				56876DB3288A012000E5D84B /* SaveTask.swift */,
+				5664596C28D39C4400D87A53 /* TaskDetail.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				5636797928AEE83400C7B130 /* ColorThemes.swift in Sources */,
 				5635D4B02877548E00B9ACB3 /* TinyHabitsApp.swift in Sources */,
 				56876DC528921B6A00E5D84B /* TaskTitle.swift in Sources */,
+				5664596D28D39C4400D87A53 /* TaskDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
