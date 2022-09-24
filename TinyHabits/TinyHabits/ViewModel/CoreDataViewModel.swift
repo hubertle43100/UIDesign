@@ -43,6 +43,13 @@ class CoreDataViewModel: ObservableObject {
         saveData()
     }
     
+    func resetTask() {
+        savedEntities[0].isComplete = false
+        savedEntities[1].isComplete = false
+        savedEntities[2].isComplete = false
+        saveData()
+    }
+    
     func updateHabit(entity: HabitEntity) {
         let currentTask = entity.task ?? ""
         let newTask = currentTask + "!"
