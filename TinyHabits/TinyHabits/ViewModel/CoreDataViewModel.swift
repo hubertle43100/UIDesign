@@ -50,6 +50,24 @@ class CoreDataViewModel: ObservableObject {
         saveData()
     }
     
+    func daysCounted() {
+        if savedEntities[0].isComplete == true {
+            savedEntities[0].daysCount += 1
+        } else {
+            savedEntities[0].daysCount = 0
+        }
+        if savedEntities[1].isComplete == true {
+            savedEntities[1].daysCount += 1
+        } else {
+            savedEntities[1].daysCount = 0
+        }
+        if savedEntities[2].isComplete == true {
+            savedEntities[2].daysCount += 1
+        } else {
+            savedEntities[2].daysCount = 0
+        }
+    }
+    
     func updateHabit(entity: HabitEntity) {
         let currentTask = entity.task ?? ""
         let newTask = currentTask + "!"

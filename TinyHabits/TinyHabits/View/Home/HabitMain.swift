@@ -76,7 +76,7 @@ struct taskUpdate: View {
     
     @State private var willMoveToNextScreen = false
     @State var counter = 0
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 10, on: .main, in: .common).autoconnect()
     
     var body: some View {
         ForEach(model.savedEntities) { entity in
@@ -95,13 +95,10 @@ struct taskUpdate: View {
                         .cornerRadius(8)
                         .font(Font.custom("SourceCodePro-Bold", size: 15))
                         .onReceive(timer) { time in
-                            if counter == 10 {
-                                if entity.isComplete == true {
-                                    entity.daysCount += 1
-                                } else {
-                                    entity.daysCount = 0
-                                }
+                            if counter % 10 == 0 {
+                                model.daysCounted()
                                 model.resetTask()
+                                
                             } else {
                                 print("")
                             }
@@ -115,7 +112,7 @@ struct taskUpdate: View {
                             impactHeavy.impactOccurred()
                             model.completeTask(entity: entity)
                     }
-                    NavigationLink(destination: TaskDetail(CircleProgress: 1, task: entity.task ?? "...", isComplete: entity.isComplete), label: {
+                    NavigationLink(destination: TaskDetail(CircleProgress: entity.daysCount, task: entity.task ?? "...", isComplete: entity.isComplete), label: {
                         Image(systemName: "arrow.right.circle")
                             .frame(width: 50, height: 100)
                             .foregroundColor(.white)
