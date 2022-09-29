@@ -9,49 +9,52 @@ import SwiftUI
 import CoreData
 
 struct SaveTask: View {
+    
     var task: String
-    @State var progressValue: Float
-    
+    var colorData = ColorData()
     @StateObject var vm = CoreDataViewModel()
-    
     @Binding var shouldPopToRootView : Bool
-    
     @State var color: Color = Color.white
     @State var fore: Color = Color.blue
-    var colorData = ColorData()
+    @State var progressValue: Float
     
     var body: some View {
         ZStack {
-            color
-                .ignoresSafeArea()
-                .frame(height: .infinity)
+            color.ignoresSafeArea()
             VStack {
                 Group {
-                    Header(Title: "Tiny Habits")
-                    Spacer()
-                    HeaderTask(title: task)
-                    Spacer()
+                    Header(Title: "Tiny Habits");Spacer()
+                    HeaderTask(title: task);Spacer()
                 }
                 if progressValue < 0.6 {
                     Tips(decimal: progressValue)
                 } else {
-                    Continue()
-                    Button(action: {
-                        self.shouldPopToRootView = false
-                        vm.addHabit(text: task, nums: progressValue)
-                    }) {
-                        Text("Let's get started").font(Font.custom("SourceCodePro-Bold", size: 15))
-                    }.padding()
-                        .foregroundColor(.white)
-                        .background(fore)
-                        .cornerRadius(8)
-                }
-                Spacer()
-                
+                    Continue(task: task, shouldPopToRootView: $shouldPopToRootView, progressValue: progressValue)
+                };Spacer()
             }
         }.onAppear {
             color = colorData.loadColor()
             fore = colorData.loadForegroundColor()
+        }
+    }
+}
+
+
+
+
+
+
+
+struct HeaderTask: View {
+    var title: String
+    
+    var body: some View {
+        VStack {
+            Text(title).font(Font.custom("SourceCodePro-Bold", size: 20))
+                .multilineTextAlignment(.center)
+                .padding(.leading,10)
+                .padding(.trailing,10)
+            Text("________________________")
         }
     }
 }
@@ -75,21 +78,6 @@ struct ProgressBar: View {
         }
     }
 }
-
-struct HeaderTask: View {
-    var title: String
-    
-    var body: some View {
-        VStack {
-            Text(title).font(Font.custom("SourceCodePro-Bold", size: 20))
-                .multilineTextAlignment(.center)
-                .padding(.leading,10)
-                .padding(.trailing,10)
-            Text("________________________")
-        }
-    }
-}
-
 struct Tips: View {
     
     @State var decimal: Float
@@ -121,6 +109,11 @@ struct Tips: View {
 struct Continue: View {
     @State var fore: Color = Color.blue
     var colorData = ColorData()
+    @StateObject var vm = CoreDataViewModel()
+    var task: String
+    
+    @Binding var shouldPopToRootView : Bool
+    @State var progressValue: Float
     
     var body: some View {
         VStack {
@@ -133,6 +126,15 @@ struct Continue: View {
             Text("Nicely done!\n\nGo ahead and start building good habits!").padding().font(Font.custom("SourceCodePro-Bold", size: 14))
                 .frame(width: 350)
                 .multilineTextAlignment(.leading)
+            Button(action: {
+                self.shouldPopToRootView = false
+                vm.addHabit(text: task, nums: progressValue)
+            }) {
+                Text("Let's get started").font(Font.custom("SourceCodePro-Bold", size: 15))
+            }.padding()
+                .foregroundColor(.white)
+                .background(fore)
+                .cornerRadius(8)
         }.onAppear {
             fore = colorData.loadForegroundColor()
         }

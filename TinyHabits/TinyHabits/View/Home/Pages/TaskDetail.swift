@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct TaskDetail: View {
-    @State var CircleProgress: Float
+    var CircleProgress: Float
     var task: String
     @State var isComplete: Bool
+    
+    @StateObject var vm = CoreDataViewModel()
     
     var body: some View {
         let formattedFloat = String(format: "%.0f", CircleProgress)
@@ -29,14 +31,16 @@ struct TaskDetail: View {
                 .font(Font.custom("SourceCodePro-Bold", size: 15))
                 .padding(.bottom, 10)
             ZStack {
-//                if CircleProgress <= 7 {
-//                    CircleColors(circleColor: Color.red)
-//                } else if 8 ... 18 ~= CircleProgress {
-//                    CircleColors(circleColor: Color.yellow)
-//                } else {
-//                    CircleColors(circleColor: Color.green)
-//                }
-                CircleColors(circleColor: Color.red, CircleProgress: CircleProgress)
+                switch CircleProgress {
+                case 0...7:
+                    CircleColors(circleColor: Color.red, CircleProgress: CircleProgress)
+                case 8...14:
+                    CircleColors(circleColor: Color.yellow, CircleProgress: CircleProgress)
+                case 15...21:
+                    CircleColors(circleColor: Color.green, CircleProgress: CircleProgress)
+                default:
+                    Text("Error in there is a value out of bounds")
+                }
                 Text("\(formattedFloat)/21")
                     .font(Font.custom("SourceCodePro-Bold", size: 40))
                     .bold()
@@ -44,33 +48,40 @@ struct TaskDetail: View {
             Text("It only takes averagely about 21 days to build a stable habit. Keep it up!")
                 .frame(width: 300, height: 100)
                 .font(Font.custom("SourceCodePro-Bold", size: 15))
-            Image(systemName: "arrow.right.circle")
+            Button(action: {
+
+                    }) {
+                        Image(systemName: "trash")
+                            .foregroundColor(Color.black)
+                            .font(.system(size: 20))
+                    }
         }
     }
 }
 
 struct TaskDetail_Previews: PreviewProvider {
     static var previews: some View {
-        TaskDetail(CircleProgress: 11, task: "Going to gym before 7 am", isComplete: true)
+        TaskDetail(CircleProgress: 16, task: "Going to gym before 7 am", isComplete: true)
     }
 }
 
 struct CircleColors: View {
     var circleColor: Color
-    @State var CircleProgress: Float
+    var CircleProgress: Float
     
     var body: some View {
-        Circle()
-            .stroke(circleColor.opacity(0.5), lineWidth: 30)
-            .frame(width: 200, height: 200)
-        Circle()
-            .trim(from: 0, to: CGFloat(CircleProgress)/21)
-            .stroke(circleColor, style: StrokeStyle(
-                lineWidth: 30,
-                lineCap: .round
-            ))
-            .frame(width: 200, height: 200)
-            .rotationEffect(.degrees(-90))
-            .animation(.easeOut, value: CircleProgress)
+            Circle()
+                .stroke(circleColor.opacity(0.5), lineWidth: 30)
+                .frame(width: 200, height: 200)
+            Circle()
+                .trim(from: 0, to: CGFloat(CircleProgress)/21)
+                .stroke(circleColor, style: StrokeStyle(
+                    lineWidth: 30,
+                    lineCap: .round
+                ))
+                .frame(width: 200, height: 200)
+                .rotationEffect(.degrees(-90))
+                .animation(.easeOut, value: CircleProgress)
     }
+    
 }

@@ -92,7 +92,7 @@ struct Header: View {
     
     var body: some View {
         VStack {
-            Text(Title).font(Font.custom("SourceCodePro-Bold", size: 30))
+            BounceAnimationView(text: "\(Title)", startTime: 0.0)
         }
     }
 }

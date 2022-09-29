@@ -9,10 +9,12 @@ import Foundation
 import SwiftUI
 
 struct TaskTitle: View {
-    @State var TitleTextfield: String = ""
     @Binding var rootIsActive : Bool
+    
+    @State var TitleTextfield: String = ""
     @State var color: Color = Color.white
-    @State var fore: Color = Color.blue
+    @State var fore: Color = Color.white
+    
     var colorData = ColorData()
     
     var body: some View {
@@ -56,6 +58,7 @@ struct TaskTitle: View {
             fore = colorData.loadForegroundColor()
         }
     }
+    
     func isValidTask() -> Bool {
         if TitleTextfield.count >= 30 {
             return true

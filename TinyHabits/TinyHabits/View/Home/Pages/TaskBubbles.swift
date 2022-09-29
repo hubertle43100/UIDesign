@@ -75,7 +75,7 @@ struct TaskBubbles: View {
                 }.font(Font.custom("SourceCodePro-Bold", size: 15))
                 Spacer()
                 if isDiffClicked && isMotiClicked {
-                    NavigationLink(destination: SaveTask(task: task, progressValue: Float(ratingD + ratingM)/20, shouldPopToRootView: self.$rootIsActive), label: {
+                    NavigationLink(destination: SaveTask(task: task, shouldPopToRootView: self.$rootIsActive, progressValue: Float(ratingD + ratingM)/20), label: {
                         Text("Continue to Task Analysis")
                             .padding()
                             .foregroundColor(.white)
