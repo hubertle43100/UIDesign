@@ -6,13 +6,19 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct HabitMain: View {
     
     @StateObject var model: CoreDataViewModel
     @State var isActive : Bool = false
     @State var color: Color = Color.white
+    @State var imageNotification: Bool = true
     var colorData = ColorData()
+    
+    var timer2 = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    let date = Date()
+    @State var secondStr: String = ""
     
     var body: some View {
         NavigationView {
@@ -21,7 +27,34 @@ struct HabitMain: View {
                     .ignoresSafeArea()
                 ScrollView {
                     VStack {
-                        Header(Title: "Tiny Habits").padding(.bottom, 50)
+                        VStack {
+                            Header(Title: "Tiny Habits")
+                            Text(secondStr)
+                                .onReceive(timer2) { (_) in
+                                    self.secondStr = self.date.formatted(.dateTime.month().day().hour().minute())
+                                }
+                                .font(Font.custom("SourceCodePro-Bold", size: 15))
+                                .padding(.bottom, 50)
+                        }
+                        if (imageNotification) {
+                            Button(action: {
+                                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                                    if success {
+                                        imageNotification = false
+                                    } else if let error = error {
+                                        print(error.localizedDescription)
+                                    }
+                                }
+                            }) {
+                                Image(systemName: "bell")
+                                    .frame(width: 50, height: 50)
+                                    .foregroundColor(.white)
+                                    .background(Color.gray)
+                                    .cornerRadius(8)
+                                    .font(Font.custom("SourceCodePro-Bold", size: 15))
+                            }
+                        }
+                        
                         taskUpdate(model: model)
                         
                         //Create New Task Button
@@ -39,6 +72,7 @@ struct HabitMain: View {
                                 Spacer()
                             }.offset(y: -15)
                         }
+
                     }.navigationBarBackButtonHidden(true)
                         .onAppear {
                             model.saveData()
@@ -55,11 +89,10 @@ struct HabitMain: View {
 //- MARK: Display -> Title + Date
 struct Header: View {
     var Title: String
+    
     var body: some View {
         VStack {
             Text(Title).font(Font.custom("SourceCodePro-Bold", size: 30))
-            Text("\(Date().formatted(.dateTime.month().day().hour().minute()))").font(Font.custom("SourceCodePro-Bold", size: 15))
-            
         }
     }
 }
@@ -76,7 +109,7 @@ struct taskUpdate: View {
     
     @State private var willMoveToNextScreen = false
     @State var counter = 0
-    let timer = Timer.publish(every: 10, on: .main, in: .common).autoconnect()
+    var timer = Timer.publish(every: 10, on: .main, in: .common).autoconnect()
     
     var body: some View {
         ForEach(model.savedEntities) { entity in
@@ -95,10 +128,10 @@ struct taskUpdate: View {
                         .cornerRadius(8)
                         .font(Font.custom("SourceCodePro-Bold", size: 15))
                         .onReceive(timer) { time in
-                            if counter % 10 == 0 {
+                            if counter % 5 == 0 {
                                 model.daysCounted()
                                 model.resetTask()
-                                
+                                entity.isComplete = false
                             } else {
                                 print("")
                             }
@@ -125,4 +158,3 @@ struct taskUpdate: View {
         }
     }
 }
-
