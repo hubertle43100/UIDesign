@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct SaveTask: View {
+struct TaskSave: View {
     
     var task: String
     var colorData = ColorData()
@@ -20,16 +20,20 @@ struct SaveTask: View {
     
     var body: some View {
         ZStack {
-            color.ignoresSafeArea()
+            color.ignoresSafeArea() //Color background
             VStack {
+                
+                //General Headers
                 Group {
                     Header(Title: "Tiny Habits");Spacer()
                     HeaderTask(title: task);Spacer()
                 }
+                
+                //Display tips or continue view depending on progress value
                 if progressValue < 0.6 {
                     Tips(decimal: progressValue)
                 } else {
-                    Continue(task: task, shouldPopToRootView: $shouldPopToRootView, progressValue: progressValue)
+                    Continue(task: task, progressValue: progressValue, shouldPopToRootView: $shouldPopToRootView)
                 };Spacer()
             }
         }.onAppear {
@@ -45,7 +49,13 @@ struct SaveTask: View {
 
 
 
+
+
+//MARK: TaskSave Components
 struct HeaderTask: View {
+    //[Summary] - Simple title
+    
+    
     var title: String
     
     var body: some View {
@@ -60,6 +70,8 @@ struct HeaderTask: View {
 }
 
 struct ProgressBar: View {
+    //[Summary] - Creation of Progress Bar with GeometryReader
+    
     var value: Float
     @State var fore: Color = Color.blue
     var colorData = ColorData()
@@ -78,7 +90,10 @@ struct ProgressBar: View {
         }
     }
 }
+
 struct Tips: View {
+    //[Summary] - Present static display when progressValue < 60
+    
     
     @State var decimal: Float
     
@@ -94,26 +109,30 @@ struct Tips: View {
                 .padding(.bottom)
                 .offset(x:35)
             Group {
-                Text("+ Anchor the Task")
-                Text("Floss teeth --> Floss teeth after brushing teeth").opacity(0.5)
+                //Header; Instruction
+                Text("+ Anchor the Task");Text("Floss teeth --> Floss teeth after brushing teeth")
+                    .opacity(0.5)
                     .padding(.bottom)
-                Text("+ Make the task less difficult")
-                Text("10 Push ups --> 5 Push ups").opacity(0.5).padding(.bottom)
-                Text("+ It’s too general")
-                Text("Drink water --> drink 20 oz water before breakfast").opacity(0.5)
+                Text("+ Make the task less difficult");Text("10 Push ups --> 5 Push ups")
+                    .opacity(0.5)
+                    .padding(.bottom)
+                Text("+ It’s too general");Text("Drink water --> drink 20 oz water before breakfast")
+                    .opacity(0.5)
             }.frame(width: 300, alignment: .leading)
         }.font(Font.custom("SourceCodePro-Bold", size: 15))
     }
 }
 
 struct Continue: View {
-    @State var fore: Color = Color.blue
-    var colorData = ColorData()
-    @StateObject var vm = CoreDataViewModel()
-    var task: String
+    //[Summary] - Present Successful display & Add task to HabitEntities array
     
-    @Binding var shouldPopToRootView : Bool
+    var task: String
+    var colorData = ColorData()
+    
     @State var progressValue: Float
+    @State var fore: Color = Color.blue
+    @StateObject var vm = CoreDataViewModel()
+    @Binding var shouldPopToRootView : Bool
     
     var body: some View {
         VStack {

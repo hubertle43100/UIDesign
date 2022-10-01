@@ -18,7 +18,6 @@ struct SettingMain: View {
             ZStack {
                 color
                     .ignoresSafeArea()
-                    .frame(height: .infinity)
                 ScrollView {
                     VStack {
                         Header(Title: "Setting").padding(.bottom, 50)
