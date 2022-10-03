@@ -9,13 +9,10 @@ import SwiftUI
 import CoreData
 
 struct TaskSave: View {
-    
-    var task: String
-    var colorData = ColorData()
+    var task: String; var colorData = ColorData()
     @StateObject var vm = CoreDataViewModel()
     @Binding var shouldPopToRootView : Bool
-    @State var color: Color = Color.white
-    @State var fore: Color = Color.blue
+    @State var color: Color = Color.white;@State var fore: Color = Color.blue
     @State var progressValue: Float
     
     var body: some View {
