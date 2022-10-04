@@ -16,10 +16,6 @@ struct HabitMain: View {
     @State var imageNotification: Bool = true
     var colorData = ColorData()
     
-    var timer2 = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    let date = Date()
-    @State var secondStr: String = ""
-    
     var body: some View {
         NavigationView {
             ZStack {
@@ -27,51 +23,10 @@ struct HabitMain: View {
                     .ignoresSafeArea()
                 ScrollView {
                     VStack {
-                        VStack {
-                            Header(Title: "Tiny Habits")
-                            Text(secondStr)
-                                .onReceive(timer2) { (_) in
-                                    self.secondStr = self.date.formatted(.dateTime.month().day().hour().minute())
-                                }
-                                .font(Font.custom("SourceCodePro-Bold", size: 15))
-                                .padding(.bottom, 50)
-                        }
-                        if (imageNotification) {
-                            Button(action: {
-                                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-                                    if success {
-                                        imageNotification = false
-                                    } else if let error = error {
-                                        print(error.localizedDescription)
-                                    }
-                                }
-                            }) {
-                                Image(systemName: "bell")
-                                    .frame(width: 50, height: 50)
-                                    .foregroundColor(.white)
-                                    .background(Color.gray)
-                                    .cornerRadius(8)
-                                    .font(Font.custom("SourceCodePro-Bold", size: 15))
-                            }
-                        }
-                        
-                        taskUpdate(model: model)
-                        
-                        //Create New Task Button
-                        if model.savedEntities.count < 3 {
-                            Group {
-                                NavigationLink(destination: TaskTitle(rootIsActive: $isActive),isActive: self.$isActive, label: {
-                                    Text("Start a New Tiny Habit")
-                                        .frame(width: 300, height: 100)
-                                        .foregroundColor(.white)
-                                        .background(Color.gray)
-                                        .cornerRadius(8)
-                                        .font(Font.custom("SourceCodePro-Bold", size: 15))
-                                }).isDetailLink(false)
-                                    .padding()
-                                Spacer()
-                            }.offset(y: -15)
-                        }
+                        TitleHeader()
+                        //NotificationBell(imageNotification: imageNotification)
+                        taskBar(model: model)
+                        createTask(model: model, isActive: isActive)
 
                     }.navigationBarBackButtonHidden(true)
                         .onAppear {
@@ -80,11 +35,28 @@ struct HabitMain: View {
                 }
             }.onAppear {
                 color = colorData.loadColor()
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                    if success {
+                        imageNotification = false
+                    } else if let error = error {
+                        print(error.localizedDescription)
+                    }
+                }
             }
         }.accentColor(Color(.label))
             .navigationBarBackButtonHidden(true)
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 //- MARK: Display -> Title + Date
 struct Header: View {
@@ -98,7 +70,7 @@ struct Header: View {
 }
 
 //- MARK: Task Model Update
-struct taskUpdate: View {
+struct taskBar: View {
     //Goes through array in CoreData model and display each one
     
     @State var fore: Color = Color.blue
@@ -145,7 +117,7 @@ struct taskUpdate: View {
                             impactHeavy.impactOccurred()
                             model.completeTask(entity: entity)
                     }
-                    NavigationLink(destination: TaskDetail(CircleProgress: entity.daysCount, task: entity.task ?? "...", isComplete: entity.isComplete), label: {
+                    NavigationLink(destination: TaskDetailView(CircleProgress: entity.daysCount, task: entity.task ?? "...", isComplete: entity.isComplete), label: {
                         Image(systemName: "arrow.right.circle")
                             .frame(width: 50, height: 100)
                             .foregroundColor(.white)
@@ -158,3 +130,68 @@ struct taskUpdate: View {
         }
     }
 }
+
+struct createTask: View {
+    @StateObject var model: CoreDataViewModel
+    @State var isActive : Bool
+    
+    var body: some View {
+        if model.savedEntities.count < 3 {
+            Group {
+                NavigationLink(destination: TaskTitleView(rootIsActive: $isActive),isActive: self.$isActive, label: {
+                    Text("Start a New Tiny Habit")
+                        .frame(width: 300, height: 100)
+                        .foregroundColor(.white)
+                        .background(Color.gray)
+                        .cornerRadius(8)
+                        .font(Font.custom("SourceCodePro-Bold", size: 15))
+                }).isDetailLink(false)
+                    .padding()
+                Spacer()
+            }.offset(y: -15)
+        }
+    }
+}
+
+struct TitleHeader: View {
+    var timer2 = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    let date = Date()
+    @State var secondStr: String = ""
+    
+    var body: some View {
+        VStack {
+            Header(Title: "Tiny Habits")
+            Text(secondStr)
+                .onReceive(timer2) { (_) in
+                    self.secondStr = self.date.formatted(.dateTime.month().day().hour().minute())
+                }
+                .font(Font.custom("SourceCodePro-Bold", size: 15))
+                .padding(.bottom, 50)
+        }
+    }
+}
+
+//struct NotificationBell: View {
+//    @State var imageNotification: Bool
+//
+//    var body: some View {
+//        if (imageNotification) {
+//            Button(action: {
+//                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+//                    if success {
+//                        imageNotification = false
+//                    } else if let error = error {
+//                        print(error.localizedDescription)
+//                    }
+//                }
+//            }) {
+//                Image(systemName: "bell")
+//                    .frame(width: 50, height: 50)
+//                    .foregroundColor(.white)
+//                    .background(Color.gray)
+//                    .cornerRadius(8)
+//                    .font(Font.custom("SourceCodePro-Bold", size: 15))
+//            }
+//        }
+//    }
+//}

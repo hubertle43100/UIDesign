@@ -24,7 +24,7 @@ struct SettingMain: View {
                         NavigationLink(destination: ColorThemes(), label: {
                             ColorChange()
                         })
-                        //Donation()
+                        //Donation(): Button for handling apple pay donation
                     }
                 }
             }.onAppear {
@@ -33,6 +33,15 @@ struct SettingMain: View {
         }
     }
 }
+
+
+
+
+
+
+
+
+
 
 struct ColorChange: View {
     @State private var fore: Color = Color.blue

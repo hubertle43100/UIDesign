@@ -53,16 +53,19 @@ class CoreDataViewModel: ObservableObject {
     func daysCounted() {
         if savedEntities[0].isComplete == true {
             savedEntities[0].daysCount += 1
+            print("\(savedEntities[0].daysCount)")
         } else {
             savedEntities[0].daysCount = 0
         }
         if savedEntities[1].isComplete == true {
             savedEntities[1].daysCount += 1
+            print("\(savedEntities[1].daysCount)")
         } else {
             savedEntities[1].daysCount = 0
         }
         if savedEntities[2].isComplete == true {
             savedEntities[2].daysCount += 1
+            print("\(savedEntities[2].daysCount)")
         } else {
             savedEntities[2].daysCount = 0
         }

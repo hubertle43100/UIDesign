@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TaskBubbles: View {
+struct TaskBubblesView: View {
     var task: String
     var colorData = ColorData()
     @State var isDiffClicked: Bool = false; @State var isMotiClicked: Bool = false
@@ -20,7 +20,6 @@ struct TaskBubbles: View {
         ZStack {
             color
                 .ignoresSafeArea()
-                .frame(height: .infinity)
             VStack{
                 Title(task: task)
                 SelectDifficulty(ratingD: ratingD, ratingM: ratingM, isDiffClicked: isDiffClicked, isMotiClicked: isMotiClicked, fore: fore);Spacer()
@@ -47,7 +46,7 @@ struct Title: View {
     var task: String
     
     var body: some View {
-        Header(Title: "Tiny Habits");Spacer()
+        Header(Title: "Rate Task Difficulty");Spacer()
         Text(task).font(Font.custom("SourceCodePro-Bold", size: 20))
             .multilineTextAlignment(.center)
             .padding(.leading,10)
@@ -119,7 +118,7 @@ struct NextButton: View {
     
     var body: some View {
         if isDiffClicked && isMotiClicked {
-            NavigationLink(destination: TaskSave(task: task, shouldPopToRootView: self.$rootIsActive, progressValue: Float(ratingD + ratingM)/20), label: {
+            NavigationLink(destination: TaskSaveView(task: task, shouldPopToRootView: self.$rootIsActive, progressValue: Float(ratingD + ratingM)/20), label: {
                 Text("Continue to Task Analysis")
                     .padding()
                     .foregroundColor(.white)

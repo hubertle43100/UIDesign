@@ -24,6 +24,7 @@ struct BounceAnimationView: View {
             ForEach(0..<characters.count, id: \.self) { num in
                 Text(String(self.characters[num]))
                     .font(.custom("SourceCodePro-Bold", fixedSize: 30))
+                    .foregroundColor(Color("AdaptiveColor"))
                     .offset(x: 0.0, y: offsetYForBounce)
                     .opacity(opacity)
                     .animation(.spring(response: 0.2, dampingFraction: 0.5, blendDuration: 0.1).delay( Double(num) * 0.1 ), value: offsetYForBounce)

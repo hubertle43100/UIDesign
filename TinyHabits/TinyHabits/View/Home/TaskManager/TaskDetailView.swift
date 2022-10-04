@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TaskDetail: View {
+struct TaskDetailView: View {
     var CircleProgress: Float
     var task: String
     @State var isComplete: Bool
@@ -34,7 +34,7 @@ struct TaskDetail: View {
 
 struct TaskDetail_Previews: PreviewProvider {
     static var previews: some View {
-        TaskDetail(CircleProgress: 1, task: "Going to gym before 7 am", isComplete: true)
+        TaskDetailView(CircleProgress: 1, task: "Going to gym before 7 am", isComplete: true)
     }
 }
 

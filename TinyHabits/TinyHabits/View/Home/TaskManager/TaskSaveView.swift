@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct TaskSave: View {
+struct TaskSaveView: View {
     var task: String; var colorData = ColorData()
     @StateObject var vm = CoreDataViewModel()
     @Binding var shouldPopToRootView : Bool
@@ -22,7 +22,7 @@ struct TaskSave: View {
                 
                 //General Headers
                 Group {
-                    Header(Title: "Tiny Habits");Spacer()
+                    Header(Title: "Finalize Task");Spacer()
                     HeaderTask(title: task);Spacer()
                 }
                 

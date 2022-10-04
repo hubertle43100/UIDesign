@@ -43,10 +43,8 @@ struct ColorThemes: View {
                             } label: {
                                 ColorButton(NameColor: names[index], ButtonColor: colors[index])
                             }
-                            
                         }
-                    }
-                    Spacer()
+                    };Spacer()
                 }.frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(color)
                 .navigationBarHidden(self.isNavigationBarHidden)
