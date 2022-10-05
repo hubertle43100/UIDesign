@@ -42,6 +42,7 @@
 		56876DBE288F497300E5D84B /* Habit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56876DBC288F497300E5D84B /* Habit.xcdatamodeld */; };
 		56876DC22890771200E5D84B /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56876DC12890771200E5D84B /* CoreDataViewModel.swift */; };
 		56876DC528921B6A00E5D84B /* TaskTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56876DC428921B6A00E5D84B /* TaskTitleView.swift */; };
+		56D422CF28ECE3E4007ED4C0 /* GeneralDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D422CE28ECE3E4007ED4C0 /* GeneralDisplayManager.swift */; };
 		56EB222B28E654B200673808 /* BounceAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB222A28E654B200673808 /* BounceAnimationView.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		56876DBD288F497300E5D84B /* Habit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Habit.xcdatamodel; sourceTree = "<group>"; };
 		56876DC12890771200E5D84B /* CoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
 		56876DC428921B6A00E5D84B /* TaskTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTitleView.swift; sourceTree = "<group>"; };
+		56D422CE28ECE3E4007ED4C0 /* GeneralDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralDisplayManager.swift; sourceTree = "<group>"; };
 		56EB222A28E654B200673808 /* BounceAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceAnimationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -227,6 +229,7 @@
 				5635D4BD28775AB900B9ACB3 /* HabitMain.swift */,
 				56EB222A28E654B200673808 /* BounceAnimationView.swift */,
 				5637F83728C2BA5E00147F77 /* TaskManager */,
+				56D422CE28ECE3E4007ED4C0 /* GeneralDisplayManager.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				5635D4BE28775AB900B9ACB3 /* HabitMain.swift in Sources */,
 				56876DBE288F497300E5D84B /* Habit.xcdatamodeld in Sources */,
 				56876DB4288A012000E5D84B /* TaskSaveView.swift in Sources */,
+				56D422CF28ECE3E4007ED4C0 /* GeneralDisplayManager.swift in Sources */,
 				5630571D28A5B483001F237A /* PaymentButton.swift in Sources */,
 				56EB222B28E654B200673808 /* BounceAnimationView.swift in Sources */,
 				5630571F28A5B9AB001F237A /* PaymentHandler.swift in Sources */,

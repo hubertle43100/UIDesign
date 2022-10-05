@@ -101,9 +101,9 @@ struct taskBar: View {
                         .font(Font.custom("SourceCodePro-Bold", size: 15))
                         .onReceive(timer) { time in
                             if counter % 5 == 0 {
-                                model.daysCounted()
-                                model.resetTask()
-                                entity.isComplete = false
+//                                model.daysCounted()
+//                                model.resetTask()
+//                                entity.isComplete = false
                             } else {
                                 print("")
                             }

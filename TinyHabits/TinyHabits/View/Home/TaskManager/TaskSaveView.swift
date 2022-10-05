@@ -22,8 +22,7 @@ struct TaskSaveView: View {
                 
                 //General Headers
                 Group {
-                    Header(Title: "Finalize Task");Spacer()
-                    HeaderTask(title: task);Spacer()
+                    TaskDisplay(isComplete: false, task: task)
                 }
                 
                 //Display tips or continue view depending on progress value
