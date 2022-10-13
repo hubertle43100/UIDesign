@@ -20,10 +20,11 @@ struct SettingMain: View {
                     .ignoresSafeArea()
                 ScrollView {
                     VStack {
-                        Header(Title: "Setting").padding(.bottom, 50)
+                        BounceAnimationView(text: "Setting", startTime: 0.0).padding(.bottom, 50)
                         NavigationLink(destination: ColorThemes(), label: {
                             ColorChange()
                         })
+                        
                         //Donation(): Button for handling apple pay donation
                     }
                 }
@@ -33,6 +34,13 @@ struct SettingMain: View {
         }
     }
 }
+
+struct SettingMain_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingMain()
+    }
+}
+
 
 
 
@@ -122,8 +130,4 @@ struct Donation: View {
     }
 }
 
-struct SettingMain_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingMain()
-    }
-}
+

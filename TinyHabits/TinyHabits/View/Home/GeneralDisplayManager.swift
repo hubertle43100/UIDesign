@@ -11,18 +11,26 @@ import SwiftUI
 struct TaskDisplay: View {
     @State var isComplete: Bool
     var task: String
+    var title: String
+    @State var fore: Color
+    var colorData = ColorData()
     
     var body: some View {
         VStack {
+            BounceAnimationView(text: "\(title)", startTime: 0.0)
             VStack {
                 Text(task)
                     .strikethrough(isComplete)
                     .padding()
-            }.foregroundColor(.black)
+            }.foregroundColor(.white)
                 .frame(width: 300, height: 100)
-                .background(Color(.init(srgbRed: 233/255, green: 233/255, blue: 233/255, alpha: 1.0)))
+                .background(fore)
                 .cornerRadius(8)
                 .font(Font.custom("SourceCodePro-Bold", size: 15))
+        }.onAppear {
+            fore = colorData.loadForegroundColor()
         }
+        .padding(.bottom, 50)
+            
     }
 }

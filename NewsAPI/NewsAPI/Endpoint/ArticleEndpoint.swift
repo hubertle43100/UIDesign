@@ -30,7 +30,6 @@ extension ArticleAPI: APIBuilder {
         switch self {
         case .getNews:
             return "/news"
-
         }
     }
     

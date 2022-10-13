@@ -23,8 +23,8 @@ struct HabitMain: View {
                     .ignoresSafeArea()
                 ScrollView {
                     VStack {
-                        TitleHeader()
-                        //NotificationBell(imageNotification: imageNotification)
+                        BounceAnimationView(text: "Tiny Habits", startTime: 0.0)
+                        timeHeader()
                         taskBar(model: model)
                         createTask(model: model, isActive: isActive)
 
@@ -58,17 +58,6 @@ struct HabitMain: View {
 
 
 
-//- MARK: Display -> Title + Date
-struct Header: View {
-    var Title: String
-    
-    var body: some View {
-        VStack {
-            BounceAnimationView(text: "\(Title)", startTime: 0.0)
-        }
-    }
-}
-
 //- MARK: Task Model Update
 struct taskBar: View {
     //Goes through array in CoreData model and display each one
@@ -101,9 +90,9 @@ struct taskBar: View {
                         .font(Font.custom("SourceCodePro-Bold", size: 15))
                         .onReceive(timer) { time in
                             if counter % 5 == 0 {
-//                                model.daysCounted()
-//                                model.resetTask()
-//                                entity.isComplete = false
+                                model.daysCounted()
+                                model.resetTask()
+                                entity.isComplete = false
                             } else {
                                 print("")
                             }
@@ -117,7 +106,7 @@ struct taskBar: View {
                             impactHeavy.impactOccurred()
                             model.completeTask(entity: entity)
                     }
-                    NavigationLink(destination: TaskDetailView(CircleProgress: entity.daysCount, task: entity.task ?? "...", isComplete: entity.isComplete), label: {
+                    NavigationLink(destination: TaskDetailView(CircleProgress: entity.daysCount, task: entity.task ?? "...", isComplete: entity.isComplete, fore: fore), label: {
                         Image(systemName: "arrow.right.circle")
                             .frame(width: 50, height: 100)
                             .foregroundColor(.white)
@@ -153,14 +142,13 @@ struct createTask: View {
     }
 }
 
-struct TitleHeader: View {
+struct timeHeader: View {
     var timer2 = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let date = Date()
     @State var secondStr: String = ""
     
     var body: some View {
         VStack {
-            Header(Title: "Tiny Habits")
             Text(secondStr)
                 .onReceive(timer2) { (_) in
                     self.secondStr = self.date.formatted(.dateTime.month().day().hour().minute())
@@ -170,28 +158,3 @@ struct TitleHeader: View {
         }
     }
 }
-
-//struct NotificationBell: View {
-//    @State var imageNotification: Bool
-//
-//    var body: some View {
-//        if (imageNotification) {
-//            Button(action: {
-//                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-//                    if success {
-//                        imageNotification = false
-//                    } else if let error = error {
-//                        print(error.localizedDescription)
-//                    }
-//                }
-//            }) {
-//                Image(systemName: "bell")
-//                    .frame(width: 50, height: 50)
-//                    .foregroundColor(.white)
-//                    .background(Color.gray)
-//                    .cornerRadius(8)
-//                    .font(Font.custom("SourceCodePro-Bold", size: 15))
-//            }
-//        }
-//    }
-//}

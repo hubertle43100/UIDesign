@@ -20,7 +20,7 @@ struct TaskBubblesView: View {
             color
                 .ignoresSafeArea()
             VStack{
-                TaskDisplay(isComplete: false, task: task)
+                TaskDisplay(isComplete: false, task: task, title: "Click the circles", fore: fore)
                 SelectDifficulty(task: task, ratingD: ratingD, ratingM: ratingM, isDiffClicked: isDiffClicked, isMotiClicked: isMotiClicked, color: color, fore: fore, rootIsActive: $rootIsActive)
             }
         }.onAppear {
@@ -95,7 +95,9 @@ struct SelectDifficulty: View {
                         .font(Font.custom("SourceCodePro-Bold", size: 15))
                     
                 }).isDetailLink(false)
-            } 
+            } else {
+                Text("Continue to Task Analysis").padding().font(Font.custom("SourceCodePro-Bold", size: 15)).opacity(0)
+            }
         }.onAppear {
             color = colorData.loadColor()
             fore = colorData.loadForegroundColor()

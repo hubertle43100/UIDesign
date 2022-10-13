@@ -34,7 +34,7 @@ struct ColorThemes: View {
     var body: some View {
         NavigationView {
                 VStack {
-                    Header(Title: "Tiny Habits").padding(.bottom, 50)
+                    BounceAnimationView(text: "Choose Color", startTime: 0.0).padding(.bottom, 50)
                     VStack {
                         ForEach(Array(names.enumerated()),id: \.offset) { index, element in
                             Button {
@@ -43,8 +43,10 @@ struct ColorThemes: View {
                             } label: {
                                 ColorButton(NameColor: names[index], ButtonColor: colors[index])
                             }
+                            
                         }
-                    };Spacer()
+                    }
+                    Spacer()
                 }.frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(color)
                 .navigationBarHidden(self.isNavigationBarHidden)
@@ -54,9 +56,23 @@ struct ColorThemes: View {
                     fore = colorData.loadForegroundColor()
             }
         }
-        
     }
 }
+
+struct ColorThemes_Previews: PreviewProvider {
+    static var previews: some View {
+        ColorThemes()
+    }
+}
+
+
+
+
+
+
+
+
+
 
 struct ColorButton: View {
     var NameColor: String
@@ -74,11 +90,6 @@ struct ColorButton: View {
     }
 }
 
-struct ColorThemes_Previews: PreviewProvider {
-    static var previews: some View {
-        ColorThemes()
-    }
-}
 
 extension View {
     //Navigate to a New View

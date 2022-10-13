@@ -19,7 +19,7 @@ struct TaskTitleView: View {
             color
             .ignoresSafeArea()
             VStack {
-                Header(Title: "Enter title")
+                BounceAnimationView(text: "Enter Habit", startTime: 0.0)
                 inputTask(fore: fore)
                 Nextbutton(TitleTextfield: TitleTextfield, rootIsActive: $rootIsActive, fore: fore);Spacer()
             }

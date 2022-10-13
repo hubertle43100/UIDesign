@@ -11,25 +11,30 @@ struct TaskDetailView: View {
     var CircleProgress: Float
     var task: String
     @State var isComplete: Bool
+    @State var fore: Color
+    var colorData = ColorData()
     
     @StateObject var vm = CoreDataViewModel()
     
     var body: some View {
         let formattedFloat = String(format: "%.0f", CircleProgress)
-        VStack {
-            Header(Title: "Task Detail")
-            TaskDisplay(isComplete: isComplete, task: task)
-            Text("Days in a row: \(formattedFloat)")
-                .font(Font.custom("SourceCodePro-Bold", size: 15))
-                .padding(.bottom, 10)
-            CircleDisplay(CircleProgress: CircleProgress, formattedFloat: formattedFloat)
-            Fact()
-            Button(action: {
-                
-            }) {
-                Image(systemName: "trash")
-                    .foregroundColor(Color.black)
-                    .font(.system(size: 20))
+        ScrollView {
+            VStack {
+                TaskDisplay(isComplete: isComplete, task: task, title: "Task Detail", fore: fore)
+                Text("Days in a row: \(formattedFloat)")
+                    .font(Font.custom("SourceCodePro-Bold", size: 15))
+                    .padding(.bottom, 10)
+                CircleDisplay(CircleProgress: CircleProgress, formattedFloat: formattedFloat)
+                Fact()
+                Button(action: {
+                    
+                }) {
+                    Image(systemName: "trash")
+                        .foregroundColor(Color.black)
+                        .font(.system(size: 20))
+                }
+            }.onAppear {
+                fore = colorData.loadForegroundColor()
             }
         }
     }
@@ -37,13 +42,9 @@ struct TaskDetailView: View {
 
 struct TaskDetail_Previews: PreviewProvider {
     static var previews: some View {
-        TaskDetailView(CircleProgress: 12, task: "Going to gym before 7 am", isComplete: true)
+        TaskDetailView(CircleProgress: 12, task: "Going to gym before 7 am", isComplete: true, fore: .red)
     }
 }
-
-
-
-
 
 
 

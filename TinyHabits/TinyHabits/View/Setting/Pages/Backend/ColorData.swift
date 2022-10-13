@@ -18,7 +18,6 @@ struct ColorData {
         
         if let components = color.components {
             userDefaults.set(components, forKey: COLOR_KEY)
-            print(components)
         }
     }
     
@@ -30,8 +29,7 @@ struct ColorData {
                           green: array[1],
                           blue: array[2],
                           opacity: array[3])
-        
-        print(color)
+    
         return color
     }
     
@@ -44,7 +42,6 @@ struct ColorData {
                           blue: array[2] * 0.25,
                           opacity: array[3] * 0.375)
         
-        print(color)
         return color
     }
 }

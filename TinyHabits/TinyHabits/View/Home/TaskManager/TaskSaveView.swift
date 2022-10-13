@@ -21,9 +21,7 @@ struct TaskSaveView: View {
             VStack {
                 
                 //General Headers
-                Group {
-                    TaskDisplay(isComplete: false, task: task)
-                }
+                TaskDisplay(isComplete: false, task: task, title: "Finalize Task", fore: fore)
                 
                 //Display tips or continue view depending on progress value
                 if progressValue < 0.6 {
@@ -48,22 +46,6 @@ struct TaskSaveView: View {
 
 
 //MARK: TaskSave Components
-struct HeaderTask: View {
-    //[Summary] - Simple title
-    
-    
-    var title: String
-    
-    var body: some View {
-        VStack {
-            Text(title).font(Font.custom("SourceCodePro-Bold", size: 20))
-                .multilineTextAlignment(.center)
-                .padding(.leading,10)
-                .padding(.trailing,10)
-            Text("________________________")
-        }
-    }
-}
 
 struct ProgressBar: View {
     //[Summary] - Creation of Progress Bar with GeometryReader
