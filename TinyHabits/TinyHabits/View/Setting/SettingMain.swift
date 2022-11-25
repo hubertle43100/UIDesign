@@ -24,6 +24,9 @@ struct SettingMain: View {
                         NavigationLink(destination: ColorThemes(), label: {
                             ColorChange()
                         })
+                        NavigationLink(destination: RollD20(), label: {
+                            RollDice()
+                        })
                         
                         //Donation(): Button for handling apple pay donation
                     }
@@ -57,14 +60,7 @@ struct ColorChange: View {
     
     var body: some View {
         HStack {
-            VStack {
-                Text("Theme/Color Change")
-                    .font(Font.custom("SourceCodePro-Bold", size: 20))
-                Text("Customize your app with themes that suits you best").opacity(0.7)
-                    .font(Font.custom("SourceCodePro-Bold", size: 15))
-            }.multilineTextAlignment(.leading)
-                .padding()
-                .offset(x:-6)
+            SettingHeader(title: "Theme/Color Change", description: "Customize your app with themes that suits you best")
             
             Image("colour")
                 .resizable()
@@ -127,6 +123,35 @@ struct Donation: View {
             .onAppear {
                 fore = colorData.loadForegroundColor()
             }
+    }
+}
+
+struct RollDice: View {
+    @State private var fore: Color = Color.blue
+    private var colorData = ColorData()
+    
+    var body: some View {
+        HStack {
+            SettingHeader(title: "Roll a d20", description: "Can't think of what task to work on? Let the 20 sided dice choose")
+            
+            ZStack {
+                Image(systemName: "hexagon.fill")
+                    .resizable()
+                    .frame(width: 50, height: 55)
+                    .padding(.trailing)
+                .foregroundColor(fore)
+                Text("20")
+                    .font(Font.custom("SourceCodePro-Bold", size: 20))
+                    .padding(.trailing)
+            }
+        }
+        .frame(width: 335, height: 125)
+        .foregroundColor(.white)
+        .background(fore)
+        .cornerRadius(8)
+        .onAppear {
+            fore = colorData.loadForegroundColor()
+        }
     }
 }
 

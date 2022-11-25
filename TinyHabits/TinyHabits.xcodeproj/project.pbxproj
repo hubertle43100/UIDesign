@@ -44,6 +44,7 @@
 		56876DC528921B6A00E5D84B /* TaskTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56876DC428921B6A00E5D84B /* TaskTitleView.swift */; };
 		56D422CF28ECE3E4007ED4C0 /* GeneralDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D422CE28ECE3E4007ED4C0 /* GeneralDisplayManager.swift */; };
 		56EB222B28E654B200673808 /* BounceAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB222A28E654B200673808 /* BounceAnimationView.swift */; };
+		56FB49A92901F6AA00ABDF06 /* RollD20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB49A82901F6AA00ABDF06 /* RollD20.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		56876DC428921B6A00E5D84B /* TaskTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTitleView.swift; sourceTree = "<group>"; };
 		56D422CE28ECE3E4007ED4C0 /* GeneralDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralDisplayManager.swift; sourceTree = "<group>"; };
 		56EB222A28E654B200673808 /* BounceAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceAnimationView.swift; sourceTree = "<group>"; };
+		56FB49A82901F6AA00ABDF06 /* RollD20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollD20.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 			children = (
 				5636797828AEE83400C7B130 /* ColorThemes.swift */,
 				5630571C28A5B483001F237A /* PaymentButton.swift */,
+				56FB49A82901F6AA00ABDF06 /* RollD20.swift */,
 				5664596928C7F93400D87A53 /* Backend */,
 			);
 			path = Pages;
@@ -352,6 +355,7 @@
 				5630571D28A5B483001F237A /* PaymentButton.swift in Sources */,
 				56EB222B28E654B200673808 /* BounceAnimationView.swift in Sources */,
 				5630571F28A5B9AB001F237A /* PaymentHandler.swift in Sources */,
+				56FB49A92901F6AA00ABDF06 /* RollD20.swift in Sources */,
 				5635D4B22877548E00B9ACB3 /* ContentView.swift in Sources */,
 				56876DB22889F24600E5D84B /* TaskBubblesView.swift in Sources */,
 				561A072E28A3118500A0AFBF /* SettingMain.swift in Sources */,

@@ -34,3 +34,21 @@ struct TaskDisplay: View {
             
     }
 }
+
+struct SettingHeader: View {
+    var title: String
+    var description: String
+    var body: some View {
+        VStack {
+            HStack {
+                Text("\(title)")
+                    .font(Font.custom("SourceCodePro-Bold", size: 20))
+                Spacer()
+            }
+            Text("\(description)").opacity(0.7)
+                .font(Font.custom("SourceCodePro-Bold", size: 15))
+        }.multilineTextAlignment(.leading)
+            .padding()
+            .offset(x:-6)
+    }
+}
