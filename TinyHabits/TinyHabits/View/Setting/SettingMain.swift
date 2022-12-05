@@ -29,7 +29,7 @@ struct SettingMain: View {
                         })
                         
                         //Donation(): Button for handling apple pay donation
-                    }
+                    }.padding(.top,20)
                 }
             }.onAppear {
                 color = colorData.loadColor()

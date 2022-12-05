@@ -10,9 +10,9 @@ import SwiftUI
 
 struct TaskDisplay: View {
     @State var isComplete: Bool
+    @State var fore: Color
     var task: String
     var title: String
-    @State var fore: Color
     var colorData = ColorData()
     
     var body: some View {

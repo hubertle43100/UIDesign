@@ -131,7 +131,7 @@ struct createTask: View {
                     Text("Start a New Tiny Habit")
                         .frame(width: 300, height: 100)
                         .foregroundColor(.white)
-                        .background(Color.gray)
+                        .background(Color.accentColor)
                         .cornerRadius(8)
                         .font(Font.custom("SourceCodePro-Bold", size: 15))
                 }).isDetailLink(false)

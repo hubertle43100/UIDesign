@@ -35,60 +35,67 @@ struct DiceView: View {
                 Spacer()
                 Text("\(point2)").padding()
             }
-            HStack {
-                VStack {
-                    TextField("Type task here...", text: $textFieldText1)
-                        .padding()
-                        .background(Color.gray.opacity(0.3).cornerRadius(10))
-                        .foregroundColor(.black)
-                        .font(Font.custom("SourceCodePro-Bold", size: 15))
-                    ZStack {
-                        Image(systemName: "hexagon.fill")
-                            .foregroundColor(.orange)
-                            .font(.system(size: 125))
-                        Text("     ")
-                            .animatingOverlay(for: Double(d1))
-                            .font(Font.custom("SourceCodePro-Bold", size: 35))
+            ZStack {
+                HStack {
+                    VStack {
+                        TextField("Type task here...", text: $textFieldText1)
+                            .padding()
+                            .background(Color.gray.opacity(0.3).cornerRadius(10))
+                            .foregroundColor(.black)
+                            .font(Font.custom("SourceCodePro-Bold", size: 15))
+                        ZStack {
+                            Image(systemName: "hexagon.fill")
+                                .foregroundColor(.orange)
+                                .font(.system(size: 125))
+                            Text("     ")
+                                .animatingOverlay(for: Double(d1))
+                                .font(Font.custom("SourceCodePro-Bold", size: 35))
+                        }
                     }
-                }
-                VStack {
-                    TextField("Type task here...", text: $textFieldText2)
-                        .padding()
-                        .background(Color.gray.opacity(0.3).cornerRadius(10))
-                        .foregroundColor(.black)
-                        .font(Font.custom("SourceCodePro-Bold", size: 15))
-                    ZStack {
-                        Image(systemName: "hexagon.fill")
-                            .foregroundColor(.orange)
-                            .font(.system(size: 125))
-                        Text("     ")
-                            .animatingOverlay(for: Double(d2))
-                            .font(Font.custom("SourceCodePro-Bold", size: 35))
+                    VStack {
+                        TextField("Type task here...", text: $textFieldText2)
+                            .padding()
+                            .background(Color.gray.opacity(0.3).cornerRadius(10))
+                            .foregroundColor(.black)
+                            .font(Font.custom("SourceCodePro-Bold", size: 15))
+                        ZStack {
+                            
+                            Image(systemName: "hexagon.fill")
+                                .foregroundColor(.orange)
+                                .font(.system(size: 125))
+                            Text("     ")
+                                .animatingOverlay(for: Double(d2))
+                                .font(Font.custom("SourceCodePro-Bold", size: 35))
+                            
+                        }
                     }
-                }
-            }.padding()
-            Button {
-                withAnimation {
-                    d1 = Int.random(in: 1...20)
-                    d2 = Int.random(in: 1...20)
-                }
-                if d1 > d2 {
-                    point1 += 1
-                } else if d2 > d1 {
-                    point2 += 1
-                }
-                if point1 == 4 || point2 == 4 {
-                    point1 = 0
-                    point2 = 0
-                }
+                }.padding()
                 
-            } label: {
-                Text("Roll (first to 3 points)")
-                    .font(Font.custom("SourceCodePro-Bold", size: 20))
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(.gray)
-                    .cornerRadius(8)
+                Button {
+                    withAnimation {
+                        d1 = Int.random(in: 1...20)
+                        d2 = Int.random(in: 1...20)
+                        if d1 > d2 {
+                            point1 += 1
+                        } else if d2 > d1 {
+                            point2 += 1
+                        }
+                        if point1 == 4 || point2 == 4 {
+                            point1 = 0
+                            point2 = 0
+                        }
+                    }
+                    
+                } label: {
+                    Text("Roll (first to 3 points)")
+                        .font(Font.custom("SourceCodePro-Bold", size: 40))
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(.gray)
+                        .cornerRadius(8)
+                        .offset(y:45)
+                        .opacity(0)
+                }
             }
             Spacer()
         }

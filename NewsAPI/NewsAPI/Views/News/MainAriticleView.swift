@@ -34,8 +34,8 @@ struct MainAriticleView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                          })
-                .frame(maxWidth: UIScreen.main.bounds.width-40,
-                       maxHeight: UIScreen.main.bounds.height*0.4)
+                .frame(maxWidth: UIScreen.main.bounds.width,
+                       maxHeight: UIScreen.main.bounds.height*0.3)
                     .cornerRadius(10)
             } else {
                 Image("CautionGray")
@@ -43,19 +43,16 @@ struct MainAriticleView: View {
                     .cornerRadius(10)
             }
             VStack(alignment: .leading, spacing: 4) {
-                Text(article.source ?? "")
-                    .background(Rectangle().fill(Color.gray).opacity(0.6).shadow(radius: 3).cornerRadius(5))
-                    .foregroundColor(.white)
-                    .font(.system(size: 30, weight: .semibold))
                 Spacer()
-                Text(article.title ?? "")
-                    .background(Rectangle().fill(Color.gray).opacity(0.6).shadow(radius: 3).cornerRadius(5))
-                    .foregroundColor(.white)
-                    .font(.system(size: 28, weight: .semibold))
+                VStack {
+                    Text(article.title ?? "")
+                }.background(Rectangle().fill(Color.white).opacity(0.8).shadow(radius: 10).cornerRadius(3))
+                    .foregroundColor(.black)
+                    .font(.system(size: 20, weight: .semibold))
                     
                     
-            }.frame(maxWidth: UIScreen.main.bounds.width-40,
-                    maxHeight: UIScreen.main.bounds.height*0.4)
+            }.frame(maxWidth: UIScreen.main.bounds.width-20,
+                    maxHeight: UIScreen.main.bounds.height*0.28)
         }
     }
 }

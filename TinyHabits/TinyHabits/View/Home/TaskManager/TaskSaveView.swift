@@ -21,7 +21,7 @@ struct TaskSaveView: View {
             VStack {
                 
                 //General Headers
-                TaskDisplay(isComplete: false, task: task, title: "Finalize Task", fore: fore)
+                TaskDisplay(isComplete: false, fore: fore, task: task, title: "Finalize Task")
                 
                 //Display tips or continue view depending on progress value
                 if progressValue < 0.6 {

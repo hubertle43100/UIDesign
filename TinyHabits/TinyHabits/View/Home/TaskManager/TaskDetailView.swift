@@ -20,7 +20,7 @@ struct TaskDetailView: View {
         let formattedFloat = String(format: "%.0f", CircleProgress)
         ScrollView {
             VStack {
-                TaskDisplay(isComplete: isComplete, task: task, title: "Task Detail", fore: fore)
+                TaskDisplay(isComplete: isComplete, fore: fore, task: task, title: "Task Detail")
                 Text("Days in a row: \(formattedFloat)")
                     .font(Font.custom("SourceCodePro-Bold", size: 15))
                     .padding(.bottom, 10)
