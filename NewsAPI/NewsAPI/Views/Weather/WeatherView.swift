@@ -101,8 +101,8 @@ struct WeatherView: View {
     }
 }
 
-struct SunnyView_Previews: PreviewProvider {
-    static var previews: some View {
-        WeatherView(weather: previewWeather)
-    }
-}
+//struct SunnyView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        //WeatherView(weather: previewWeather)
+//    }
+//}
