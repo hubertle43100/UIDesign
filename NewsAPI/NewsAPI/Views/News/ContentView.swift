@@ -29,34 +29,9 @@ struct ContentView: View {
                     TabView {
                         VStack {
                             MenuPage()
-                            GeometryReader{_ in
-                                SegmentedControl(selected: $selected)
-                                if self.selected == 0 {
-                                    NewsStories(contents: content)
-                                }
-                                else {
-                                }
-                            }.padding().offset(y:-10)
-                        }
-                        .tabItem {
-                            Label("News", systemImage: "newspaper")
-                        }
-                        VStack {
-                            if let location = locationManager.location {
-                                Text("Your coordinates are: \(location.longitude),\(location.latitude)")
-                            } else {
-                                if locationManager.isLoading {
-                                    ProgressView()
-                                } else {
-                                    if #available(iOS 15.0, *) {
-                                        LocationView().environmentObject(locationManager)
-                                    } else {
-                                        // Fallback on earlier versions
-                                    }
-                                }
-                            }
+                            NewsStories(contents: content)
                         }.tabItem {
-                            Label("Weather", systemImage: "cloud.sun")
+                            Label("News", systemImage: "newspaper")
                         }
                     }
                 }
@@ -71,38 +46,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-    }
-}
-
-struct SegmentedControl : View {
-    @Binding var selected : Int
-    
-    var body : some View {
-        HStack {
-            Button(action: {
-                self.selected = 0
-            }) {
-                Text("Feeds")
-                    .frame(width: 65, height: 15)
-                    .padding(.vertical,12)
-                    .padding(.horizontal, 45)
-                    .background(self.selected == 0 ? Color.white : Color("OffWhite"))
-                    .clipShape(Capsule())
-            }.foregroundColor(.black)
-            Button(action: {
-                self.selected = 1
-            }) {
-                Text("Popular")
-                    .frame(width: 65, height: 15)
-                    .padding(.vertical,12)
-                    .padding(.horizontal, 45)
-                    .background(self.selected == 1 ? Color.white : Color("OffWhite"))
-                    .clipShape(Capsule())
-            }.foregroundColor(.black)
-        }.padding(5)
-            .background(Color("OffWhite"))
-            .clipShape(Capsule())
-        
     }
 }
 
@@ -132,7 +75,7 @@ struct MenuPage : View {
                 Spacer()
             }
             HStack {
-                Text("Welcome back,\nViewer")
+                Text("Welcome back")
                     .lineLimit(2)
                     .font(.system(size: 30).bold())
                 Spacer()
@@ -149,24 +92,17 @@ struct NewsStories : View {
     var body: some View {
         ScrollView {
             VStack {
-                ScrollView (.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(contents[1...3]) { article in
-                            MainAriticleView(article: article)
-                                .onTapGesture {
-                                    load(url: article.url)
-                                }
-                            Divider()
-                        }
+                MainAriticleView(article: contents[1])
+                    .onTapGesture {
+                        load(url: contents[1].url)
                     }
-                }.padding(.bottom, 30)
                 HStack {
                     Text("Just for you").font(.system(size: 25.0).bold())
                     
                     Spacer()
                     Text("See more").offset(y: 5).foregroundColor(Color("BabyBlue"))
                 }.padding(.bottom, 20)
-                ForEach(contents[4...]) { article in
+                ForEach(contents[2...]) { article in
                     ArticleView(article: article)
                         .onTapGesture {
                             load(url: article.url)
@@ -176,7 +112,7 @@ struct NewsStories : View {
                     
                 }
             }
-        }.offset(y:100)
+        }
     }
     
     func load(url: String?) {

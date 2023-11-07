@@ -62,7 +62,7 @@ struct ArticleView_Previews: PreviewProvider {
 
 struct Caution: View {
     var body: some View {
-        Image("Caution")
+        Image(systemName: "exclamationmark.triangle.fill") // Use the SF Symbol for error
             .resizable()
             .frame(width: 100, height: 100)
             .cornerRadius(10)

@@ -14,46 +14,48 @@ struct MainAriticleView: View {
     let article: Article
     
     var body: some View {
-        ZStack {
-            // TODO: Add image view
+        VStack {
             if let image = article.image,
                let url = URL(string: image){
-               
+                
                 URLImage(url: url,
                          options: URLImageOptions(
                             identifier: article.id.uuidString,      // Custom identifier
                             cachePolicy: .returnCacheElseLoad(cacheDelay: nil, downloadDelay: 0.25) // Return cached image or download after delay
-                                          ),
+                         ),
                          failure: { error, retry in         // Display error and retry button
-                            Image("CautionGray")
-                                .resizable()
-                                .cornerRadius(10)
-                         },
+                    Image(systemName: "exclamationmark.triangle.fill") // Use the SF Symbol for error
+                        .resizable()
+                        .cornerRadius(10)
+                },
                          content: { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                         })
-                .frame(maxWidth: UIScreen.main.bounds.width,
-                       maxHeight: UIScreen.main.bounds.height*0.3)
-                    .cornerRadius(10)
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                })
+                .frame(maxWidth: UIScreen.main.bounds.width - 20,
+                       maxHeight: 200)
+                .cornerRadius(10)
             } else {
                 Image("CautionGray")
                     .resizable()
                     .cornerRadius(10)
             }
-            VStack(alignment: .leading, spacing: 4) {
+            HStack {
+                Text(article.source ?? "")
                 Spacer()
-                VStack {
+            }
+            HStack {
+                if let range = article.title?.range(of: " - ") {
+                    Text(String(article.title?.prefix(upTo: range.lowerBound) ?? ""))
+                } else {
                     Text(article.title ?? "")
-                }.background(Rectangle().fill(Color.white).opacity(0.8).shadow(radius: 10).cornerRadius(3))
-                    .foregroundColor(.black)
-                    .font(.system(size: 20, weight: .semibold))
-                    
-                    
-            }.frame(maxWidth: UIScreen.main.bounds.width-20,
-                    maxHeight: UIScreen.main.bounds.height*0.28)
-        }
+                }
+                Spacer()
+            }
+            .foregroundColor(.black)
+            .font(.system(size: 20, weight: .semibold))
+        }.padding()
     }
 }
 
