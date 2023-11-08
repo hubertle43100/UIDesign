@@ -50,4 +50,8 @@ class ArticleViewModelImpl: ObservableObject, ArticleViewModel {
             }
         self.cancellables.insert(cancellable)
     }
+    
+    func refreshArticles() {
+        getArticles()
+    }
 }

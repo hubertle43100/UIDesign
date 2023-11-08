@@ -24,7 +24,7 @@ struct MainAriticleView: View {
                             cachePolicy: .returnCacheElseLoad(cacheDelay: nil, downloadDelay: 0.25) // Return cached image or download after delay
                          ),
                          failure: { error, retry in         // Display error and retry button
-                    Image(systemName: "exclamationmark.triangle.fill") // Use the SF Symbol for error
+                    Image("stocks") // Use the SF Symbol for error
                         .resizable()
                         .cornerRadius(10)
                 },
@@ -36,13 +36,11 @@ struct MainAriticleView: View {
                 .frame(maxWidth: UIScreen.main.bounds.width - 20,
                        maxHeight: 200)
                 .cornerRadius(10)
-            } else {
-                Image("CautionGray")
-                    .resizable()
-                    .cornerRadius(10)
             }
             HStack {
                 Text(article.source ?? "")
+                    .font(.system(size: 14, weight: .regular))
+                    .opacity(0.5)
                 Spacer()
             }
             HStack {
@@ -54,7 +52,7 @@ struct MainAriticleView: View {
                 Spacer()
             }
             .foregroundColor(.black)
-            .font(.system(size: 20, weight: .semibold))
+            .font(.system(size: 24, weight: .semibold))
         }.padding()
     }
 }

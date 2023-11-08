@@ -68,17 +68,6 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		56BB2AB228357345000E1C54 /* News */ = {
-			isa = PBXGroup;
-			children = (
-				64C1B87225D1C8C4000DB30B /* ContentView.swift */,
-				64F3D12B25D457880099833A /* ArticleView.swift */,
-				64F3D12625D453310099833A /* ErrorView.swift */,
-				56DE963C2808C5E1009ABADD /* MainAriticleView.swift */,
-			);
-			path = News;
-			sourceTree = "<group>";
-		};
 		64C1B86425D1C8C4000DB30B = {
 			isa = PBXGroup;
 			children = (
@@ -166,7 +155,10 @@
 		64F3D12525D453160099833A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				56BB2AB228357345000E1C54 /* News */,
+				64C1B87225D1C8C4000DB30B /* ContentView.swift */,
+				56DE963C2808C5E1009ABADD /* MainAriticleView.swift */,
+				64F3D12B25D457880099833A /* ArticleView.swift */,
+				64F3D12625D453310099833A /* ErrorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

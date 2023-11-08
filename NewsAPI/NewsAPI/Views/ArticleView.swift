@@ -41,9 +41,12 @@ struct ArticleView: View {
             
             VStack(alignment: .leading, spacing: 4) {
                 
-                Text(article.title ?? "")
-                    .foregroundColor(Color("DarkLight"))
-                    .font(.system(size: 18, weight: .semibold))
+                if let range = article.title?.range(of: " - ") {
+                    Text(String(article.title?.prefix(upTo: range.lowerBound) ?? ""))
+                        .font(.system(size: 14, weight: .semibold))
+                } else {
+                    Text(article.title ?? "")
+                }
                 Text(article.source ?? "")
                     .foregroundColor(.gray)
                     .font(.system(size: 12, weight: .regular))
@@ -62,7 +65,7 @@ struct ArticleView_Previews: PreviewProvider {
 
 struct Caution: View {
     var body: some View {
-        Image(systemName: "exclamationmark.triangle.fill") // Use the SF Symbol for error
+        Image("Stocks") // Use the SF Symbol for error
             .resizable()
             .frame(width: 100, height: 100)
             .cornerRadius(10)
