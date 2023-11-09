@@ -53,3 +53,12 @@ struct ErrorView_Previews: PreviewProvider {
         }
     }
 }
+
+struct ErrorImage: View {
+    var body: some View {
+        Image("Stock\(Int.random(in: 1...5))")
+            .resizable()
+            .frame(width: 100, height: 100)
+            .cornerRadius(10)
+    }
+}

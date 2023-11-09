@@ -25,7 +25,7 @@ struct ArticleView: View {
                             cachePolicy: .returnCacheElseLoad(cacheDelay: nil, downloadDelay: 0.25) // Return cached image or download after delay
                                           ),
                          failure: { error, retry in         // Display error and retry button
-                            Caution()
+                            ErrorImage()
                          },
                          content: { image in
                             image
@@ -34,8 +34,6 @@ struct ArticleView: View {
                          })
                     .frame(width: 100, height: 100)
                     .cornerRadius(10)
-            } else {
-                Caution()
             }
 
             
@@ -63,11 +61,3 @@ struct ArticleView_Previews: PreviewProvider {
     }
 }
 
-struct Caution: View {
-    var body: some View {
-        Image("Stocks") // Use the SF Symbol for error
-            .resizable()
-            .frame(width: 100, height: 100)
-            .cornerRadius(10)
-    }
-}

@@ -69,3 +69,4 @@ extension ResponseBody.MainResponse {
     var tempMax: Double { return temp_max }
 }
 
+

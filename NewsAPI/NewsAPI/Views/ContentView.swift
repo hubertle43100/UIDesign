@@ -10,9 +10,10 @@ import Combine
 
 @available(iOS 16.0, *)
 struct ContentView: View {
+    
     @StateObject var viewModel: ArticleViewModelImpl = ArticleViewModelImpl(service: ArticleServiceImpl())
     @StateObject var locationManager = LocationManager()
-    @State var selected = 0
+    @State private var tabSelection = 0
     let date = Date()
     let screenSize: CGRect = UIScreen.main.bounds
     
@@ -28,13 +29,18 @@ struct ContentView: View {
                 }
             case .success(let content):
                 GeometryReader { g in
-                    TabView {
+                    TabView (selection: $tabSelection) {
+                        MenuPage(contents: content, tabSelection: $tabSelection)
+                            .tag(0)
+                            .tabItem {
+                                Label("News", systemImage: "newspaper")
+                            }
                         VStack {
-                            MenuPage()
-                            NewsStories(contents: content)
-                        }.tabItem {
-                            Label("News", systemImage: "newspaper")
-                        }
+                            MainAriticleView(article: content[0])
+                        }.tag(1)
+                            .tabItem {
+                                Label("News", systemImage: "newspaper")
+                            }
                     }
                 }
             }
@@ -46,103 +52,91 @@ struct ContentView: View {
 }
 
 @available(iOS 16.0, *)
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-
-struct PlaceholderImageView: View {
-    var body: some View {
-        Image(systemName: "photo.fill")
-            .foregroundColor(.white)
-            .background(Color.gray)
-            .frame(width: 100, height: 100)
-    }
-}
-
-@available(iOS 16.0, *)
 struct MenuPage : View {
-    @State var selected = 0
     let date = Date()
+    let contents: [Article]
+    @Binding var tabSelection: Int
     @State private var isSheetPresented = false
     
     var body : some View {
         VStack {
-            Text("Bulletin News")
-            HStack {
-                Text("Welcome back")
-                    .lineLimit(2)
-                    .font(.system(size: 32).bold())
-                Spacer()
-                Text("64°F")
-                    .font(.system(size: 24).bold())
-                Image(systemName: "cloud.sun")
-                    .font(.system(size: 24).bold())
-                    .scaledToFit()
-                    .frame(width: 44, height: 44) // Adjust the size as needed
-                    .onTapGesture {
-                        isSheetPresented.toggle()
-                    }
-                    .sheet(isPresented: $isSheetPresented) {
-                        VStack {
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text("64°F")
-                                        .font(.system(size: 48, weight: .semibold))
-                                    Text("San Jose")
-                                }.padding(.leading)
-                                Spacer()
-                                Image(systemName: "cloud.sun")
-                                    .font(.system(size: 48))
-                                    .scaledToFit()
-                                    .frame(width: 64, height: 64)
-                                    .padding()
-                            }
-                            ScrollView(.horizontal) {
-                                HStack {
-                                    ForEach(0..<7) {_ in
-                                        VStack {
-                                            Text("Tue").padding(.bottom, 1)
-                                            Image(systemName: "cloud.sun")
-                                                .font(.system(size: 24).bold())
-                                                .scaledToFit()
-                                                .padding(.bottom, 1)
-                                            Text("64°F")
-                                        }.padding(.trailing)
-                                        
-                                    }
-                                    
-                                }.padding()
-                                
-                            }
+            VStack{
+                Text("Bulletin").bold() + Text("News").foregroundColor(Color("SeaGreen")).bold()
+                HStack {
+                    VStack {
+                        HStack {
+                            Text("Welcome")
+                                .font(.system(size: 32).bold())
                             Spacer()
-                        }.padding(.top, 24).presentationDetents([.fraction(0.30)])
+                        }
+                        HStack {
+                            Text(getFormattedDate())
+                                .foregroundColor(.gray)
+                                .font(.system(size: 14, weight: .regular))
+                            Spacer()
+                        }
                     }
+                    Spacer()
+                    HStack {
+                        Text("64°F")
+                            .font(.system(size: 18,weight: .semibold))
+                        Image(systemName: "cloud.sun")
+                            .font(.system(size: 18).bold())
+                    }.padding()
+                        .background(Color("TeaGreen"))
+                        .cornerRadius(50)
+                        .onTapGesture {
+                            
+                            isSheetPresented.toggle()
+                        }
+                        .sheet(isPresented: $isSheetPresented) {
+                            VStack {
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text("64°F")
+                                            .font(.system(size: 48, weight: .semibold))
+                                        Text("San Jose")
+                                    }.padding(.leading)
+                                    Spacer()
+                                    Image(systemName: "cloud.sun")
+                                        .font(.system(size: 48))
+                                        .scaledToFit()
+                                        .frame(width: 64, height: 64)
+                                        .padding()
+                                }
+                                ScrollView(.horizontal) {
+                                    HStack {
+                                        ForEach(0..<10) {_ in
+                                            VStack {
+                                                Text("Tue").padding(.bottom, 1)
+                                                Image(systemName: "cloud.sun")
+                                                    .font(.system(size: 24).bold())
+                                                    .scaledToFit()
+                                                    .padding(.bottom, 1)
+                                                Text("64°F")
+                                            }.padding(.trailing)
+                                            
+                                        }
+                                        
+                                    }.padding()
+                                    
+                                }
+                                Spacer()
+                            }.padding(.top, 24).presentationDetents([.fraction(0.30)])
+                        }
+                }.padding()
             }
-            HStack {
-                Text(date, style: .date)
-                    .font(.system(size: 16))
-                Spacer()
-            }
+           
+            NewsStories(contents: contents, tabSelection: $tabSelection)
         }
-        .padding()
         .foregroundColor(Color("DarkLight"))
     }
-}
-
-@available(iOS 16.0, *)
-struct YourApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+    func getFormattedDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMMM d"
+        return dateFormatter.string(from: date)
     }
 }
-
-
-
-
 
 
 
@@ -151,18 +145,31 @@ struct NewsStories : View {
     @StateObject var viewModel: ArticleViewModelImpl = ArticleViewModelImpl(service: ArticleServiceImpl())
     @Environment(\.openURL) var openURL
     let contents: [Article]
+    @Binding var tabSelection: Int
     var body: some View {
         ScrollView {
             VStack {
-                MainAriticleView(article: contents[1])
+                MainAriticleView(article: contents[0])
                     .onTapGesture {
-                        load(url: contents[1].url)
+                        load(url: contents[0].url)
                     }
+                Button(action: {
+                    //Do something here
+                    self.tabSelection = 1
+                }) {
+                    Text("See the full story here")
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundColor(Color.primary)
+                        .frame(maxWidth: .infinity)
+                        .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                        .background(Color("TeaGreen"))
+                    
+                }
+                .cornerRadius(50)
+                .frame(maxWidth: UIScreen.main.bounds.width - 30)
                 HStack {
                     Text("Just for you").font(.system(size: 25.0).bold())
-                    
                     Spacer()
-                    Text("See more").offset(y: 5).foregroundColor(Color("BabyBlue"))
                 }.padding()
                 ForEach(contents[2...]) { article in
                     if article.title != "[Removed]" {
@@ -171,8 +178,9 @@ struct NewsStories : View {
                                 load(url: article.url)
                             }
                             .padding(.bottom, 5)
+                        Divider()
                     }
-                    Divider()
+                    
                     
                 }
             }

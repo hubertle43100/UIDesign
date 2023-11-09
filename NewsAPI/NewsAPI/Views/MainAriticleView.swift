@@ -10,7 +10,6 @@ import UIKit
 import URLImage
 
 struct MainAriticleView: View {
-    
     let article: Article
     
     var body: some View {
@@ -24,9 +23,7 @@ struct MainAriticleView: View {
                             cachePolicy: .returnCacheElseLoad(cacheDelay: nil, downloadDelay: 0.25) // Return cached image or download after delay
                          ),
                          failure: { error, retry in         // Display error and retry button
-                    Image("stocks") // Use the SF Symbol for error
-                        .resizable()
-                        .cornerRadius(10)
+                            ErrorImage()
                 },
                          content: { image in
                     image
@@ -51,7 +48,6 @@ struct MainAriticleView: View {
                 }
                 Spacer()
             }
-            .foregroundColor(.black)
             .font(.system(size: 24, weight: .semibold))
         }.padding()
     }
