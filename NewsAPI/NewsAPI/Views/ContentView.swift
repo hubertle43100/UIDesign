@@ -7,6 +7,8 @@
 
 import SwiftUI
 import Combine
+import CoreLocation
+import CoreLocationUI
 
 @available(iOS 16.0, *)
 struct ContentView: View {
@@ -39,9 +41,9 @@ struct ContentView: View {
                             MainAriticleView(article: content[0])
                         }.tag(1)
                             .tabItem {
-                                Label("News", systemImage: "newspaper")
+                                Label("Headline", systemImage: "globe")
                             }
-                    }
+                    }.accentColor(Color("SeaGreen"))
                 }
             }
         }
@@ -57,6 +59,14 @@ struct MenuPage : View {
     let contents: [Article]
     @Binding var tabSelection: Int
     @State private var isSheetPresented = false
+    @StateObject var locationManager = LocationManager()
+    @State private var weatherData: ResponseBody?
+    @State private var isAlertPresented = false
+    var weatherManager = WeatherManager()
+    
+    var next10Days: [Date] = []
+    let calendar = Calendar.current
+    let today = Date()
     
     var body : some View {
         VStack {
@@ -78,42 +88,82 @@ struct MenuPage : View {
                     }
                     Spacer()
                     HStack {
-                        Text("64°F")
-                            .font(.system(size: 18,weight: .semibold))
-                        Image(systemName: "cloud.sun")
-                            .font(.system(size: 18).bold())
+                        if let coordinate = locationManager.coordinate {
+                            if let weatherData = weatherData {
+                                Text("\(weatherData.list[0].main.feelsLike.roundDouble())°F")
+                                    .font(.system(size: 18, weight: .semibold))
+                                Image(weatherData.list[0].weather[0].description )
+                                    .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 24, height: 24) // Set the desired size
+                                            .padding(.bottom, 1)
+                            } else {
+                                Text("Loading...")
+                                    .task {
+                                        do {
+                                            weatherData = try await weatherManager.getCurrentWeather(latitude: coordinate.latitude, longitude: coordinate.longitude)
+                                        } catch {
+                                            print("Error \(error)")
+                                        }
+                                    }
+                            }
+                            
+                        } else {
+                            Text("loading...")
+                        }
                     }.padding()
                         .background(Color("TeaGreen"))
                         .cornerRadius(50)
                         .onTapGesture {
                             
                             isSheetPresented.toggle()
+                            
                         }
+                    
                         .sheet(isPresented: $isSheetPresented) {
                             VStack {
                                 HStack {
                                     VStack(alignment: .leading) {
-                                        Text("64°F")
-                                            .font(.system(size: 48, weight: .semibold))
-                                        Text("San Jose")
+                                        if let coordinate = locationManager.coordinate {
+                                            if let weatherData = weatherData {
+                                                Text("\(weatherData.list[0].main.feelsLike.roundDouble())°F")
+                                                    .font(.system(size: 48, weight: .semibold))
+                                                    .padding(.top , 25)
+                                                Text(weatherData.city.name)
+                                                Text("\(weatherData.list.count)").opacity(0)
+                                            } else {
+                                                Text("Loading...")
+                                                    .task {
+                                                        do {
+                                                            weatherData = try await weatherManager.getCurrentWeather(latitude: coordinate.latitude, longitude: coordinate.longitude)
+                                                        } catch {
+                                                            print("Error \(error)")
+                                                        }
+                                                    }
+                                            }
+                                        } else {
+                                            Text("Loading...")
+                                        }
                                     }.padding(.leading)
                                     Spacer()
-                                    Image(systemName: "cloud.sun")
-                                        .font(.system(size: 48))
-                                        .scaledToFit()
-                                        .frame(width: 64, height: 64)
-                                        .padding()
+                                    Image(weatherData?.list[0].weather[0].description ?? "clear sky")
+                                        .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 64, height: 64) // Set the desired size
+                                                .padding(.trailing , 30)
                                 }
                                 ScrollView(.horizontal) {
                                     HStack {
-                                        ForEach(0..<10) {_ in
+                                        ForEach(0..<10) { i in
                                             VStack {
-                                                Text("Tue").padding(.bottom, 1)
-                                                Image(systemName: "cloud.sun")
-                                                    .font(.system(size: 24).bold())
-                                                    .scaledToFit()
-                                                    .padding(.bottom, 1)
-                                                Text("64°F")
+                                                Text(formatDate(getNextFewDays()[i]))
+                                                                        .padding(.bottom, 1)
+                                                Image(weatherData?.list[i].weather[0].description ?? "clear sky")
+                                                    .resizable()
+                                                            .scaledToFit()
+                                                            .frame(width: 24, height: 24) // Set the desired size
+                                                            .padding(.bottom, 1)
+                                                Text("\(weatherData?.list[i].main.feelsLike.roundDouble() ?? "--")°F")
                                             }.padding(.trailing)
                                             
                                         }
@@ -123,18 +173,55 @@ struct MenuPage : View {
                                 }
                                 Spacer()
                             }.padding(.top, 24).presentationDetents([.fraction(0.30)])
+                                .background(Color("TeaGreen"))
                         }
                 }.padding()
             }
-           
+            
             NewsStories(contents: contents, tabSelection: $tabSelection)
         }
+        .onAppear {
+            locationManager.requestLocation()
+        }
         .foregroundColor(Color("DarkLight"))
+    }
+    func formatDate(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "E"
+        return dateFormatter.string(from: date)
+    }
+    
+    func getNextFewDays() -> [Date] {
+        var next10Days: [Date] = []
+        let calendar = Calendar.current
+        let today = Date()
+        
+        for dayOffset in 1...10 {
+            if let nextDate = calendar.date(byAdding: .day, value: dayOffset, to: today) {
+                next10Days.append(nextDate)
+            }
+        }
+        
+        return next10Days
     }
     func getFormattedDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MMMM d"
         return dateFormatter.string(from: date)
+    }
+}
+
+@available(iOS 15.0, *)
+struct WeatherView: View {
+    let location: CLLocationCoordinate2D
+    
+    var body: some View {
+        // Your weather view code goes here, using the location parameter
+        // You can use the WeatherManager to fetch data based on the location
+        VStack {
+            Text("Weather for \(location.latitude), \(location.longitude)")
+            // Add more UI components as needed
+        }
     }
 }
 
