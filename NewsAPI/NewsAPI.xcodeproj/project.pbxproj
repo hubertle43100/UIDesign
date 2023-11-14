@@ -12,6 +12,8 @@
 		5642794E283E9AC300C34B3B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5642794D283E9AC300C34B3B /* Extensions.swift */; };
 		5659E59127FE0C0B00101B2F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5659E59027FE0C0B00101B2F /* LocationManager.swift */; };
 		5695DC872AFC2C6D00310F75 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DC862AFC2C6D00310F75 /* WeatherManager.swift */; };
+		5695DD192B029D3400310F75 /* HeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DD182B029D3400310F75 /* HeadlineView.swift */; };
+		5695DD1C2B02A72600310F75 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 5695DD1B2B02A72600310F75 /* SwiftSoup */; };
 		56DE963B2807A589009ABADD /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56DE963A2807A589009ABADD /* Media.xcassets */; };
 		56DE963D2808C5E1009ABADD /* MainAriticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DE963C2808C5E1009ABADD /* MainAriticleView.swift */; };
 		64C1B87125D1C8C4000DB30B /* NewsAPIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C1B87025D1C8C4000DB30B /* NewsAPIApp.swift */; };
@@ -33,6 +35,7 @@
 		5642794D283E9AC300C34B3B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5659E59027FE0C0B00101B2F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		5695DC862AFC2C6D00310F75 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
+		5695DD182B029D3400310F75 /* HeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineView.swift; sourceTree = "<group>"; };
 		56DE963A2807A589009ABADD /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		56DE963C2808C5E1009ABADD /* MainAriticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAriticleView.swift; sourceTree = "<group>"; };
 		64C1B86D25D1C8C4000DB30B /* NewsAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +58,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64F3D13525D4642B0099833A /* URLImage in Frameworks */,
+				5695DD1C2B02A72600310F75 /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +166,7 @@
 				56DE963C2808C5E1009ABADD /* MainAriticleView.swift */,
 				64F3D12B25D457880099833A /* ArticleView.swift */,
 				64F3D12625D453310099833A /* ErrorView.swift */,
+				5695DD182B029D3400310F75 /* HeadlineView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 			name = NewsAPI;
 			packageProductDependencies = (
 				64F3D13425D4642B0099833A /* URLImage */,
+				5695DD1B2B02A72600310F75 /* SwiftSoup */,
 			);
 			productName = NewsAPI;
 			productReference = 64C1B86D25D1C8C4000DB30B /* NewsAPI.app */;
@@ -214,6 +220,7 @@
 			mainGroup = 64C1B86425D1C8C4000DB30B;
 			packageReferences = (
 				64F3D13325D4642B0099833A /* XCRemoteSwiftPackageReference "url-image" */,
+				5695DD1A2B02A72600310F75 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
 			productRefGroup = 64C1B86E25D1C8C4000DB30B /* Products */;
 			projectDirPath = "";
@@ -250,6 +257,7 @@
 				5659E59127FE0C0B00101B2F /* LocationManager.swift in Sources */,
 				64C1B88725D1C9C8000DB30B /* ArticleService.swift in Sources */,
 				64C1B87125D1C8C4000DB30B /* NewsAPIApp.swift in Sources */,
+				5695DD192B029D3400310F75 /* HeadlineView.swift in Sources */,
 				64C1B89325D1CB12000DB30B /* ArticleEndpoint.swift in Sources */,
 				64C1B88D25D1CA84000DB30B /* NetworkError.swift in Sources */,
 				5695DC872AFC2C6D00310F75 /* WeatherManager.swift in Sources */,
@@ -446,6 +454,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5695DD1A2B02A72600310F75 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		64F3D13325D4642B0099833A /* XCRemoteSwiftPackageReference "url-image" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
@@ -457,6 +473,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5695DD1B2B02A72600310F75 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5695DD1A2B02A72600310F75 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
 		64F3D13425D4642B0099833A /* URLImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 64F3D13325D4642B0099833A /* XCRemoteSwiftPackageReference "url-image" */;

@@ -2,7 +2,7 @@
 //  ArticleService.swift
 //  NewsAPI
 //
-//  Created by Tunde on 08/02/2021.
+//  Created by HubertLe on 08/02/2021.
 //
 
 import Foundation

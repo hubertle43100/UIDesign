@@ -2,7 +2,7 @@
 //  ErrorView.swift
 //  NewsAPI
 //
-//  Created by Tunde on 10/02/2021.
+//  Created by Hubert Le on 10/02/2021.
 //
 
 import SwiftUI

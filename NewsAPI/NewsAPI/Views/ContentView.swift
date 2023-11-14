@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  NewsAPI
 //
-//  Created by Tunde on 08/02/2021.
+//  Created by Hubert Le on 08/02/2021.
 //
 
 import SwiftUI
@@ -38,7 +38,7 @@ struct ContentView: View {
                                 Label("News", systemImage: "newspaper")
                             }
                         VStack {
-                            MainAriticleView(article: content[0])
+                            HeadlineView(article: content[0])
                         }.tag(1)
                             .tabItem {
                                 Label("Headline", systemImage: "globe")
@@ -49,6 +49,7 @@ struct ContentView: View {
         }
         .onAppear {
             self.viewModel.getArticles()
+            
         }
     }
 }
@@ -236,10 +237,17 @@ struct NewsStories : View {
     var body: some View {
         ScrollView {
             VStack {
-                MainAriticleView(article: contents[0])
-                    .onTapGesture {
-                        load(url: contents[0].url)
-                    }
+                if contents[0].title != "[Removed]" {
+                    MainAriticleView(article: contents[0])
+                        .onTapGesture {
+                            load(url: contents[0].url)
+                        }
+                } else {
+                    MainAriticleView(article: contents[1])
+                        .onTapGesture {
+                            load(url: contents[1].url)
+                        }
+                }
                 Button(action: {
                     //Do something here
                     self.tabSelection = 1
